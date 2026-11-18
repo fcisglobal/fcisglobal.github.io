@@ -1,11 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#10264b">
-<meta name="description" content="Smart Spend by FCIS: an interactive guide to personal budgeting, spending, emergency savings and long-term financial growth.">
-<title>Smart Spend | FCIS</title>
+<meta name="description" content="FCIS Smart Spend — comprehensive interactive personal finance education.">
+<title>Personal Finance | FCIS Smart Spend</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -16,193 +17,209 @@
  --navy:#10264b;--navy2:#183b68;--blue:#2878e5;
  --green:#15976f;--coral:#ee745f;--gold:#f1b74c;
  --ink:#21344c;--muted:#64758c;--line:#dce6f0;
- --pale:#f3f7fc;--white:#fff;--shadow:0 15px 45px rgba(16,38,75,.09);
+ --pale:#f3f7fc;--white:#fff;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
  margin:0;color:var(--ink);
  font-family:"DM Sans",Arial,sans-serif;
- background-color:#edf3f9;
- background-image:linear-gradient(rgba(40,120,229,.035) 1px,transparent 1px),
- linear-gradient(90deg,rgba(40,120,229,.035) 1px,transparent 1px);
+ background:#edf3f9;
+ background-image:linear-gradient(#2878e509 1px,transparent 1px),
+ linear-gradient(90deg,#2878e509 1px,transparent 1px);
  background-size:25px 25px;
 }
-h1,h2,h3,h4{font-family:Outfit,Arial,sans-serif;line-height:1.16}
+h1,h2,h3,h4{font-family:Outfit,Arial,sans-serif;line-height:1.18}
 h1{font-size:clamp(2.5rem,5vw,4.5rem);margin:12px 0}
-h2{font-size:clamp(1.8rem,3vw,2.5rem);margin:12px 0}
-h3{font-size:1.15rem;margin:0 0 12px}
+h2{font-size:clamp(1.8rem,3vw,2.6rem);margin:10px 0}
+h3{font-size:1.17rem;margin:8px 0 12px}
 p{line-height:1.75}
 a{color:var(--blue)}
-button,input,select{font:inherit}
+button,input,select,textarea{font:inherit}
 button{cursor:pointer}
+button:disabled{opacity:.55;cursor:wait}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
- outline:3px solid var(--gold);outline-offset:3px
+ outline:3px solid var(--gold);outline-offset:3px;
 }
-button:disabled{opacity:.55;cursor:not-allowed}
 .topbar{
- position:sticky;top:0;z-index:30;background:rgba(16,38,75,.98);
- color:white;display:flex;align-items:center;justify-content:space-between;
- gap:14px;padding:13px clamp(16px,4vw,48px);box-shadow:0 5px 20px #10264b26
+ position:sticky;top:0;z-index:50;
+ background:#10264bf8;color:white;
+ display:flex;align-items:center;justify-content:space-between;
+ flex-wrap:wrap;gap:12px;padding:13px clamp(16px,4vw,48px);
+ box-shadow:0 5px 20px #10264b26;
 }
-.brand{font:800 1.28rem Outfit,sans-serif;letter-spacing:.04em}
+.brand{font:800 1.25rem Outfit,sans-serif;letter-spacing:.04em}
 .brand span{color:#77dfb9}
-.top-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.top-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
 .btn{
- border:0;border-radius:12px;padding:11px 16px;font-weight:800;
- background:var(--blue);color:white;transition:.2s
+ border:0;border-radius:11px;padding:11px 16px;
+ font-weight:800;background:var(--blue);color:white;
+ text-decoration:none;display:inline-block;transition:.2s;
 }
 .btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
-.btn.secondary{background:white;color:var(--navy)}
-.btn.outline{background:transparent;border:1px solid #9db6d5;color:white}
-.btn.green{background:var(--green)}
 .btn.light{background:#e9f2ff;color:var(--navy)}
-.small{font-size:.84rem;padding:8px 12px}
-.layout{display:grid;grid-template-columns:244px minmax(0,1fr);max-width:1600px;margin:auto}
-.sidebar{
- position:sticky;top:66px;align-self:start;height:calc(100vh - 66px);
- overflow:auto;padding:24px 14px;background:white;border-right:1px solid var(--line)
+.btn.green{background:var(--green)}
+.btn.white{background:white;color:var(--navy)}
+.btn.outline{background:transparent;border:1px solid #a6bfdc;color:white}
+.small{font-size:.83rem;padding:8px 12px}
+#pdfStatus{font-size:.75rem;color:#b9f0d7}
+.container{max-width:1330px;margin:auto;padding:24px clamp(16px,3vw,40px) 65px}
+.tabs{
+ display:flex;flex-wrap:wrap;gap:8px;
+ margin-bottom:22px;background:white;border:1px solid var(--line);
+ border-radius:17px;padding:9px;
 }
-.sidebar-label{font-size:.7rem;font-weight:900;letter-spacing:.14em;color:var(--muted);padding:8px 12px}
-.sidebar a{
- display:flex;align-items:center;gap:10px;text-decoration:none;
- padding:13px;border-radius:12px;color:var(--ink);font-weight:700;
- font-size:.9rem;margin:3px 0
+.tab{
+ border:0;background:transparent;border-radius:10px;
+ padding:12px 15px;color:var(--navy);font-weight:800;
 }
-.sidebar a:hover,.sidebar a.active{background:#e8f2ff;color:#145ebd}
-.chapter-num{
- width:27px;height:27px;border-radius:9px;background:#edf3f9;
- display:grid;place-items:center;font-size:.75rem;flex-shrink:0
+.tab.active,.tab[aria-selected=true]{
+ background:var(--navy);color:white;
 }
-.content{padding:28px clamp(15px,3vw,42px) 70px;min-width:0}
+.view[hidden]{display:none!important}
 .sheet{
- background:white;border:1px solid var(--line);border-radius:24px;
- box-shadow:var(--shadow);padding:clamp(22px,4vw,48px);
- margin:0 0 28px;overflow:hidden;position:relative
-}
-.sheet:before{
- content:"";position:absolute;top:0;left:0;right:0;height:5px;
- background:linear-gradient(90deg,var(--blue),var(--green),var(--gold))
+ background:white;border:1px solid var(--line);
+ border-radius:23px;padding:clamp(22px,4vw,45px);
+ margin-bottom:23px;box-shadow:0 12px 38px #10264b0d;
 }
 .hero{
  background:linear-gradient(125deg,#10264b,#174775 65%,#126a69);
- color:white;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:25px
+ color:white;position:relative;overflow:hidden;
 }
-.hero p{color:#d7e6f7}
-.hero .eyebrow{color:#8ef0c7}
+.hero:after{
+ content:"";position:absolute;width:330px;height:330px;
+ border:55px solid #ffffff09;border-radius:50%;
+ right:-90px;top:-95px;pointer-events:none;
+}
+.hero p{color:#d9e9f6}
+.hero h1 span{color:#80edc1}
 .eyebrow{
- color:var(--green);font-size:.74rem;font-weight:900;
- letter-spacing:.17em;text-transform:uppercase
+ color:var(--green);font-size:.75rem;font-weight:900;
+ letter-spacing:.15em;text-transform:uppercase;
 }
-.lead{font-size:1.07rem;color:var(--muted);max-width:760px}
-.hero .lead{color:#e4eefb}
-.pill{
- display:inline-flex;gap:7px;align-items:center;padding:8px 13px;
- border-radius:99px;background:#e9f6f1;color:#0a7e5c;
- font-size:.77rem;font-weight:800
-}
-.hero .pill{background:#ffffff20;color:white}
-.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.hero .eyebrow{color:#8ef0c7}
+.lead{font-size:1.08rem;color:var(--muted);max-width:790px}
+.hero .lead{color:#e1effb}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
 .card{
- border:1px solid var(--line);background:#fff;border-radius:18px;
- padding:22px;min-width:0
+ background:white;border:1px solid var(--line);
+ border-radius:17px;padding:22px;min-width:0;
 }
 .soft{background:#f5f9fe}
 .greenbg{background:#eaf8f2}
 .coralbg{background:#fff1ed}
-.navybg{background:var(--navy);color:white}
-.stat{font:800 clamp(1.5rem,3vw,2.1rem) Outfit,sans-serif;margin:5px 0}
+.goldbg{background:#fff9e9}
+.learning-card{
+ display:block;width:100%;text-align:left;
+ background:white;color:var(--ink);
+ border:1px solid var(--line);border-radius:19px;
+ padding:25px;transition:.2s;
+}
+.learning-card:hover,.learning-card:focus-visible{
+ border-color:var(--blue);box-shadow:0 12px 30px #2878e51c;
+ transform:translateY(-3px);
+}
+.learning-card .number{font:900 2rem Outfit;color:var(--blue)}
+.learning-card h3{font-size:1.3rem}
+.learning-card p{color:var(--muted)}
+.learning-card .open{color:var(--blue);font-weight:800}
+.pill{
+ display:inline-block;background:#e9f6f1;color:#087958;
+ border-radius:99px;padding:8px 13px;font-size:.78rem;font-weight:800;
+}
+.hero .pill{background:#ffffff20;color:white}
+.stat{font:800 clamp(1.45rem,3vw,2rem) Outfit,sans-serif}
 .muted{color:var(--muted)}
-.tiny{font-size:.78rem}
-.section-head{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.tiny{font-size:.81rem}
+.section-head{display:flex;align-items:center;gap:15px;margin-bottom:22px}
 .section-icon{
- width:55px;height:55px;display:grid;place-items:center;
- border-radius:16px;background:#e8f2ff;color:var(--blue);
- font-size:1.7rem;flex-shrink:0
+ width:55px;height:55px;border-radius:16px;
+ display:grid;place-items:center;background:#e8f2ff;font-size:1.6rem;
+ flex-shrink:0;
 }
-.illustration{
- width:100%;max-width:460px;display:block;margin:15px auto;
- filter:drop-shadow(0 12px 18px #10264b13)
-}
-.hero .illustration{max-width:390px}
-.divider{border:0;border-top:1px solid var(--line);margin:26px 0}
 .tool{
  background:linear-gradient(180deg,#f6faff,#fff);
- border:1px solid #d8e7f8;border-radius:20px;padding:24px;margin-top:22px
+ border:1px solid #d8e7f8;border-radius:20px;
+ padding:24px;margin-top:22px;
 }
-.tool h3{color:var(--navy)}
 .field{display:flex;flex-direction:column;gap:7px;min-width:0}
 .field label{font-size:.83rem;font-weight:800;color:#465c77}
-input[type=number],input[type=text],input[type=date],select{
- width:100%;min-width:0;border:1px solid #cbd9e8;border-radius:10px;
- padding:11px 12px;background:white;color:var(--ink)
+input[type=number],input[type=text],input[type=date],select,textarea{
+ width:100%;min-width:0;border:1px solid #cbd9e8;
+ border-radius:10px;padding:11px 12px;background:white;color:var(--ink);
 }
-input[type=range]{width:100%;accent-color:var(--blue)}
 .formgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .formgrid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
 .result{
- padding:18px;border-radius:14px;background:white;border:1px solid var(--line)
+ background:white;border:1px solid var(--line);
+ padding:18px;border-radius:14px;
 }
-.result strong{font:800 1.5rem Outfit,sans-serif;color:var(--navy);display:block}
+.result strong{
+ font:800 clamp(1.2rem,2.5vw,1.6rem) Outfit,sans-serif;
+ color:var(--navy);display:block;overflow-wrap:anywhere;
+}
 .bar{height:15px;background:#e2ebf5;border-radius:99px;overflow:hidden;display:flex}
-.bar span{display:block;height:100%}
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin:13px 0}
-.legend span{font-size:.83rem;font-weight:700}
+.bar span{height:100%;display:block}
+.legend{display:flex;gap:15px;flex-wrap:wrap;margin:12px 0}
+.legend span{font-size:.82rem;font-weight:700}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}
 .tablewrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:.87rem}
+table{width:100%;border-collapse:collapse;font-size:.86rem}
 th,td{padding:12px 10px;text-align:left;border-bottom:1px solid var(--line)}
 th{background:#edf4fc;color:var(--navy)}
-td input,td select{padding:8px!important;font-size:.84rem}
-tfoot td{font-weight:900;background:#f3f8ff}
+tfoot td{background:#f3f8ff;font-weight:900}
 .checkrow{
- display:flex;gap:12px;align-items:flex-start;padding:13px 0;
- border-bottom:1px solid var(--line)
+ display:flex;align-items:flex-start;gap:12px;
+ padding:12px 0;border-bottom:1px solid var(--line);
 }
 .checkrow input{width:19px;height:19px;accent-color:var(--green);flex-shrink:0}
 .checkrow label{line-height:1.5}
-.notice{border-left:4px solid var(--gold);padding:13px 16px;background:#fff9ec;border-radius:8px}
-.chartbox{background:#10264b;border-radius:18px;padding:18px;color:white}
-canvas{width:100%;height:260px;display:block}
-.sheet-footer{
- display:flex;justify-content:space-between;gap:12px;
- margin-top:30px;padding-top:15px;border-top:1px solid var(--line);
- font-size:.72rem;color:var(--muted)
+.notice{
+ border-left:4px solid var(--gold);background:#fff9ec;
+ border-radius:8px;padding:13px 16px;margin:15px 0;
+}
+.chapter-nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 26px}
+.chapter-nav a{
+ text-decoration:none;font-size:.83rem;font-weight:800;
+ padding:9px 12px;border-radius:9px;background:#eaf2fd;
+}
+.chapter{scroll-margin-top:110px}
+.chartbox{background:var(--navy);border-radius:18px;padding:18px;color:white}
+.chartbox h3{color:white}
+canvas{display:block;width:100%;height:260px}
+.section-footer{
+ border-top:1px solid var(--line);margin-top:27px;padding-top:15px;
+ display:flex;justify-content:space-between;gap:10px;
+ color:var(--muted);font-size:.74rem;
 }
 .site-footer{
- background:var(--navy);color:white;border-radius:24px;
- padding:32px;margin-top:30px
+ background:var(--navy);color:white;border-radius:22px;padding:30px;
 }
-.site-footer p{color:#d5e2f2}
-.site-footer a{color:#b9dcff}
-#pdfStatus{font-size:.76rem;color:#d6f4e7}
-.mobile-nav{display:none}
+.site-footer p{color:#d6e4f3}
+.site-footer a{color:#c3e3ff}
 .print-only{display:none}
-@media(max-width:1050px){
- .layout{grid-template-columns:1fr}
- .sidebar{display:none}
- .mobile-nav{display:block}
- .content{padding:18px}
+@media(max-width:950px){
+ .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:680px){
- .hero,.grid2,.grid3,.formgrid,.formgrid.two{grid-template-columns:1fr}
- .topbar{align-items:flex-start}
- .top-actions{justify-content:flex-end}
- .sheet{border-radius:17px;padding:22px 17px}
+ .grid2,.grid3,.grid4,.formgrid,.formgrid.two{grid-template-columns:1fr}
+ .container{padding:15px 12px 45px}
+ .sheet{padding:23px 17px;border-radius:17px}
  .tool{padding:17px}
+ .tab{flex:1;font-size:.78rem;padding:10px}
+ .top-actions .btn{font-size:.75rem}
  .section-head{align-items:flex-start}
- .hero .illustration{max-width:270px}
- .top-actions .btn{font-size:.73rem;padding:9px}
 }
 @media print{
  @page{size:A4;margin:12mm}
  body{background:white}
- .topbar,.sidebar,.mobile-nav,.no-print,.site-footer{display:none!important}
- .layout{display:block}
- .content{padding:0}
- .sheet{box-shadow:none;border:0;border-radius:0;break-after:page;margin:0;padding:12mm}
- .tool,.card{break-inside:avoid}
+ .topbar,.tabs,.no-print,.site-footer{display:none!important}
+ .container{max-width:none;padding:0}
+ .view[hidden]{display:block!important}
+ .sheet{box-shadow:none;border:0;border-radius:0;break-after:page}
+ .card,.tool{break-inside:avoid}
  .print-only{display:block}
 }
 </style>
@@ -212,492 +229,678 @@ canvas{width:100%;height:260px;display:block}
 <header class="topbar">
  <div class="brand">FCIS <span>/ SMART SPEND</span></div>
  <div class="top-actions">
-  <a href="/" class="btn outline small" style="text-decoration:none">FCIS Home</a>
-  <button class="btn secondary small" id="pdfBtn" onclick="exportPDF()">↓ Download A4 PDF</button>
+  <a class="btn outline small" href="https://fcisglobal.github.io/">FCIS Home</a>
+  <button class="btn white small" id="pdfBtn" onclick="exportPDF()">↓ Download A4 PDF</button>
   <span id="pdfStatus" role="status" aria-live="polite"></span>
  </div>
 </header>
 
-<div class="layout">
-<aside class="sidebar no-print">
- <div class="sidebar-label">YOUR MONEY PLAYBOOK</div>
- <a href="#intro"><span class="chapter-num">01</span> Introduction</a>
- <a href="#goals"><span class="chapter-num">02</span> Budget & Goals</a>
- <a href="#tracking"><span class="chapter-num">03</span> Spending Tracker</a>
- <a href="#realignment"><span class="chapter-num">04</span> Save & Realign</a>
- <a href="#growth"><span class="chapter-num">05</span> Grow Your Money</a>
- <a href="#review"><span class="chapter-num">06</span> Monthly Review</a>
- <hr class="divider">
- <div class="card soft">
-  <span class="pill">FCIS Learning Series</span>
-  <p class="tiny">Practical money skills for everyday decisions.</p>
- </div>
-</aside>
-
-<main class="content">
-
-<nav class="mobile-nav no-print" aria-label="Chapters">
- <div class="field" style="margin-bottom:18px">
-  <label for="chapterSelect">Jump to a chapter</label>
-  <select id="chapterSelect" onchange="location.hash=this.value">
-   <option value="#intro">01 — Introduction</option>
-   <option value="#goals">02 — Budget & Goals</option>
-   <option value="#tracking">03 — Spending Tracker</option>
-   <option value="#realignment">04 — Save & Realign</option>
-   <option value="#growth">05 — Grow Your Money</option>
-   <option value="#review">06 — Monthly Review</option>
-  </select>
- </div>
+<main class="container">
+<nav class="tabs no-print" aria-label="Personal Finance sections">
+ <button class="tab active" data-view="overview" aria-selected="true" onclick="showView('overview')">Overview</button>
+ <button class="tab" data-view="budgeting" aria-selected="false" onclick="showView('budgeting')">Personal Budgeting</button>
+ <button class="tab" data-view="cashflow" aria-selected="false" onclick="showView('cashflow')">Cash Flow</button>
+ <button class="tab" data-view="networth" aria-selected="false" onclick="showView('networth')">Net Worth</button>
+ <button class="tab" data-view="investments" aria-selected="false" onclick="showView('investments')">Investments</button>
 </nav>
 
-<!-- CHAPTER 1 -->
-<section class="sheet hero" id="intro">
- <div>
+<!-- OVERVIEW -->
+<div class="view" id="overview">
+ <section class="sheet hero">
   <div class="eyebrow">FCIS Financial Education Series</div>
-  <h1>Smart <span style="color:#80edc1">Spend.</span></h1>
-  <h3 style="color:#e9f5ff;font-size:1.4rem">The Modern Guide to Personal Budgeting</h3>
+  <h1>Personal <span>Finance.</span></h1>
+  <h2 style="color:white;font-weight:500">A Smarter Financial Future</h2>
+  <p class="lead">Four connected learning experiences. One practical path toward better money decisions.</p>
+  <p>Learn how to plan your budget, manage cash flow, build net worth, and understand investment platforms — at your own pace.</p>
+  <span class="pill">PLAN → MANAGE → BUILD → INVEST</span>
+ </section>
+
+ <section class="sheet">
+  <div class="eyebrow">Your learning dashboard</div>
+  <h2>Choose your financial learning path</h2>
+  <p class="lead">Select any card to open its complete learning section. You can also use the navigation tabs above.</p>
+  <div class="grid2">
+   <button class="learning-card" onclick="showView('budgeting')">
+    <div class="number">01</div>
+    <h3>Personal Budgeting</h3>
+    <p>Understand your money, plan spending, track expenses, protect savings, and explore long-term growth.</p>
+    <span class="pill">6 chapters • 5 interactive tools</span>
+    <p class="open">Explore Personal Budgeting →</p>
+   </button>
+   <button class="learning-card" onclick="showView('cashflow')">
+    <div class="number">02</div>
+    <h3>Cash Flow Management</h3>
+    <p>Understand inflows, outflows, payment timing, monthly surplus, and financial resilience.</p>
+    <span class="pill">Lessons • Calculator • Exercises</span>
+    <p class="open">Explore Cash Flow →</p>
+   </button>
+   <button class="learning-card" onclick="showView('networth')">
+    <div class="number">03</div>
+    <h3>Net Worth Improvement</h3>
+    <p>Track assets and liabilities, measure progress, and plan practical ways to strengthen your financial position.</p>
+    <span class="pill">Lessons • Calculator • Exercises</span>
+    <p class="open">Explore Net Worth →</p>
+   </button>
+   <button class="learning-card" onclick="showView('investments')">
+    <div class="number">04</div>
+    <h3>Investment Platforms</h3>
+    <p>Learn about investment vehicles, platform fees, diversification, risk, and investor protection.</p>
+    <span class="pill">Lessons • Fee Simulator • Checklist</span>
+    <p class="open">Explore Investments →</p>
+   </button>
+  </div>
+ </section>
+
+ <section class="sheet">
+  <div class="eyebrow">Financial learning framework</div>
+  <h2>Build knowledge in four connected areas</h2>
+  <div class="grid4">
+   <div class="card soft"><div class="stat">01</div><h3>Plan</h3><p>Give income a purpose.</p></div>
+   <div class="card greenbg"><div class="stat">02</div><h3>Manage</h3><p>Keep cash moving responsibly.</p></div>
+   <div class="card goldbg"><div class="stat">03</div><h3>Build</h3><p>Strengthen your net worth.</p></div>
+   <div class="card coralbg"><div class="stat">04</div><h3>Invest</h3><p>Understand risks before acting.</p></div>
+  </div>
+  <div class="notice"><strong>Smart Spend mindset:</strong> progress over perfection. Start with what you can control, and build sustainable habits.</div>
+ </section>
+</div>
+
+<!-- PERSONAL BUDGETING -->
+<div class="view" id="budgeting" hidden>
+ <section class="sheet hero">
+  <div class="eyebrow">Learning Section 01</div>
+  <h1>Smart <span>Spend.</span></h1>
+  <h2 style="color:white">The Modern Guide to Personal Budgeting</h2>
   <p class="lead">Your money. Your goals. Your game plan.</p>
   <p>Hindi kailangan maging finance expert para maging smart sa pera. Start with a simple plan, understand your spending, and make every peso work toward what matters.</p>
-  <div class="pill">PLAN → TRACK → SAVE → GROW</div>
-  <p class="tiny" style="margin-top:25px">A practical, interactive guide from FCIS</p>
- </div>
- <svg class="illustration" viewBox="0 0 460 380" role="img" aria-label="Illustration of a savings target, coins and financial progress">
-  <defs>
-   <linearGradient id="heroGrad" x2="1" y2="1"><stop stop-color="#55dcb2"/><stop offset="1" stop-color="#2d83ed"/></linearGradient>
-  </defs>
-  <circle cx="240" cy="185" r="152" fill="#ffffff13"/>
-  <circle cx="240" cy="185" r="119" fill="#ffffff13"/>
-  <rect x="78" y="105" width="306" height="184" rx="23" fill="#f7fbff"/>
-  <rect x="99" y="127" width="265" height="25" rx="9" fill="#e6eff9"/>
-  <circle cx="114" cy="140" r="5" fill="#f0a56b"/>
-  <circle cx="132" cy="140" r="5" fill="#f1ca62"/>
-  <circle cx="150" cy="140" r="5" fill="#56c8a2"/>
-  <path d="M116 249 L166 220 L213 232 L260 174 L318 186 L347 155" fill="none" stroke="url(#heroGrad)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="347" cy="155" r="10" fill="#15976f"/>
-  <circle cx="112" cy="305" r="35" fill="#f5bf55"/>
-  <circle cx="112" cy="305" r="26" fill="#ffe3a0"/>
-  <text x="112" y="315" text-anchor="middle" font-size="30" font-weight="bold" fill="#ae751d">₱</text>
-  <circle cx="170" cy="317" r="29" fill="#f5bf55"/>
-  <circle cx="170" cy="317" r="21" fill="#ffe3a0"/>
-  <text x="170" y="326" text-anchor="middle" font-size="25" font-weight="bold" fill="#ae751d">₱</text>
-  <circle cx="364" cy="86" r="48" fill="#e8f8f1"/>
-  <circle cx="364" cy="86" r="32" fill="none" stroke="#15976f" stroke-width="10"/>
-  <circle cx="364" cy="86" r="16" fill="none" stroke="#15976f" stroke-width="7"/>
-  <circle cx="364" cy="86" r="5" fill="#15976f"/>
-  <path d="M364 86l48-48" stroke="#ee745f" stroke-width="6" stroke-linecap="round"/>
- </svg>
- <div class="sheet-footer" style="grid-column:1/-1;border-color:#ffffff40;color:#d4e5f5">
-  <span>FCIS • SMART SPEND</span><span>01 / 06</span>
- </div>
-</section>
+  <span class="pill">PLAN → TRACK → SAVE → GROW</span>
+ </section>
 
-<section class="sheet">
- <div class="eyebrow">The foundation</div>
- <h2>Money clarity changes everything.</h2>
- <p class="lead">A budget isn't a punishment. It's permission to spend intentionally while protecting your future.</p>
- <div class="grid3">
-  <div class="card soft"><div class="stat" style="color:var(--blue)">01</div><h3>Know your numbers</h3><p class="tiny">Understand what comes in and where it goes.</p></div>
-  <div class="card greenbg"><div class="stat" style="color:var(--green)">02</div><h3>Choose your priorities</h3><p class="tiny">Balance essentials, enjoyment and savings.</p></div>
-  <div class="card coralbg"><div class="stat" style="color:var(--coral)">03</div><h3>Build better habits</h3><p class="tiny">Review small decisions before they become big expenses.</p></div>
- </div>
- <div class="notice" style="margin-top:22px"><strong>Smart Spend mindset:</strong> hindi kailangan perfect agad. Consistency beats perfection.</div>
- <div class="sheet-footer"><span>FCIS • FINANCIAL LITERACY</span><span>START WITH CLARITY</span></div>
-</section>
+ <nav class="chapter-nav no-print" aria-label="Budgeting chapters">
+  <a href="#intro" onclick="jumpChapter(event,'intro')">01 Introduction</a>
+  <a href="#goals" onclick="jumpChapter(event,'goals')">02 Budget & Goals</a>
+  <a href="#tracking" onclick="jumpChapter(event,'tracking')">03 Spending</a>
+  <a href="#realignment" onclick="jumpChapter(event,'realignment')">04 Save & Realign</a>
+  <a href="#growth" onclick="jumpChapter(event,'growth')">05 Growth</a>
+  <a href="#review" onclick="jumpChapter(event,'review')">06 Review</a>
+ </nav>
 
-<!-- CHAPTER 2 -->
-<section class="sheet" id="goals">
- <div class="section-head">
-  <div class="section-icon">🎯</div>
-  <div><div class="eyebrow">Chapter 02</div><h2>Give Every Peso a Purpose</h2></div>
- </div>
- <p class="lead">Set a clear budget, then connect your spending plan to goals you actually care about.</p>
- <div class="grid2">
-  <div>
-   <h3>Try the 50 / 30 / 20 framework</h3>
-   <p><strong>50% Needs:</strong> rent, groceries, transport, bills.</p>
-   <p><strong>30% Wants:</strong> dining out, hobbies, entertainment.</p>
-   <p><strong>20% Savings:</strong> emergency fund, debt reduction, future goals.</p>
-   <p class="tiny muted">It's a starting point, not a universal rule. Adjust the proportions to your circumstances.</p>
-  </div>
-  <svg class="illustration" viewBox="0 0 440 300" role="img" aria-label="Illustration of a budget worksheet with three allocation categories">
-   <rect x="72" y="25" width="285" height="252" rx="20" fill="#e6f0fa"/>
-   <rect x="87" y="14" width="285" height="252" rx="20" fill="#fff" stroke="#d6e3f0" stroke-width="3"/>
-   <rect x="113" y="39" width="185" height="19" rx="9" fill="#193d70"/>
-   <rect x="113" y="74" width="226" height="11" rx="5" fill="#e4edf6"/>
-   <rect x="113" y="103" width="145" height="22" rx="7" fill="#dceaff"/>
-   <rect x="266" y="103" width="73" height="22" rx="7" fill="#2878e5"/>
-   <rect x="113" y="139" width="145" height="22" rx="7" fill="#e0f6ec"/>
-   <rect x="266" y="139" width="73" height="22" rx="7" fill="#15976f"/>
-   <rect x="113" y="175" width="145" height="22" rx="7" fill="#fff0e9"/>
-   <rect x="266" y="175" width="73" height="22" rx="7" fill="#ee745f"/>
-   <path d="M118 228h214" stroke="#dbe7f2" stroke-width="10" stroke-linecap="round"/>
-   <circle cx="371" cy="233" r="35" fill="#f6c45f"/>
-   <text x="371" y="244" text-anchor="middle" font-size="33" fill="#8e6117" font-weight="bold">₱</text>
-  </svg>
- </div>
-
- <div class="tool" id="budgetTool">
-  <div class="eyebrow">Interactive tool 01</div>
-  <h3>Your Personal Budget Calculator</h3>
-  <p class="tiny muted">Start with a ₱25,000 monthly take-home salary. Change the amount or allocation percentages.</p>
-  <div class="formgrid">
-   <div class="field"><label for="income">Monthly take-home income (₱)</label><input type="number" id="income" min="0" step="100" value="25000"></div>
-   <div class="field"><label for="needsPct">Needs percentage</label><input type="number" id="needsPct" min="0" max="100" value="50"></div>
-   <div class="field"><label for="wantsPct">Wants percentage</label><input type="number" id="wantsPct" min="0" max="100" value="30"></div>
-  </div>
-  <p class="tiny">Savings automatically receives the remaining percentage: <strong id="savingsPct">20%</strong></p>
-  <div class="bar" aria-label="Budget allocation">
-   <span id="needsBar" style="width:50%;background:#2878e5"></span>
-   <span id="wantsBar" style="width:30%;background:#ee745f"></span>
-   <span id="savingsBar" style="width:20%;background:#15976f"></span>
-  </div>
-  <div class="legend">
-   <span><i class="dot" style="background:#2878e5"></i>Needs</span>
-   <span><i class="dot" style="background:#ee745f"></i>Wants</span>
-   <span><i class="dot" style="background:#15976f"></i>Savings</span>
-  </div>
+ <section class="sheet chapter" id="intro">
+  <div class="eyebrow">Chapter 01 • The Foundation</div>
+  <h2>Money clarity changes everything.</h2>
+  <p class="lead">A budget isn't a punishment. It's permission to spend intentionally while protecting your future.</p>
   <div class="grid3">
-   <div class="result"><span class="tiny muted">Needs</span><strong id="needsAmount">₱12,500</strong></div>
-   <div class="result"><span class="tiny muted">Wants</span><strong id="wantsAmount">₱7,500</strong></div>
-   <div class="result"><span class="tiny muted">Savings</span><strong id="savingsAmount">₱5,000</strong></div>
+   <div class="card soft"><div class="stat">01</div><h3>Know your numbers</h3><p>Understand what comes in and where it goes.</p></div>
+   <div class="card greenbg"><div class="stat">02</div><h3>Choose priorities</h3><p>Balance essentials, enjoyment, and savings.</p></div>
+   <div class="card coralbg"><div class="stat">03</div><h3>Build better habits</h3><p>Review decisions before they become expenses.</p></div>
   </div>
-  <p id="budgetError" class="tiny" style="color:#bb4238" role="status"></p>
-  <button class="btn light small no-print" onclick="resetBudget()">Reset to 50 / 30 / 20</button>
- </div>
- <div class="sheet-footer"><span>FCIS • SMART SPEND</span><span>02 / 06</span></div>
-</section>
+  <div class="notice"><strong>Remember:</strong> hindi kailangan perfect agad. Consistency beats perfection.</div>
+ </section>
 
-<!-- CHAPTER 3 -->
-<section class="sheet" id="tracking">
- <div class="section-head">
-  <div class="section-icon">📱</div>
-  <div><div class="eyebrow">Chapter 03</div><h2>Track It Before You Regret It</h2></div>
- </div>
- <p class="lead">Little purchases add up. Track your spending without judgment, then look for patterns.</p>
- <div class="grid2">
-  <div>
-   <h3>Where does your money really go?</h3>
-   <p>Food delivery, coffee, subscriptions, quick online checkouts — hindi sila always bad. But awareness helps you decide whether they fit your priorities.</p>
-   <div class="notice"><strong>Try this:</strong> Record purchases for seven days. Review which ones were essential, enjoyable or impulsive.</div>
+ <section class="sheet chapter" id="goals">
+  <div class="section-head">
+   <div class="section-icon">🎯</div>
+   <div><div class="eyebrow">Chapter 02</div><h2>Give Every Peso a Purpose</h2></div>
   </div>
-  <svg class="illustration" viewBox="0 0 430 300" role="img" aria-label="Illustration of a smartphone spending tracker">
-   <rect x="127" y="15" width="180" height="270" rx="29" fill="#173c69"/>
-   <rect x="138" y="30" width="158" height="238" rx="19" fill="#f8fbff"/>
-   <rect x="188" y="38" width="58" height="7" rx="4" fill="#193d70"/>
-   <rect x="154" y="64" width="126" height="56" rx="12" fill="#2878e5"/>
-   <path d="M166 101l22-14 22 8 20-18 30 8" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-   <rect x="155" y="139" width="126" height="24" rx="8" fill="#e3f0ff"/>
-   <rect x="155" y="171" width="126" height="24" rx="8" fill="#e1f6ed"/>
-   <rect x="155" y="203" width="126" height="24" rx="8" fill="#fff0e8"/>
-   <circle cx="99" cy="107" r="33" fill="#f6c45f"/>
-   <text x="99" y="118" text-anchor="middle" font-size="30" fill="#91621d" font-weight="bold">₱</text>
-   <circle cx="326" cy="215" r="31" fill="#c9f1df"/>
-   <path d="M311 215l10 10 20-23" fill="none" stroke="#15976f" stroke-width="7" stroke-linecap="round"/>
-  </svg>
- </div>
+  <p class="lead">Connect your spending plan to goals that matter to you.</p>
+  <div class="grid3">
+   <div class="card soft"><h3>50% Needs</h3><p>Housing, groceries, transport, utilities.</p></div>
+   <div class="card coralbg"><h3>30% Wants</h3><p>Dining out, hobbies, entertainment.</p></div>
+   <div class="card greenbg"><h3>20% Savings</h3><p>Emergency fund, debt reduction, future goals.</p></div>
+  </div>
+  <p class="tiny muted">The 50/30/20 framework is a starting point, not a universal rule. Adjust it to your circumstances.</p>
 
- <div class="tool" id="spendingTool">
-  <div class="eyebrow">Interactive tool 02</div>
-  <h3>Your Editable Spending Log</h3>
-  <div class="formgrid">
-   <div class="field"><label for="spendDate">Date</label><input type="date" id="spendDate"></div>
-   <div class="field"><label for="spendItem">What did you buy?</label><input type="text" id="spendItem" maxlength="70" placeholder="e.g. Coffee"></div>
-   <div class="field"><label for="spendAmount">Amount (₱)</label><input type="number" id="spendAmount" min="0.01" step="0.01" placeholder="150"></div>
-  </div>
-  <div class="formgrid two" style="margin-top:14px">
-   <div class="field"><label for="spendCategory">Category</label>
-    <select id="spendCategory"><option>Needs</option><option>Wants</option><option>Savings</option></select>
+  <div class="tool" id="budgetTool">
+   <div class="eyebrow">Interactive Tool 01</div>
+   <h3>Your Personal Budget Calculator</h3>
+   <p class="tiny muted">Start with a ₱25,000 monthly take-home salary. Adjust income or allocation percentages.</p>
+   <div class="formgrid">
+    <div class="field"><label for="income">Monthly income (₱)</label><input type="number" id="income" min="0" value="25000"></div>
+    <div class="field"><label for="needsPct">Needs (%)</label><input type="number" id="needsPct" min="0" max="100" value="50"></div>
+    <div class="field"><label for="wantsPct">Wants (%)</label><input type="number" id="wantsPct" min="0" max="100" value="30"></div>
    </div>
-   <div class="field"><label for="spendNote">Note (optional)</label><input type="text" id="spendNote" maxlength="90" placeholder="Why did I buy this?"></div>
+   <p>Savings automatically receives <strong id="savingsPct">20%</strong>.</p>
+   <div class="bar" aria-label="Budget allocation">
+    <span id="needsBar" style="width:50%;background:#2878e5"></span>
+    <span id="wantsBar" style="width:30%;background:#ee745f"></span>
+    <span id="savingsBar" style="width:20%;background:#15976f"></span>
+   </div>
+   <div class="legend">
+    <span><i class="dot" style="background:#2878e5"></i>Needs</span>
+    <span><i class="dot" style="background:#ee745f"></i>Wants</span>
+    <span><i class="dot" style="background:#15976f"></i>Savings</span>
+   </div>
+   <div class="grid3">
+    <div class="result"><span class="tiny muted">Needs</span><strong id="needsAmount">₱12,500</strong></div>
+    <div class="result"><span class="tiny muted">Wants</span><strong id="wantsAmount">₱7,500</strong></div>
+    <div class="result"><span class="tiny muted">Savings</span><strong id="savingsAmount">₱5,000</strong></div>
+   </div>
+   <p id="budgetError" class="tiny" style="color:#bb4238" role="status"></p>
+   <button class="btn light small no-print" onclick="resetBudget()">Reset to 50 / 30 / 20</button>
   </div>
-  <p><button class="btn green no-print" onclick="addSpending()">+ Add Expense</button></p>
+ </section>
+
+ <section class="sheet chapter" id="tracking">
+  <div class="section-head">
+   <div class="section-icon">📱</div>
+   <div><div class="eyebrow">Chapter 03</div><h2>Track It Before You Regret It</h2></div>
+  </div>
+  <p class="lead">Little purchases add up. Track spending without judgment, then look for patterns.</p>
+  <p>Food delivery, coffee, subscriptions, quick online checkouts — hindi sila always bad. Awareness helps you decide whether they fit your priorities.</p>
+  <div class="notice"><strong>Exercise:</strong> record purchases for seven days. Identify which were essential, enjoyable, or impulsive.</div>
+
+  <div class="tool" id="spendingTool">
+   <div class="eyebrow">Interactive Tool 02</div>
+   <h3>Your Editable Spending Log</h3>
+   <div class="formgrid">
+    <div class="field"><label for="spendDate">Date</label><input type="date" id="spendDate"></div>
+    <div class="field"><label for="spendItem">What did you buy?</label><input type="text" id="spendItem" maxlength="70" placeholder="e.g. Coffee"></div>
+    <div class="field"><label for="spendAmount">Amount (₱)</label><input type="number" id="spendAmount" min=".01" step=".01" placeholder="150"></div>
+   </div>
+   <div class="formgrid two" style="margin-top:14px">
+    <div class="field"><label for="spendCategory">Category</label>
+     <select id="spendCategory"><option>Needs</option><option>Wants</option><option>Savings</option></select>
+    </div>
+    <div class="field"><label for="spendNote">Note (optional)</label><input type="text" id="spendNote" maxlength="90" placeholder="Why did I buy this?"></div>
+   </div>
+   <p><button class="btn green no-print" onclick="addSpending()">+ Add Expense</button></p>
+   <div class="tablewrap">
+    <table>
+     <thead><tr><th>Date</th><th>Item</th><th>Category</th><th>Amount</th><th class="no-print">Action</th></tr></thead>
+     <tbody id="spendingRows"></tbody>
+     <tfoot><tr><td colspan="3">Total recorded</td><td id="spendingTotal">₱0</td><td class="no-print"></td></tr></tfoot>
+    </table>
+   </div>
+   <div class="grid3" style="margin-top:14px">
+    <div class="result"><span class="tiny muted">Needs spent</span><strong id="spentNeeds">₱0</strong></div>
+    <div class="result"><span class="tiny muted">Wants spent</span><strong id="spentWants">₱0</strong></div>
+    <div class="result"><span class="tiny muted">Savings logged</span><strong id="spentSavings">₱0</strong></div>
+   </div>
+   <p class="tiny muted">Entries are stored only in this browser. They do not sync across devices.</p>
+  </div>
+ </section>
+
+ <section class="sheet chapter" id="realignment">
+  <div class="section-head">
+   <div class="section-icon">☂️</div>
+   <div><div class="eyebrow">Chapter 04</div><h2>Protect Your Peace of Mind</h2></div>
+  </div>
+  <p class="lead">Build a financial cushion and make space between the urge to buy and the decision to spend.</p>
+  <p>A common emergency savings planning target is three to six months of essential expenses, depending on your circumstances. Even regular small deposits can build momentum.</p>
+
+  <div class="tool" id="emergencyTool">
+   <div class="eyebrow">Interactive Tool 03</div>
+   <h3>Emergency Fund Planner</h3>
+   <div class="formgrid">
+    <div class="field"><label for="essentialExpense">Monthly essential expenses (₱)</label><input type="number" id="essentialExpense" min="0" value="12500"></div>
+    <div class="field"><label for="emergencyMonths">Target coverage</label>
+     <select id="emergencyMonths"><option value="3">3 months</option><option value="4">4 months</option><option value="5">5 months</option><option value="6" selected>6 months</option></select>
+    </div>
+    <div class="field"><label for="currentSavings">Already saved (₱)</label><input type="number" id="currentSavings" min="0" value="10000"></div>
+   </div>
+   <div class="formgrid two" style="margin-top:14px">
+    <div class="field"><label for="monthlyDeposit">Monthly contribution (₱)</label><input type="number" id="monthlyDeposit" min="0" value="2500"></div>
+    <div class="result"><span class="tiny muted">Target fund</span><strong id="emergencyTarget">₱75,000</strong></div>
+   </div>
+   <div class="grid3" style="margin-top:14px">
+    <div class="result"><span class="tiny muted">Still needed</span><strong id="emergencyGap">₱65,000</strong></div>
+    <div class="result"><span class="tiny muted">Progress</span><strong id="emergencyProgress">13%</strong></div>
+    <div class="result"><span class="tiny muted">Estimated time</span><strong id="emergencyTime">26 months</strong></div>
+   </div>
+   <div class="bar" style="margin-top:16px"><span id="emergencyBar" style="width:13%;background:var(--green)"></span></div>
+   <p class="tiny muted">Assumes regular deposits, no withdrawals, and no interest.</p>
+  </div>
+
+  <div class="tool" id="budolTool">
+   <div class="eyebrow">Interactive Tool 04</div>
+   <h3>The NO-BUDOL Checklist</h3>
+   <p class="tiny muted">Before checking out, answer these questions honestly.</p>
+   <div id="budolQuestions">
+    <div class="checkrow"><input type="checkbox" id="b1"><label for="b1">I genuinely need this item, or it supports an important goal.</label></div>
+    <div class="checkrow"><input type="checkbox" id="b2"><label for="b2">It fits my available budget without using emergency savings.</label></div>
+    <div class="checkrow"><input type="checkbox" id="b3"><label for="b3">I've compared options and understand the total cost.</label></div>
+    <div class="checkrow"><input type="checkbox" id="b4"><label for="b4">I've waited at least 24 hours if this is an impulse purchase.</label></div>
+    <div class="checkrow"><input type="checkbox" id="b5"><label for="b5">I would still buy it without the sale, trend, or social pressure.</label></div>
+   </div>
+   <p><strong id="budolScore">0 of 5 checks complete</strong></p>
+   <div class="notice" id="budolAdvice">Take a moment before checking out.</div>
+   <button class="btn light small no-print" onclick="resetChecks('b',5)">Reset checklist</button>
+  </div>
+ </section>
+
+ <section class="sheet chapter" id="growth">
+  <div class="section-head">
+   <div class="section-icon">📈</div>
+   <div><div class="eyebrow">Chapter 05</div><h2>Make Room for Future Growth</h2></div>
+  </div>
+  <p class="lead">Once your essentials and safety net are in good shape, explore how time, consistency, and compounding can support longer-term goals.</p>
+  <div class="notice"><strong>Remember:</strong> investment projections are illustrations, not promises. Consider risk, fees, inflation, and personal circumstances.</div>
+
+  <div class="tool" id="investmentTool">
+   <div class="eyebrow">Interactive Tool 05</div>
+   <h3>Investment Growth Simulator</h3>
+   <div class="formgrid">
+    <div class="field"><label for="initialInvest">Starting amount (₱)</label><input type="number" id="initialInvest" min="0" value="10000"></div>
+    <div class="field"><label for="monthlyInvest">Monthly contribution (₱)</label><input type="number" id="monthlyInvest" min="0" value="2000"></div>
+    <div class="field"><label for="annualReturn">Illustrative annual return (%)</label><input type="number" id="annualReturn" min="-50" max="50" step=".5" value="6"></div>
+   </div>
+   <div class="formgrid two" style="margin-top:14px">
+    <div class="field"><label for="investYears">Investment period (years)</label><input type="number" id="investYears" min="1" max="50" value="10"></div>
+    <div class="result"><span class="tiny muted">Projected ending value</span><strong id="investmentValue">₱0</strong></div>
+   </div>
+   <div class="grid2" style="margin-top:14px">
+    <div class="result"><span class="tiny muted">Total contributions</span><strong id="investmentContrib">₱0</strong></div>
+    <div class="result"><span class="tiny muted">Projected gain / loss</span><strong id="investmentGain">₱0</strong></div>
+   </div>
+   <div class="chartbox" style="margin-top:18px">
+    <h3>Your Potential Growth Journey</h3>
+    <canvas id="growthChart" role="img" aria-label="Line chart comparing contributions and projected investment value"></canvas>
+    <div class="legend">
+     <span><i class="dot" style="background:#66dfb4"></i>Projected value</span>
+     <span><i class="dot" style="background:#f6c45f"></i>Total contributed</span>
+    </div>
+   </div>
+   <p class="tiny muted">Assumes end-of-month contributions and a constant nominal annual rate divided into monthly periods. Taxes, fees, and inflation are excluded. Actual investments can lose value.</p>
+  </div>
+ </section>
+
+ <section class="sheet chapter" id="review">
+  <div class="section-head">
+   <div class="section-icon">✅</div>
+   <div><div class="eyebrow">Chapter 06</div><h2>Review. Reset. Repeat.</h2></div>
+  </div>
+  <p class="lead">A strong money plan evolves with your life. Make a short monthly check-in part of your routine.</p>
+  <p>Ask yourself: What worked? What surprised me? What can I improve next month?</p>
+  <div class="tool" id="reviewTool">
+   <div class="eyebrow">Monthly reset checklist</div>
+   <h3>Five Habits Worth Repeating</h3>
+   <div id="reviewQuestions">
+    <div class="checkrow"><input type="checkbox" id="r1"><label for="r1">I reviewed my income and expenses.</label></div>
+    <div class="checkrow"><input type="checkbox" id="r2"><label for="r2">I checked whether I stayed within my budget.</label></div>
+    <div class="checkrow"><input type="checkbox" id="r3"><label for="r3">I contributed toward savings or reduced debt.</label></div>
+    <div class="checkrow"><input type="checkbox" id="r4"><label for="r4">I identified at least one spending habit to improve.</label></div>
+    <div class="checkrow"><input type="checkbox" id="r5"><label for="r5">I set a realistic goal for next month.</label></div>
+   </div>
+   <p><strong id="reviewScore">0 of 5 completed</strong></p>
+   <div class="bar"><span id="reviewBar" style="width:0;background:var(--green)"></span></div>
+   <p><button class="btn light small no-print" onclick="resetChecks('r',5)">Start a new monthly review</button></p>
+  </div>
+  <div class="card" style="background:var(--navy);color:white;margin-top:22px">
+   <div class="eyebrow" style="color:#8df0c6">The Smart Spend Promise</div>
+   <h2 style="color:white">Progress over perfection.</h2>
+   <p>Start with one decision, one habit, one goal — then keep going.</p>
+   <strong style="color:#8df0c6">Plan smarter. Spend intentionally. Build confidently.</strong>
+  </div>
+ </section>
+</div>
+
+<!-- CASH FLOW -->
+<div class="view" id="cashflow" hidden>
+ <section class="sheet hero">
+  <div class="eyebrow">Learning Section 02</div>
+  <h1>Cash Flow <span>Management.</span></h1>
+  <p class="lead">Understand when money comes in, when it goes out, and how to maintain a healthy cash position.</p>
+ </section>
+
+ <section class="sheet">
+  <h2>1. Understand your cash flow</h2>
+  <p>Cash flow is the movement of money into and out of your finances over a period. A positive cash flow means more money came in than went out; negative cash flow means the opposite.</p>
+  <div class="grid3">
+   <div class="card greenbg"><h3>Inflows</h3><p>Salary, business receipts, side income, and other cash received.</p></div>
+   <div class="card coralbg"><h3>Outflows</h3><p>Housing, food, bills, debt payments, transfers to savings, and other cash paid.</p></div>
+   <div class="card soft"><h3>Net cash flow</h3><p>Total inflows minus total outflows over the same period.</p></div>
+  </div>
+  <div class="notice"><strong>Worked example:</strong> ₱35,000 inflows minus ₱29,000 outflows = ₱6,000 positive monthly cash flow.</div>
+  <h3>Cash flow is different from profit</h3>
+  <p>A household can earn enough over a month yet still face a cash shortage if large bills are due before payday. Timing matters as much as the monthly total.</p>
+ </section>
+
+ <section class="sheet">
+  <h2>2. Build a monthly cash flow statement</h2>
+  <p>Use the calculator to compare inflows and outflows. Savings transfers are counted as cash leaving your available spending account; they are not necessarily an economic loss.</p>
+  <div class="tool">
+   <div class="eyebrow">Interactive Cash Flow Calculator</div>
+   <h3>Your Monthly Cash Flow</h3>
+   <div class="formgrid">
+    <div class="field"><label for="cfSalary">Salary / wages (₱)</label><input type="number" id="cfSalary" min="0" value="30000"></div>
+    <div class="field"><label for="cfOther">Other cash inflows (₱)</label><input type="number" id="cfOther" min="0" value="5000"></div>
+    <div class="field"><label for="cfOpening">Opening cash balance (₱)</label><input type="number" id="cfOpening" min="0" value="8000"></div>
+    <div class="field"><label for="cfHousing">Housing and utilities (₱)</label><input type="number" id="cfHousing" min="0" value="10000"></div>
+    <div class="field"><label for="cfLiving">Food and transport (₱)</label><input type="number" id="cfLiving" min="0" value="8500"></div>
+    <div class="field"><label for="cfDebt">Debt payments (₱)</label><input type="number" id="cfDebt" min="0" value="3500"></div>
+    <div class="field"><label for="cfLifestyle">Lifestyle / other spending (₱)</label><input type="number" id="cfLifestyle" min="0" value="4000"></div>
+    <div class="field"><label for="cfSavings">Savings transfers (₱)</label><input type="number" id="cfSavings" min="0" value="3000"></div>
+    <div class="field"><label for="cfOtherOut">Other outflows (₱)</label><input type="number" id="cfOtherOut" min="0" value="0"></div>
+   </div>
+   <div class="grid3" style="margin-top:17px">
+    <div class="result"><span class="tiny muted">Total inflows</span><strong id="cfIn">₱0</strong></div>
+    <div class="result"><span class="tiny muted">Total outflows</span><strong id="cfOut">₱0</strong></div>
+    <div class="result"><span class="tiny muted">Net cash flow</span><strong id="cfNet">₱0</strong></div>
+   </div>
+   <div class="grid2" style="margin-top:14px">
+    <div class="result"><span class="tiny muted">Closing available cash</span><strong id="cfClosing">₱0</strong></div>
+    <div class="result"><span class="tiny muted">Net cash flow / inflows</span><strong id="cfRate">0%</strong></div>
+   </div>
+   <div class="notice" id="cfAdvice" role="status"></div>
+  </div>
+ </section>
+
+ <section class="sheet">
+  <h2>3. Manage payment timing</h2>
+  <p>List your expected paydays and bill due dates. A positive monthly cash flow does not automatically mean you have enough cash on every day of the month.</p>
+  <div class="grid2">
+   <div class="card soft">
+    <h3>Practical cash flow habits</h3>
+    <p>Keep a bill calendar, maintain a cash buffer, review recurring charges, and prepare for irregular expenses.</p>
+   </div>
+   <div class="card greenbg">
+    <h3>Plan for irregular costs</h3>
+    <p>For an annual ₱12,000 expense, setting aside ₱1,000 each month can reduce pressure when payment becomes due.</p>
+   </div>
+  </div>
+  <div class="tool">
+   <div class="eyebrow">Interactive Timing Exercise</div>
+   <h3>Can your cash cover a bill before payday?</h3>
+   <div class="formgrid">
+    <div class="field"><label for="timingCash">Cash available today (₱)</label><input type="number" id="timingCash" min="0" value="6000"></div>
+    <div class="field"><label for="timingBills">Bills due before next payday (₱)</label><input type="number" id="timingBills" min="0" value="7500"></div>
+    <div class="field"><label for="timingEssential">Other essential spending before payday (₱)</label><input type="number" id="timingEssential" min="0" value="1500"></div>
+   </div>
+   <div class="result" style="margin-top:15px"><span class="tiny muted">Cash remaining before payday</span><strong id="timingResult">₱0</strong></div>
+   <p id="timingAdvice" class="tiny"></p>
+  </div>
+  <h3>Reflection exercise</h3>
+  <p>Which bill creates the greatest timing pressure? Could you adjust its due date, reduce a nonessential expense, or set aside money earlier?</p>
+ </section>
+</div>
+
+<!-- NET WORTH -->
+<div class="view" id="networth" hidden>
+ <section class="sheet hero">
+  <div class="eyebrow">Learning Section 03</div>
+  <h1>Net Worth <span>Improvement.</span></h1>
+  <p class="lead">Know what you own, understand what you owe, and measure progress over time.</p>
+ </section>
+
+ <section class="sheet">
+  <h2>1. What is net worth?</h2>
+  <p>Net worth is the value of your assets minus your liabilities. It is a snapshot of your financial position at a particular date.</p>
+  <div class="grid3">
+   <div class="card greenbg"><h3>Assets</h3><p>Cash, savings, investments, and property you own.</p></div>
+   <div class="card coralbg"><h3>Liabilities</h3><p>Outstanding loans, credit card balances, and other debts.</p></div>
+   <div class="card soft"><h3>Net Worth</h3><p>Assets − Liabilities.</p></div>
+  </div>
+  <div class="notice"><strong>Worked example:</strong> ₱500,000 in assets minus ₱180,000 in liabilities = ₱320,000 net worth.</div>
+  <p>A negative net worth is not a personal failure. It is a measurement that can help you identify priorities and track improvement.</p>
+ </section>
+
+ <section class="sheet">
+  <h2>2. Calculate your financial position</h2>
+  <div class="tool">
+   <div class="eyebrow">Interactive Net Worth Calculator</div>
+   <h3>Your Personal Balance Sheet</h3>
+   <div class="grid2">
+    <div class="card soft">
+     <h3>Assets</h3>
+     <div class="field"><label for="nwCash">Cash and bank balances (₱)</label><input type="number" id="nwCash" min="0" value="50000"></div>
+     <div class="field"><label for="nwSavings">Other savings (₱)</label><input type="number" id="nwSavings" min="0" value="75000"></div>
+     <div class="field"><label for="nwInvest">Investments (₱)</label><input type="number" id="nwInvest" min="0" value="100000"></div>
+     <div class="field"><label for="nwProperty">Property and other assets (₱)</label><input type="number" id="nwProperty" min="0" value="275000"></div>
+    </div>
+    <div class="card coralbg">
+     <h3>Liabilities</h3>
+     <div class="field"><label for="nwCards">Credit card balances (₱)</label><input type="number" id="nwCards" min="0" value="15000"></div>
+     <div class="field"><label for="nwPersonal">Personal loans (₱)</label><input type="number" id="nwPersonal" min="0" value="35000"></div>
+     <div class="field"><label for="nwPropertyDebt">Property / vehicle loans (₱)</label><input type="number" id="nwPropertyDebt" min="0" value="130000"></div>
+     <div class="field"><label for="nwOtherDebt">Other liabilities (₱)</label><input type="number" id="nwOtherDebt" min="0" value="0"></div>
+    </div>
+   </div>
+   <div class="grid3" style="margin-top:16px">
+    <div class="result"><span class="tiny muted">Total assets</span><strong id="nwAssets">₱0</strong></div>
+    <div class="result"><span class="tiny muted">Total liabilities</span><strong id="nwLiabilities">₱0</strong></div>
+    <div class="result"><span class="tiny muted">Your net worth</span><strong id="nwResult">₱0</strong></div>
+   </div>
+   <div class="result" style="margin-top:14px">
+    <span class="tiny muted">Liabilities as a share of assets</span>
+    <strong id="nwDebtRatio">0%</strong>
+   </div>
+   <p class="tiny muted">Use reasonable current values for assets. Estimates can change, and some assets may be difficult to sell quickly.</p>
+  </div>
+ </section>
+
+ <section class="sheet">
+  <h2>3. Create a net worth improvement plan</h2>
+  <div class="grid3">
+   <div class="card soft"><h3>Grow useful assets</h3><p>Build savings and consider appropriate long-term investments.</p></div>
+   <div class="card greenbg"><h3>Reduce costly debt</h3><p>Understand interest charges and prioritize repayment strategically.</p></div>
+   <div class="card goldbg"><h3>Track regularly</h3><p>Recalculate monthly or quarterly using consistent valuation methods.</p></div>
+  </div>
+  <div class="tool">
+   <div class="eyebrow">Interactive Planning Exercise</div>
+   <h3>Project a Simple Net Worth Improvement</h3>
+   <p class="tiny muted">This exercise assumes a fixed monthly increase in net worth, with no investment returns or changes in asset prices.</p>
+   <div class="formgrid">
+    <div class="field"><label for="nwMonthlyImprove">Monthly net worth improvement (₱)</label><input type="number" id="nwMonthlyImprove" min="0" value="5000"></div>
+    <div class="field"><label for="nwMonths">Planning period (months)</label><input type="number" id="nwMonths" min="1" max="600" value="12"></div>
+    <div class="result"><span class="tiny muted">Illustrative future net worth</span><strong id="nwFuture">₱0</strong></div>
+   </div>
+   <p id="nwImproveAdvice" class="tiny muted"></p>
+  </div>
+  <div class="notice"><strong>Important:</strong> transferring money from cash into investments does not, by itself, increase net worth. Net worth increases through retained earnings, debt reduction funded from income, investment gains, and other changes in asset or liability values.</div>
+ </section>
+</div>
+
+<!-- INVESTMENT PLATFORMS -->
+<div class="view" id="investments" hidden>
+ <section class="sheet hero">
+  <div class="eyebrow">Learning Section 04</div>
+  <h1>Investment <span>Platforms.</span></h1>
+  <p class="lead">Learn how different investment channels work, what fees can cost, and how to assess risk before investing.</p>
+ </section>
+
+ <section class="sheet">
+  <h2>1. Understand the investment landscape</h2>
+  <p>An investment platform is a service or channel through which people can access investment products. A platform is not the same thing as the underlying investment.</p>
+  <div class="grid2">
+   <div class="card soft"><h3>Bank investment channels</h3><p>May provide access to deposits and managed investment products. Compare terms, liquidity, and whether deposit protection applies to the specific product.</p></div>
+   <div class="card greenbg"><h3>Brokerage platforms</h3><p>May provide access to shares, ETFs, and other securities. Understand trading fees, custody arrangements, and market risk.</p></div>
+   <div class="card goldbg"><h3>Fund platforms</h3><p>May offer mutual funds or pooled investments. Compare objectives, management fees, holdings, and redemption rules.</p></div>
+   <div class="card coralbg"><h3>Digital investing apps</h3><p>Can simplify access but still require checks on regulation, fees, security, and the actual products being offered.</p></div>
+  </div>
+  <div class="notice"><strong>Key distinction:</strong> a familiar app interface does not guarantee that an investment is suitable, safe, or protected against loss.</div>
+ </section>
+
+ <section class="sheet">
+  <h2>2. Compare products, risks, and costs</h2>
   <div class="tablewrap">
    <table>
-    <thead><tr><th>Date</th><th>Item</th><th>Category</th><th>Amount</th><th class="no-print">Action</th></tr></thead>
-    <tbody id="spendingRows"></tbody>
-    <tfoot><tr><td colspan="3">Total recorded</td><td id="spendingTotal">₱0</td><td class="no-print"></td></tr></tfoot>
+    <thead><tr><th>Investment type</th><th>Main consideration</th><th>Potential risk</th></tr></thead>
+    <tbody>
+     <tr><td>Bank deposits</td><td>Liquidity, rate, product terms</td><td>Inflation and institution risk; applicable protection varies</td></tr>
+     <tr><td>Bonds</td><td>Issuer, maturity, yield</td><td>Credit and interest-rate risk</td></tr>
+     <tr><td>Stocks</td><td>Business fundamentals, valuation</td><td>Market volatility and capital loss</td></tr>
+     <tr><td>Mutual funds / ETFs</td><td>Strategy, holdings, fees</td><td>Underlying market and fund-specific risks</td></tr>
+     <tr><td>High-risk speculative assets</td><td>Suitability, transparency, custody</td><td>Potentially severe or total loss</td></tr>
+    </tbody>
    </table>
   </div>
-  <div class="grid3" style="margin-top:14px">
-   <div class="result"><span class="tiny muted">Needs spent</span><strong id="spentNeeds">₱0</strong></div>
-   <div class="result"><span class="tiny muted">Wants spent</span><strong id="spentWants">₱0</strong></div>
-   <div class="result"><span class="tiny muted">Savings logged</span><strong id="spentSavings">₱0</strong></div>
-  </div>
-  <p class="tiny muted">Entries are saved in this browser only. They do not sync across devices.</p>
- </div>
- <div class="sheet-footer"><span>FCIS • SMART SPEND</span><span>03 / 06</span></div>
-</section>
+  <p class="tiny muted">Examples are educational categories, not recommendations to purchase any product.</p>
+  <h3>Why diversification matters</h3>
+  <p>Diversification spreads exposure across assets rather than concentrating everything in one investment. It can help manage some risks, but it cannot eliminate losses.</p>
+ </section>
 
-<!-- CHAPTER 4 -->
-<section class="sheet" id="realignment">
- <div class="section-head">
-  <div class="section-icon">☂️</div>
-  <div><div class="eyebrow">Chapter 04</div><h2>Protect Your Peace of Mind</h2></div>
- </div>
- <p class="lead">Build a financial cushion and make space between the urge to buy and the decision to spend.</p>
- <div class="grid2">
-  <div>
-   <h3>Emergency savings come first</h3>
-   <p>An emergency fund can help cover unexpected expenses or an interruption in income. A common planning target is three to six months of essential expenses, depending on your situation.</p>
-   <p>Start small. Even regular deposits of ₱100 or ₱500 can build momentum.</p>
-  </div>
-  <svg class="illustration" viewBox="0 0 440 300" role="img" aria-label="Umbrella protecting a savings jar from rain">
-   <path d="M91 128Q220 -12 349 128Q316 107 284 128Q252 107 220 128Q188 107 156 128Q124 107 91 128" fill="#2878e5"/>
-   <path d="M220 128v102q0 31 30 31 20 0 25-20" fill="none" stroke="#193d70" stroke-width="9" stroke-linecap="round"/>
-   <rect x="156" y="159" width="121" height="109" rx="20" fill="#d8f3e6" stroke="#15976f" stroke-width="4"/>
-   <rect x="164" y="146" width="105" height="23" rx="7" fill="#15976f"/>
-   <circle cx="216" cy="214" r="32" fill="#f7c55d"/>
-   <text x="216" y="225" text-anchor="middle" font-size="33" fill="#8d5f16" font-weight="bold">₱</text>
-   <path d="M110 36l-12 30M325 40l13 29M373 99l15 27M70 94l-16 29" stroke="#9bc5ee" stroke-width="8" stroke-linecap="round"/>
-  </svg>
- </div>
-
- <div class="tool" id="emergencyTool">
-  <div class="eyebrow">Interactive tool 03</div>
-  <h3>Emergency Fund Planner</h3>
-  <div class="formgrid">
-   <div class="field"><label for="essentialExpense">Monthly essential expenses (₱)</label><input type="number" id="essentialExpense" min="0" value="12500"></div>
-   <div class="field"><label for="emergencyMonths">Target coverage</label><select id="emergencyMonths"><option value="3">3 months</option><option value="4">4 months</option><option value="5">5 months</option><option value="6" selected>6 months</option></select></div>
-   <div class="field"><label for="currentSavings">Already saved (₱)</label><input type="number" id="currentSavings" min="0" value="10000"></div>
-  </div>
-  <div class="formgrid two" style="margin-top:14px">
-   <div class="field"><label for="monthlyDeposit">Monthly savings contribution (₱)</label><input type="number" id="monthlyDeposit" min="0" value="2500"></div>
-   <div class="result"><span class="tiny muted">Your target fund</span><strong id="emergencyTarget">₱75,000</strong></div>
-  </div>
-  <div class="grid3" style="margin-top:14px">
-   <div class="result"><span class="tiny muted">Still needed</span><strong id="emergencyGap">₱65,000</strong></div>
-   <div class="result"><span class="tiny muted">Progress</span><strong id="emergencyProgress">13%</strong></div>
-   <div class="result"><span class="tiny muted">Estimated time</span><strong id="emergencyTime">26 months</strong></div>
-  </div>
-  <div class="bar" style="margin-top:16px"><span id="emergencyBar" style="width:13%;background:var(--green)"></span></div>
-  <p class="tiny muted">Estimate assumes regular deposits, no withdrawals and no interest.</p>
- </div>
-
- <div class="tool" id="budolTool">
-  <div class="eyebrow">Interactive tool 04</div>
-  <h3>The NO-BUDOL Checklist</h3>
-  <p class="tiny muted">Before checking out, answer these questions honestly.</p>
-  <div id="budolQuestions">
-   <div class="checkrow"><input type="checkbox" id="b1"><label for="b1">I genuinely need this item, or it supports an important goal.</label></div>
-   <div class="checkrow"><input type="checkbox" id="b2"><label for="b2">It fits my available budget without using emergency savings.</label></div>
-   <div class="checkrow"><input type="checkbox" id="b3"><label for="b3">I've compared options and understand the total cost.</label></div>
-   <div class="checkrow"><input type="checkbox" id="b4"><label for="b4">I've waited at least 24 hours if this is an impulse purchase.</label></div>
-   <div class="checkrow"><input type="checkbox" id="b5"><label for="b5">I would still buy it without the sale, trend or social pressure.</label></div>
-  </div>
-  <p><strong id="budolScore">0 of 5 checks complete</strong></p>
-  <div class="notice" id="budolAdvice">Take a moment before checking out. Your future self will thank you.</div>
-  <p><button class="btn light small no-print" onclick="resetBudol()">Reset checklist</button></p>
- </div>
- <div class="sheet-footer"><span>FCIS • SMART SPEND</span><span>04 / 06</span></div>
-</section>
-
-<!-- CHAPTER 5 -->
-<section class="sheet" id="growth">
- <div class="section-head">
-  <div class="section-icon">📈</div>
-  <div><div class="eyebrow">Chapter 05</div><h2>Make Room for Future Growth</h2></div>
- </div>
- <p class="lead">Once your essentials and safety net are in good shape, learn how time, consistency and compounding can support longer-term goals.</p>
- <div class="grid2">
-  <div>
-   <h3>Small contributions can add up</h3>
-   <p>Investing carries risk, and returns are never guaranteed. But understanding compounding can help you plan for long-term goals with realistic expectations.</p>
-   <div class="notice"><strong>Remember:</strong> investment projections are illustrations, not promises. Consider risk, fees, inflation, and your personal circumstances.</div>
-  </div>
-  <svg class="illustration" viewBox="0 0 440 300" role="img" aria-label="Financial growth illustration with rising chart and coins">
-   <rect x="40" y="25" width="357" height="235" rx="22" fill="#10264b"/>
-   <path d="M80 214h270M80 170h270M80 126h270M80 82h270" stroke="#ffffff1e" stroke-width="2"/>
-   <path d="M80 223l62-23 60-29 55-39 52-11 48-61" fill="none" stroke="#5bdbad" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-   <path d="M80 223l62-23 60-29 55-39 52-11 48-61v163H80z" fill="#5bdbad" opacity=".15"/>
-   <circle cx="357" cy="60" r="11" fill="#f6c45f"/>
-   <rect x="106" y="231" width="48" height="23" rx="9" fill="#f6c45f"/>
-   <rect x="177" y="218" width="48" height="36" rx="9" fill="#f6c45f"/>
-   <rect x="248" y="197" width="48" height="57" rx="9" fill="#f6c45f"/>
-  </svg>
- </div>
-
- <div class="tool" id="investmentTool">
-  <div class="eyebrow">Interactive tool 05</div>
-  <h3>Investment Growth Simulator</h3>
-  <div class="formgrid">
-   <div class="field"><label for="initialInvest">Starting amount (₱)</label><input type="number" id="initialInvest" min="0" value="10000"></div>
-   <div class="field"><label for="monthlyInvest">Monthly contribution (₱)</label><input type="number" id="monthlyInvest" min="0" value="2000"></div>
-   <div class="field"><label for="annualReturn">Illustrative annual return (%)</label><input type="number" id="annualReturn" min="-50" max="50" step=".5" value="6"></div>
-  </div>
-  <div class="formgrid two" style="margin-top:14px">
-   <div class="field"><label for="investYears">Investment period (years)</label><input type="number" id="investYears" min="1" max="50" value="10"></div>
-   <div class="result"><span class="tiny muted">Projected ending value</span><strong id="investmentValue">₱0</strong></div>
-  </div>
-  <div class="grid2" style="margin-top:14px">
-   <div class="result"><span class="tiny muted">Total contributions</span><strong id="investmentContrib">₱0</strong></div>
-   <div class="result"><span class="tiny muted">Projected gain / loss</span><strong id="investmentGain">₱0</strong></div>
-  </div>
-  <div class="chartbox" style="margin-top:18px">
-   <h3 style="color:white">Your Potential Growth Journey</h3>
-   <canvas id="growthChart" role="img" aria-label="Line chart comparing contributions and projected investment value"></canvas>
-   <div class="legend">
-    <span><i class="dot" style="background:#66dfb4"></i>Projected value</span>
-    <span><i class="dot" style="background:#f6c45f"></i>Total contributed</span>
+ <section class="sheet">
+  <h2>3. Understand the impact of platform fees</h2>
+  <p>Small recurring fees can make a meaningful difference over long periods. Compare all-in costs, not just headline platform charges.</p>
+  <div class="tool">
+   <div class="eyebrow">Interactive Investment Fee Simulator</div>
+   <h3>Compare Two Annual Fee Levels</h3>
+   <div class="formgrid">
+    <div class="field"><label for="feeInitial">Starting investment (₱)</label><input type="number" id="feeInitial" min="0" value="100000"></div>
+    <div class="field"><label for="feeMonthly">Monthly contribution (₱)</label><input type="number" id="feeMonthly" min="0" value="2000"></div>
+    <div class="field"><label for="feeReturn">Illustrative annual gross return (%)</label><input type="number" id="feeReturn" min="-50" max="50" value="6"></div>
+    <div class="field"><label for="feeLow">Platform A annual fee (%)</label><input type="number" id="feeLow" min="0" max="20" step=".1" value=".5"></div>
+    <div class="field"><label for="feeHigh">Platform B annual fee (%)</label><input type="number" id="feeHigh" min="0" max="20" step=".1" value="2"></div>
+    <div class="field"><label for="feeYears">Period (years)</label><input type="number" id="feeYears" min="1" max="50" value="20"></div>
    </div>
+   <div class="grid3" style="margin-top:17px">
+    <div class="result"><span class="tiny muted">Platform A projected value</span><strong id="feeValueA">₱0</strong></div>
+    <div class="result"><span class="tiny muted">Platform B projected value</span><strong id="feeValueB">₱0</strong></div>
+    <div class="result"><span class="tiny muted">Illustrative difference</span><strong id="feeDifference">₱0</strong></div>
+   </div>
+   <p class="tiny muted">Simplified illustration: annual fees are subtracted from the assumed gross annual return before monthly compounding. Actual fee structures, taxes, trading costs, and returns differ. No return is guaranteed.</p>
   </div>
-  <p class="tiny muted">Illustration assumes monthly contributions at the end of each month and a constant nominal annual return divided into monthly periods. Taxes, fees and inflation are excluded. Actual investments can lose value.</p>
- </div>
- <div class="sheet-footer"><span>FCIS • SMART SPEND</span><span>05 / 06</span></div>
-</section>
+ </section>
 
-<!-- CHAPTER 6 -->
-<section class="sheet" id="review">
- <div class="section-head">
-  <div class="section-icon">✅</div>
-  <div><div class="eyebrow">Chapter 06</div><h2>Review. Reset. Repeat.</h2></div>
- </div>
- <p class="lead">A strong money plan evolves with your life. Make a short monthly check-in part of your routine.</p>
- <div class="grid2">
-  <div>
-   <h3>Your monthly money reset</h3>
-   <p>Ask yourself: What worked? What surprised me? What can I improve next month?</p>
-   <p>Celebrate progress, even when it's small. Financial confidence grows through practice.</p>
+ <section class="sheet">
+  <h2>4. Evaluate a platform before investing</h2>
+  <p>Research the provider and product independently. Check regulatory status with the relevant official regulator, read disclosures, and understand how your assets are held.</p>
+  <div class="tool">
+   <div class="eyebrow">Investor Readiness Exercise</div>
+   <h3>Platform Due Diligence Checklist</h3>
+   <div id="platformQuestions">
+    <div class="checkrow"><input type="checkbox" id="p1"><label for="p1">I verified the provider's regulatory status using an official source.</label></div>
+    <div class="checkrow"><input type="checkbox" id="p2"><label for="p2">I understand what investment product I would actually own.</label></div>
+    <div class="checkrow"><input type="checkbox" id="p3"><label for="p3">I reviewed fees, minimum balances, and withdrawal restrictions.</label></div>
+    <div class="checkrow"><input type="checkbox" id="p4"><label for="p4">I understand the possibility of losing money.</label></div>
+    <div class="checkrow"><input type="checkbox" id="p5"><label for="p5">I reviewed account security, custody, and complaint procedures.</label></div>
+    <div class="checkrow"><input type="checkbox" id="p6"><label for="p6">My emergency savings and short-term needs are considered.</label></div>
+   </div>
+   <p><strong id="platformScore">0 of 6 checks complete</strong></p>
+   <div class="bar"><span id="platformBar" style="width:0;background:var(--green)"></span></div>
+   <p class="tiny muted">Completing the checklist is not proof that a platform is safe or an investment is suitable.</p>
+   <button class="btn light small no-print" onclick="resetChecks('p',6)">Reset checklist</button>
   </div>
-  <svg class="illustration" viewBox="0 0 440 300" role="img" aria-label="Illustration of a monthly financial review checklist">
-   <rect x="91" y="30" width="270" height="243" rx="20" fill="#e5eef8"/>
-   <rect x="76" y="18" width="270" height="243" rx="20" fill="white" stroke="#d9e5f1" stroke-width="3"/>
-   <rect x="151" y="8" width="119" height="30" rx="11" fill="#193d70"/>
-   <rect x="105" y="70" width="31" height="31" rx="8" fill="#e1f6ed"/>
-   <path d="M112 84l8 8 11-16" fill="none" stroke="#15976f" stroke-width="5" stroke-linecap="round"/>
-   <rect x="151" y="77" width="151" height="10" rx="5" fill="#c9d9e9"/>
-   <rect x="105" y="119" width="31" height="31" rx="8" fill="#e1f6ed"/>
-   <path d="M112 133l8 8 11-16" fill="none" stroke="#15976f" stroke-width="5" stroke-linecap="round"/>
-   <rect x="151" y="126" width="151" height="10" rx="5" fill="#c9d9e9"/>
-   <rect x="105" y="168" width="31" height="31" rx="8" fill="#e1f6ed"/>
-   <path d="M112 182l8 8 11-16" fill="none" stroke="#15976f" stroke-width="5" stroke-linecap="round"/>
-   <rect x="151" y="175" width="151" height="10" rx="5" fill="#c9d9e9"/>
-   <circle cx="335" cy="238" r="38" fill="#f6c45f"/>
-   <path d="M319 237l12 12 22-26" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
-  </svg>
- </div>
-
- <div class="tool" id="reviewTool">
-  <div class="eyebrow">Your monthly reset checklist</div>
-  <h3>Five Habits Worth Repeating</h3>
-  <div id="reviewQuestions">
-   <div class="checkrow"><input type="checkbox" id="r1"><label for="r1">I reviewed my income and expenses.</label></div>
-   <div class="checkrow"><input type="checkbox" id="r2"><label for="r2">I checked whether I stayed within my budget.</label></div>
-   <div class="checkrow"><input type="checkbox" id="r3"><label for="r3">I contributed toward savings or reduced debt.</label></div>
-   <div class="checkrow"><input type="checkbox" id="r4"><label for="r4">I identified at least one spending habit to improve.</label></div>
-   <div class="checkrow"><input type="checkbox" id="r5"><label for="r5">I set a realistic goal for next month.</label></div>
-  </div>
-  <p><strong id="reviewScore">0 of 5 completed</strong></p>
-  <div class="bar"><span id="reviewBar" style="width:0;background:var(--green)"></span></div>
-  <p><button class="btn light small no-print" onclick="resetReview()">Start a new monthly review</button></p>
- </div>
-
- <div class="card navybg" style="margin-top:24px">
-  <div class="eyebrow" style="color:#8df0c6">The Smart Spend Promise</div>
-  <h2 style="color:white">Progress over perfection.</h2>
-  <p style="color:#d8e8f7">You don't have to change everything overnight. Start with one decision, one habit, one goal — then keep going.</p>
-  <strong style="color:#8df0c6">Plan smarter. Spend intentionally. Build confidently.</strong>
- </div>
- <div class="sheet-footer"><span>FCIS • SMART SPEND</span><span>06 / 06</span></div>
-</section>
+  <div class="notice"><strong>Safety reminder:</strong> be cautious of guaranteed high returns, pressure to act immediately, unclear ownership, and requests to transfer money to unverified personal accounts.</div>
+ </section>
+</div>
 
 <footer class="site-footer">
  <div class="grid2">
   <div>
    <div class="brand">FCIS <span>/ SMART SPEND</span></div>
-   <h3 style="margin-top:18px;color:white">About FCIS</h3>
-   <p>FCIS provides business and management advisory perspectives focused on insight, integrity and impact. Smart Spend is an educational initiative promoting practical financial literacy and more intentional money decisions.</p>
-   <a href="/">Return to FCIS Homepage</a>
+   <h3 style="color:white;margin-top:18px">About FCIS</h3>
+   <p>FCIS provides business and management advisory perspectives focused on insight, integrity, and impact. Smart Spend is an educational initiative promoting practical financial literacy.</p>
+   <a href="https://fcisglobal.github.io/">Return to FCIS Homepage</a>
   </div>
   <div>
    <h3 style="color:white">Educational Disclaimer</h3>
-   <p>Smart Spend is provided for general educational and informational purposes only. It does not constitute personalized financial, investment, legal or tax advice. Financial decisions should reflect your individual circumstances, and professional guidance may be appropriate.</p>
-   <p class="tiny">Calculators and charts provide estimates and illustrations. They do not guarantee future outcomes.</p>
+   <p>This website is for general educational and informational purposes only. It is not personalized financial, investment, legal, or tax advice. Calculations are estimates and illustrations, not guaranteed outcomes.</p>
+   <p>Financial products involve different risks and protections. Consider your circumstances and seek qualified guidance where appropriate.</p>
   </div>
  </div>
  <hr style="border:0;border-top:1px solid #ffffff30;margin:22px 0">
- <div style="display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:.8rem">
+ <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.8rem">
   <span>© 2026 FCIS. All rights reserved.</span>
   <span>Insight • Integrity • Impact</span>
  </div>
 </footer>
-
 </main>
-</div>
 
 <script>
 "use strict";
 
-const STORAGE_KEY = "fcis-smart-spend-v1";
-const money = n => "₱" + Number(n || 0).toLocaleString("en-PH", {
- minimumFractionDigits:0, maximumFractionDigits:2
+const $=id=>document.getElementById(id);
+const money=n=>"₱"+Number(n||0).toLocaleString("en-PH",{
+ minimumFractionDigits:0,maximumFractionDigits:2
 });
-const $ = id => document.getElementById(id);
-const number = id => Number($(id).value);
-const safeNumber = id => Math.max(0,Number($(id).value) || 0);
+const num=id=>Number($(id).value);
+const safe=id=>Math.max(0,Number($(id).value)||0);
+const STORAGE_KEY="fcis-smart-spend-v1";
+const VIEWS=["overview","budgeting","cashflow","networth","investments"];
+const CHAPTERS=["intro","goals","tracking","realignment","growth","review"];
 
-let spending = [];
-let isExporting = false;
+let spending=[];
+let exporting=false;
+let activeView="overview";
 
 function loadState(){
- try {
-  const value = localStorage.getItem(STORAGE_KEY);
-  return value ? JSON.parse(value) : {};
- } catch(e) { return {}; }
+ try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}")}
+ catch(e){return {}}
 }
-const state = loadState();
-
 function saveState(){
- const inputs = {};
+ const inputs={};
+ const checks={};
  document.querySelectorAll("input:not([type=checkbox]),select").forEach(el=>{
-  if(el.id && el.id !== "chapterSelect") inputs[el.id] = el.value;
+  if(el.id)inputs[el.id]=el.value;
  });
- const checks = {};
  document.querySelectorAll("input[type=checkbox]").forEach(el=>{
-  checks[el.id] = el.checked;
+  checks[el.id]=el.checked;
  });
- try {
-  localStorage.setItem(STORAGE_KEY,JSON.stringify({
-   inputs,checks,spending
-  }));
- } catch(e) {
-  console.warn("Browser storage unavailable",e);
- }
+ try{
+  localStorage.setItem(STORAGE_KEY,JSON.stringify({inputs,checks,spending}));
+ }catch(e){console.warn("Storage unavailable",e)}
 }
-
 function restoreState(){
+ const state=loadState();
  if(state.inputs){
   Object.entries(state.inputs).forEach(([id,value])=>{
-   if($(id)) $(id).value = value;
+   if($(id))$(id).value=value;
   });
  }
  if(state.checks){
   Object.entries(state.checks).forEach(([id,value])=>{
-   if($(id)) $(id).checked = Boolean(value);
+   if($(id))$(id).checked=Boolean(value);
   });
  }
- spending = Array.isArray(state.spending)
-  ? state.spending.filter(x=>x && typeof x==="object")
-  : [];
+ spending=Array.isArray(state.spending)?
+  state.spending.filter(x=>x&&typeof x==="object"):[];
  if(!$("spendDate").value){
-  const d = new Date();
-  const local = new Date(d.getTime()-d.getTimezoneOffset()*60000);
-  $("spendDate").value = local.toISOString().slice(0,10);
+  const d=new Date();
+  const local=new Date(d.getTime()-d.getTimezoneOffset()*60000);
+  $("spendDate").value=local.toISOString().slice(0,10);
  }
 }
 
+function showView(view,updateHash=true){
+ if(!VIEWS.includes(view))view="overview";
+ activeView=view;
+ document.querySelectorAll(".view").forEach(el=>{
+  el.hidden=el.id!==view;
+ });
+ document.querySelectorAll(".tab").forEach(tab=>{
+  const selected=tab.dataset.view===view;
+  tab.classList.toggle("active",selected);
+  tab.setAttribute("aria-selected",String(selected));
+ });
+ if(updateHash){
+  history.pushState(null,"","#"+view);
+ }
+ window.scrollTo({top:0,behavior:"instant"});
+ if(view==="budgeting"){
+  requestAnimationFrame(()=>updateInvestment());
+ }
+}
+
+function routeHash(){
+ const hash=decodeURIComponent(location.hash.slice(1));
+ if(VIEWS.includes(hash)){
+  showView(hash,false);
+ }else if(CHAPTERS.includes(hash)){
+  showView("budgeting",false);
+  requestAnimationFrame(()=>{
+   $(hash).scrollIntoView({behavior:"smooth",block:"start"});
+  });
+ }else{
+  showView("overview",false);
+ }
+}
+function jumpChapter(event,id){
+ event.preventDefault();
+ history.pushState(null,"","#"+id);
+ showView("budgeting",false);
+ requestAnimationFrame(()=>{
+  $(id).scrollIntoView({behavior:"smooth",block:"start"});
+ });
+}
+
 function updateBudget(){
- const income = safeNumber("income");
- const needs = number("needsPct");
- const wants = number("wantsPct");
- const valid = Number.isFinite(needs) && Number.isFinite(wants)
-  && needs>=0 && wants>=0 && needs<=100 && wants<=100
-  && needs+wants<=100;
- $("budgetError").textContent = valid ? "" :
-  "Needs and wants must each be between 0 and 100, with a combined total no greater than 100%.";
- const n = valid ? needs : 0;
- const w = valid ? wants : 0;
- const s = valid ? 100-n-w : 0;
- $("savingsPct").textContent = s.toFixed(0)+"%";
+ const income=safe("income");
+ const needs=num("needsPct"),wants=num("wantsPct");
+ const valid=Number.isFinite(needs)&&Number.isFinite(wants)
+  &&needs>=0&&wants>=0&&needs<=100&&wants<=100&&needs+wants<=100;
+ $("budgetError").textContent=valid?"":"Needs and wants must each be 0–100%, with a combined total no greater than 100%.";
+ const n=valid?needs:0,w=valid?wants:0,s=valid?100-n-w:0;
+ $("savingsPct").textContent=s.toFixed(0)+"%";
  $("needsBar").style.width=n+"%";
  $("wantsBar").style.width=w+"%";
  $("savingsBar").style.width=s+"%";
@@ -705,25 +908,23 @@ function updateBudget(){
  $("wantsAmount").textContent=money(income*w/100);
  $("savingsAmount").textContent=money(income*s/100);
 }
-
 function resetBudget(){
  $("income").value=25000;
  $("needsPct").value=50;
  $("wantsPct").value=30;
- updateBudget();
- saveState();
+ updateBudget();saveState();
 }
 
 function addSpending(){
- const item = $("spendItem").value.trim();
- const amount = number("spendAmount");
- if(!item || !Number.isFinite(amount) || amount<=0){
-  alert("Please enter an item and a valid amount greater than zero.");
+ const item=$("spendItem").value.trim();
+ const amount=num("spendAmount");
+ if(!item||!Number.isFinite(amount)||amount<=0){
+  alert("Please enter an item and an amount greater than zero.");
   return;
  }
  spending.push({
   id:Date.now()+Math.random(),
-  date:$("spendDate").value || new Date().toISOString().slice(0,10),
+  date:$("spendDate").value||new Date().toISOString().slice(0,10),
   item:item.slice(0,70),
   category:$("spendCategory").value,
   amount,
@@ -732,16 +933,12 @@ function addSpending(){
  $("spendItem").value="";
  $("spendAmount").value="";
  $("spendNote").value="";
- renderSpending();
- saveState();
+ renderSpending();saveState();
 }
-
 function deleteSpending(id){
  spending=spending.filter(x=>String(x.id)!==String(id));
- renderSpending();
- saveState();
+ renderSpending();saveState();
 }
-
 function renderSpending(){
  const tbody=$("spendingRows");
  tbody.replaceChildren();
@@ -753,34 +950,28 @@ function renderSpending(){
   td.colSpan=5;
   td.className="muted";
   td.textContent="No entries yet. Add your first expense above.";
-  tr.append(td);
-  tbody.append(tr);
+  tr.append(td);tbody.append(tr);
  }
  spending.forEach(entry=>{
   const amount=Math.max(0,Number(entry.amount)||0);
   total+=amount;
-  if(Object.hasOwn(totals,entry.category)) totals[entry.category]+=amount;
+  if(Object.prototype.hasOwnProperty.call(totals,entry.category)){
+   totals[entry.category]+=amount;
+  }
   const tr=document.createElement("tr");
-  const values=[
-   entry.date || "",
-   entry.item || "",
-   entry.category || "",
-   money(amount)
-  ];
-  values.forEach(value=>{
-   const td=document.createElement("td");
-   td.textContent=value;
-   tr.append(td);
-  });
+  [entry.date||"",entry.item||"",entry.category||"",money(amount)]
+   .forEach(value=>{
+    const td=document.createElement("td");
+    td.textContent=value;
+    tr.append(td);
+   });
   const td=document.createElement("td");
   td.className="no-print";
   const btn=document.createElement("button");
   btn.className="btn light small";
   btn.textContent="Remove";
   btn.addEventListener("click",()=>deleteSpending(entry.id));
-  td.append(btn);
-  tr.append(td);
-  tbody.append(tr);
+  td.append(btn);tr.append(td);tbody.append(tr);
  });
  $("spendingTotal").textContent=money(total);
  $("spentNeeds").textContent=money(totals.Needs);
@@ -789,85 +980,62 @@ function renderSpending(){
 }
 
 function updateEmergency(){
- const monthly=safeNumber("essentialExpense");
- const months=Number($("emergencyMonths").value)||6;
- const saved=safeNumber("currentSavings");
- const deposit=safeNumber("monthlyDeposit");
- const target=monthly*months;
- const gap=Math.max(0,target-saved);
- const progress=target>0 ? Math.min(100,saved/target*100):100;
- const time=gap===0 ? "Goal reached!" :
-  deposit===0 ? "Add a deposit" :
-  Math.ceil(gap/deposit)+" months";
+ const target=safe("essentialExpense")*Number($("emergencyMonths").value);
+ const gap=Math.max(0,target-safe("currentSavings"));
+ const progress=target>0?Math.min(100,safe("currentSavings")/target*100):100;
+ const deposit=safe("monthlyDeposit");
  $("emergencyTarget").textContent=money(target);
  $("emergencyGap").textContent=money(gap);
  $("emergencyProgress").textContent=Math.round(progress)+"%";
- $("emergencyTime").textContent=time;
+ $("emergencyTime").textContent=gap===0?"Goal reached!":
+  deposit===0?"Add a deposit":Math.ceil(gap/deposit)+" months";
  $("emergencyBar").style.width=progress+"%";
 }
-
-function updateChecklist(prefix,count,scoreId,barId){
+function updateChecks(prefix,count,scoreId,barId){
  let checked=0;
- for(let i=1;i<=count;i++) if($(prefix+i).checked) checked++;
+ for(let i=1;i<=count;i++){
+  if($(prefix+i).checked)checked++;
+ }
  $(scoreId).textContent=checked+" of "+count+
-  (prefix==="r"?" completed":" checks complete");
- if(barId) $(barId).style.width=(checked/count*100)+"%";
+  (prefix==="b"?" checks complete":" completed");
+ if(barId)$(barId).style.width=(checked/count*100)+"%";
  return checked;
 }
-
 function updateBudol(){
- const count=updateChecklist("b",5,"budolScore",null);
- $("budolAdvice").textContent=count===5
-  ? "Great! Your purchase has passed all five reflection checks. Make sure it still fits your priorities."
-  : count>=3
-  ? "You're thinking it through. Review the remaining questions before deciding."
-  : "Pause before checkout. A good deal isn't always a good decision.";
+ const count=updateChecks("b",5,"budolScore",null);
+ $("budolAdvice").textContent=count===5?
+  "Great! All five reflection checks are complete. Make sure the purchase still fits your priorities.":
+  count>=3?"You're thinking it through. Review the remaining questions before deciding.":
+  "Pause before checkout. A good deal isn't always a good decision.";
 }
-
-function resetBudol(){
- for(let i=1;i<=5;i++) $("b"+i).checked=false;
- updateBudol();
- saveState();
-}
-
-function updateReview(){
- updateChecklist("r",5,"reviewScore","reviewBar");
-}
-
-function resetReview(){
- for(let i=1;i<=5;i++) $("r"+i).checked=false;
- updateReview();
- saveState();
+function resetChecks(prefix,count){
+ for(let i=1;i<=count;i++)$(prefix+i).checked=false;
+ updateAll();saveState();
 }
 
 function investmentSeries(){
- const initial=safeNumber("initialInvest");
- const monthly=safeNumber("monthlyInvest");
- const annual=Math.max(-50,Math.min(50,number("annualReturn")||0));
- const years=Math.max(1,Math.min(50,Math.floor(number("investYears")||1)));
+ const initial=safe("initialInvest");
+ const monthly=safe("monthlyInvest");
+ const annual=Math.max(-50,Math.min(50,num("annualReturn")||0));
+ const years=Math.max(1,Math.min(50,Math.floor(num("investYears")||1)));
  const rate=annual/100/12;
- let value=initial;
- let contributed=initial;
+ let value=initial,contributed=initial;
  const series=[{year:0,value,contributed}];
  for(let m=1;m<=years*12;m++){
   value=value*(1+rate)+monthly;
   contributed+=monthly;
-  if(m%12===0){
-   series.push({year:m/12,value,contributed});
-  }
+  if(m%12===0)series.push({year:m/12,value,contributed});
  }
  return series;
 }
-
 function updateInvestment(){
  const series=investmentSeries();
  const last=series[series.length-1];
  $("investmentValue").textContent=money(last.value);
  $("investmentContrib").textContent=money(last.contributed);
  $("investmentGain").textContent=money(last.value-last.contributed);
- drawChart(series);
+ if(activeView==="budgeting")drawChart(series);
 }
-
 function drawChart(series){
  const canvas=$("growthChart");
  const rect=canvas.getBoundingClientRect();
@@ -884,14 +1052,13 @@ function drawChart(series){
  const maxVal=Math.max(1,...series.flatMap(x=>[x.value,x.contributed]))*1.12;
  const maxYear=series[series.length-1].year;
  const X=year=>L+year/maxYear*plotW;
- const Y=value=>T+plotH-(value/maxVal)*plotH;
+ const Y=value=>T+plotH-value/maxVal*plotH;
  ctx.font="11px DM Sans, Arial";
  ctx.textAlign="right";
  ctx.fillStyle="#c1d6ec";
  ctx.strokeStyle="#ffffff22";
  for(let i=0;i<=4;i++){
-  const v=maxVal*i/4;
-  const y=Y(v);
+  const v=maxVal*i/4,y=Y(v);
   ctx.beginPath();ctx.moveTo(L,y);ctx.lineTo(width-R,y);ctx.stroke();
   ctx.fillText(v>=1000000?(v/1000000).toFixed(1)+"m":
    v>=1000?Math.round(v/1000)+"k":Math.round(v),L-9,y+4);
@@ -904,17 +1071,77 @@ function drawChart(series){
  function line(key,color){
   ctx.beginPath();
   series.forEach((point,i)=>{
-   if(i===0) ctx.moveTo(X(point.year),Y(point[key]));
+   if(i===0)ctx.moveTo(X(point.year),Y(point[key]));
    else ctx.lineTo(X(point.year),Y(point[key]));
   });
-  ctx.strokeStyle=color;
-  ctx.lineWidth=3.5;
-  ctx.lineJoin="round";
-  ctx.lineCap="round";
-  ctx.stroke();
+  ctx.strokeStyle=color;ctx.lineWidth=3.5;
+  ctx.lineJoin="round";ctx.lineCap="round";ctx.stroke();
  }
  line("contributed","#f6c45f");
  line("value","#66dfb4");
+}
+
+function updateCashFlow(){
+ const inflows=safe("cfSalary")+safe("cfOther");
+ const outflows=["cfHousing","cfLiving","cfDebt","cfLifestyle","cfSavings","cfOtherOut"]
+  .reduce((sum,id)=>sum+safe(id),0);
+ const net=inflows-outflows;
+ const closing=safe("cfOpening")+net;
+ $("cfIn").textContent=money(inflows);
+ $("cfOut").textContent=money(outflows);
+ $("cfNet").textContent=money(net);
+ $("cfClosing").textContent=money(closing);
+ $("cfRate").textContent=inflows>0?(net/inflows*100).toFixed(1)+"%":"N/A";
+ $("cfAdvice").textContent=net>0?
+  "Positive monthly cash flow. Consider allocating the surplus toward your priorities.":
+  net<0?"Outflows exceed inflows. Review costs and timing to reduce the shortfall.":
+  "Cash inflows and outflows are balanced. Consider whether you have enough buffer for unexpected costs.";
+ const remaining=safe("timingCash")-safe("timingBills")-safe("timingEssential");
+ $("timingResult").textContent=money(remaining);
+ $("timingAdvice").textContent=remaining<0?
+  "Potential cash shortage before payday: "+money(-remaining)+". Consider timing adjustments or reducing nonessential spending.":
+  "Projected cash available after these pre-payday expenses: "+money(remaining)+".";
+}
+
+function updateNetWorth(){
+ const assets=["nwCash","nwSavings","nwInvest","nwProperty"]
+  .reduce((sum,id)=>sum+safe(id),0);
+ const liabilities=["nwCards","nwPersonal","nwPropertyDebt","nwOtherDebt"]
+  .reduce((sum,id)=>sum+safe(id),0);
+ const net=assets-liabilities;
+ const months=Math.max(1,Math.min(600,Math.floor(num("nwMonths")||1)));
+ const future=net+safe("nwMonthlyImprove")*months;
+ $("nwAssets").textContent=money(assets);
+ $("nwLiabilities").textContent=money(liabilities);
+ $("nwResult").textContent=money(net);
+ $("nwDebtRatio").textContent=assets>0?
+  (liabilities/assets*100).toFixed(1)+"%":"N/A";
+ $("nwFuture").textContent=money(future);
+ $("nwImproveAdvice").textContent=
+  "Assuming "+money(safe("nwMonthlyImprove"))+
+  " improvement each month for "+months+" months, without investment returns or asset price changes.";
+}
+
+function feeProjection(initial,monthly,annual,fee,years){
+ const rate=(annual-fee)/100/12;
+ let value=initial;
+ for(let m=0;m<years*12;m++){
+  value=value*(1+rate)+monthly;
+ }
+ return value;
+}
+function updateFees(){
+ const initial=safe("feeInitial");
+ const monthly=safe("feeMonthly");
+ const annual=Math.max(-50,Math.min(50,num("feeReturn")||0));
+ const feeA=Math.max(0,Math.min(20,num("feeLow")||0));
+ const feeB=Math.max(0,Math.min(20,num("feeHigh")||0));
+ const years=Math.max(1,Math.min(50,Math.floor(num("feeYears")||1)));
+ const a=feeProjection(initial,monthly,annual,feeA,years);
+ const b=feeProjection(initial,monthly,annual,feeB,years);
+ $("feeValueA").textContent=money(a);
+ $("feeValueB").textContent=money(b);
+ $("feeDifference").textContent=money(Math.abs(a-b));
 }
 
 function updateAll(){
@@ -922,85 +1149,80 @@ function updateAll(){
  renderSpending();
  updateEmergency();
  updateBudol();
- updateReview();
+ updateChecks("r",5,"reviewScore","reviewBar");
  updateInvestment();
+ updateCashFlow();
+ updateNetWorth();
+ updateFees();
+ updateChecks("p",6,"platformScore","platformBar");
 }
 
 document.addEventListener("DOMContentLoaded",()=>{
  restoreState();
  document.querySelectorAll("input,select").forEach(el=>{
-  if(el.id==="chapterSelect") return;
   el.addEventListener("input",()=>{
-   updateBudget();
-   updateEmergency();
-   updateBudol();
-   updateReview();
-   updateInvestment();
+   updateAll();
    saveState();
   });
   el.addEventListener("change",saveState);
  });
+ routeHash();
  updateAll();
+ window.addEventListener("hashchange",routeHash);
+ window.addEventListener("popstate",routeHash);
  window.addEventListener("resize",()=>{
-  updateInvestment();
+  if(activeView==="budgeting")updateInvestment();
  });
- const links=document.querySelectorAll(".sidebar a");
- if("IntersectionObserver" in window){
-  const observer=new IntersectionObserver(entries=>{
-   entries.forEach(entry=>{
-    if(entry.isIntersecting){
-     links.forEach(link=>link.classList.toggle(
-      "active",link.getAttribute("href")==="#"+entry.target.id
-     ));
-    }
-   });
-  },{rootMargin:"-20% 0px -65% 0px"});
-  document.querySelectorAll("section[id]").forEach(section=>observer.observe(section));
- }
 });
 
 async function exportPDF(){
- if(isExporting) return;
- if(typeof html2canvas==="undefined" || !window.jspdf){
+ if(exporting)return;
+ if(typeof html2canvas==="undefined"||!window.jspdf){
   alert("PDF libraries have not loaded. Check your internet connection and try again.");
   return;
  }
- isExporting=true;
+ exporting=true;
  const button=$("pdfBtn");
  const status=$("pdfStatus");
- button.disabled=true;
- button.textContent="Preparing PDF…";
+ const originalView=activeView;
+ const originalHash=location.hash;
  const originalScroll=window.scrollY;
  let exportRoot=null;
+ button.disabled=true;
+ button.textContent="Preparing PDF…";
  try{
-  status.textContent="Building A4 pages…";
+  status.textContent="Preparing all sections…";
   await document.fonts.ready;
 
-  // Clone chapters so export never alters the live interactive page.
+  // Make every view visible temporarily to measure and render charts.
+  document.querySelectorAll(".view").forEach(el=>el.hidden=false);
+  drawChart(investmentSeries());
+
+  // Clone all sheets, including sections normally hidden by navigation.
   exportRoot=document.createElement("div");
   exportRoot.id="smartSpendPdfClone";
   Object.assign(exportRoot.style,{
-   position:"fixed",left:"-20000px",top:"0",
+   position:"absolute",left:"-20000px",top:"0",
    width:"794px",background:"#ffffff",
-   zIndex:"-1",pointerEvents:"none"
+   pointerEvents:"none"
   });
-  const sourceSheets=[...document.querySelectorAll("main .sheet")];
+
+  const sourceSheets=[...document.querySelectorAll("main .view .sheet")];
   sourceSheets.forEach(sheet=>{
    const clone=sheet.cloneNode(true);
-   clone.style.width="794px";
-   clone.style.margin="0";
-   clone.style.boxShadow="none";
-   clone.style.borderRadius="0";
-   clone.style.overflow="visible";
-   // Copy current input values and checked states into cloned controls.
+   Object.assign(clone.style,{
+    width:"794px",margin:"0",borderRadius:"0",
+    boxShadow:"none",overflow:"visible"
+   });
+
    const srcInputs=sheet.querySelectorAll("input,select,textarea");
    const dstInputs=clone.querySelectorAll("input,select,textarea");
    srcInputs.forEach((src,i)=>{
     const dst=dstInputs[i];
-    if(!dst) return;
+    if(!dst)return;
     if(src.type==="checkbox"){
      dst.checked=src.checked;
-     if(src.checked) dst.setAttribute("checked","");
+     if(src.checked)dst.setAttribute("checked","");
      else dst.removeAttribute("checked");
     }else if(src.tagName==="SELECT"){
      dst.value=src.value;
@@ -1014,74 +1236,67 @@ async function exportPDF(){
    exportRoot.append(clone);
   });
 
-  // Add an educational disclaimer page at the end.
   const disclaimer=document.createElement("section");
   disclaimer.className="sheet";
   disclaimer.style.width="794px";
   disclaimer.style.margin="0";
-  disclaimer.style.boxShadow="none";
   disclaimer.style.borderRadius="0";
+  disclaimer.style.boxShadow="none";
   disclaimer.innerHTML=`
    <div class="eyebrow">FCIS Financial Education</div>
    <h2>About Smart Spend</h2>
-   <p>Smart Spend: The Modern Guide to Personal Budgeting is an
-   educational initiative of FCIS.</p>
+   <p>Smart Spend Personal Finance is an educational initiative of FCIS.</p>
    <h3>Educational Disclaimer</h3>
-   <p>This guide is for general education only and is not personalized
-   financial, investment, legal or tax advice. Calculator results are
-   illustrative estimates, not guaranteed outcomes.</p>
-   <hr class="divider">
+   <p>This guide is for general education and information only. It is not
+   personalized financial, investment, legal, or tax advice. Calculator
+   results are illustrative estimates, not guaranteed outcomes.</p>
+   <p>Investment products involve risks, including possible loss of capital.</p>
+   <hr style="border:0;border-top:1px solid #dce6f0;margin:25px 0">
    <p><strong>FCIS | Insight • Integrity • Impact</strong></p>
    <p>https://fcisglobal.github.io/smart-spend.html</p>
    <p>© 2026 FCIS. All rights reserved.</p>`;
   exportRoot.append(disclaimer);
   document.body.append(exportRoot);
 
-  // Canvas drawings are not copied by cloneNode.
-  // Reproduce the live investment chart in its cloned canvas.
   const originalCanvas=$("growthChart");
   const cloneCanvas=exportRoot.querySelector("#growthChart");
-  if(originalCanvas && cloneCanvas){
+  if(originalCanvas&&cloneCanvas){
    cloneCanvas.width=originalCanvas.width;
    cloneCanvas.height=originalCanvas.height;
    cloneCanvas.getContext("2d").drawImage(originalCanvas,0,0);
   }
 
   const {jsPDF}=window.jspdf;
-  const pdf=new jsPDF({orientation:"portrait",unit:"mm",format:"a4",compress:true});
-  const pageW=210,pageH=297;
-  const margin=9,contentW=pageW-margin*2,contentH=pageH-margin*2;
-  let firstPage=true;
+  const pdf=new jsPDF({
+   orientation:"portrait",unit:"mm",format:"a4",compress:true
+  });
+  const pageW=210,pageH=297,margin=9;
+  const contentW=pageW-margin*2,contentH=pageH-margin*2;
+  let first=true;
   const sheets=[...exportRoot.children];
 
   for(let i=0;i<sheets.length;i++){
    status.textContent="Rendering section "+(i+1)+" of "+sheets.length+"…";
-   const sheet=sheets[i];
-   const capture=await html2canvas(sheet,{
-    backgroundColor:"#ffffff",scale:1.5,useCORS:true,
-    logging:false,windowWidth:900
+   const capture=await html2canvas(sheets[i],{
+    backgroundColor:"#ffffff",
+    scale:1.5,useCORS:true,logging:false,windowWidth:900
    });
-
-   // Preserve readable proportions: split long sections into
-   // multiple A4 pages instead of shrinking everything to one page.
-   const pixelsPerPage=Math.floor(
-    capture.width*contentH/contentW
-   );
+   const pixelsPerPage=Math.floor(capture.width*contentH/contentW);
    let offset=0;
    while(offset<capture.height){
     const sliceHeight=Math.min(pixelsPerPage,capture.height-offset);
     const slice=document.createElement("canvas");
     slice.width=capture.width;
     slice.height=sliceHeight;
-    const context=slice.getContext("2d");
-    context.fillStyle="#ffffff";
-    context.fillRect(0,0,slice.width,slice.height);
-    context.drawImage(
+    const ctx=slice.getContext("2d");
+    ctx.fillStyle="#ffffff";
+    ctx.fillRect(0,0,slice.width,slice.height);
+    ctx.drawImage(
      capture,0,offset,capture.width,sliceHeight,
      0,0,capture.width,sliceHeight
     );
-    if(!firstPage) pdf.addPage();
-    firstPage=false;
+    if(!first)pdf.addPage();
+    first=false;
     const img=slice.toDataURL("image/jpeg",.88);
     const imgH=sliceHeight/capture.width*contentW;
     pdf.addImage(img,"JPEG",margin,margin,contentW,imgH);
@@ -1093,18 +1308,25 @@ async function exportPDF(){
    }
   }
   status.textContent="Saving PDF…";
-  pdf.save("FCIS-Smart-Spend-Guide.pdf");
+  pdf.save("FCIS-Smart-Spend-Personal-Finance.pdf");
   status.textContent="PDF ready!";
  }catch(err){
   console.error("PDF export failed:",err);
   status.textContent="Export failed";
-  alert("PDF export could not complete. Please try again, or use your browser's Print → Save as PDF option.");
+  alert("PDF export could not complete. Please try again, or use Print → Save as PDF.");
  }finally{
-  if(exportRoot) exportRoot.remove();
+  if(exportRoot)exportRoot.remove();
+  document.querySelectorAll(".view").forEach(el=>{
+   el.hidden=el.id!==originalView;
+  });
+  activeView=originalView;
+  if(location.hash!==originalHash){
+   history.replaceState(null,"",originalHash||location.pathname);
+  }
   window.scrollTo(0,originalScroll);
   button.disabled=false;
   button.textContent="↓ Download A4 PDF";
-  isExporting=false;
+  exporting=false;
  }
 }
 </script>
