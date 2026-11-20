@@ -11,7 +11,7 @@
 <meta property="og:site_name" content="FCIS">
 <meta property="og:title" content="Smart Spend · The Modern Guide to Personal Budgeting">
 <meta property="og:description" content="The modern guide to personal budgeting: plan your monthly budget, track your spending, prepare for emergencies and explore long-term growth. Free interactive calculators.">
-<meta property="og:url" content="https://fcisglobal.github.io/smart-spend/">
+<meta property="og:url" content="https://fcisglobal.github.io/smart-spend.html">
 <meta property="og:image" content="https://fcisglobal.github.io/smart-spend-poster.jpg">
 <meta property="og:image:width" content="1254">
 <meta property="og:image:height" content="1254">
@@ -884,7 +884,7 @@ html[lang=ar] .hero-quote{font-style:normal}
      <p class="fin-msg" id="mailMsg" role="status"></p>
      <p class="tiny muted" data-ar="يفتح Gmail أو Outlook في علامة تبويب جديدة والرسالة جاهزة؛ راجعها ثم اضغط إرسال. لا يُرسل أي شيء من هذه الصفحة.">Gmail and Outlook open in a new tab with the email ready; check it and press Send. Nothing is sent from this page.</p>
     </div>
-    <div class="share-cap"><div class="share-cap-h"><b data-ar="نص جاهز للنشر">Ready-made caption</b><button class="btn light small" onclick="copyShare('cap')"><svg class="ic" data-i="layers"></svg><span data-ar="نسخ النص">Copy caption</span></button></div><p id="shareCaption" data-cap-en="Introducing Smart Spend by FCIS: the modern guide to personal budgeting. Plan your monthly budget, track your spending, prepare for emergencies and explore long-term growth with free interactive calculators. Explore it today: https://fcisglobal.github.io/smart-spend/ For educational purposes only. Not personalized financial or investment advice. #SmartSpend #PersonalFinance #Budgeting #FCIS" data-cap-ar="نقدّم لكم «الإنفاق الذكي» من FCIS: الدليل العصري لإعداد الميزانية الشخصية. خطّط ميزانيتك الشهرية، وتتبّع إنفاقك، واستعد للطوارئ، واستكشف النمو طويل الأجل عبر حاسبات تفاعلية مجانية. اكتشفه اليوم: https://fcisglobal.github.io/smart-spend/ لأغراض تعليمية فقط، وليس نصيحة مالية أو استثمارية شخصية. #الإنفاق_الذكي #التمويل_الشخصي #FCIS"></p></div>
+    <div class="share-cap"><div class="share-cap-h"><b data-ar="نص جاهز للنشر">Ready-made caption</b><button class="btn light small" onclick="copyShare('cap')"><svg class="ic" data-i="layers"></svg><span data-ar="نسخ النص">Copy caption</span></button></div><p id="shareCaption" data-cap-en="Introducing Smart Spend by FCIS: the modern guide to personal budgeting. Plan your monthly budget, track your spending, prepare for emergencies and explore long-term growth with free interactive calculators. Explore it today: https://fcisglobal.github.io/smart-spend.html For educational purposes only. Not personalized financial or investment advice. #SmartSpend #PersonalFinance #Budgeting #FCIS" data-cap-ar="نقدّم لكم «الإنفاق الذكي» من FCIS: الدليل العصري لإعداد الميزانية الشخصية. خطّط ميزانيتك الشهرية، وتتبّع إنفاقك، واستعد للطوارئ، واستكشف النمو طويل الأجل عبر حاسبات تفاعلية مجانية. اكتشفه اليوم: https://fcisglobal.github.io/smart-spend.html لأغراض تعليمية فقط، وليس نصيحة مالية أو استثمارية شخصية. #الإنفاق_الذكي #التمويل_الشخصي #FCIS"></p></div>
     <p class="fin-msg" id="shareMsg" role="status"></p>
 <p class="tiny muted" data-ar="نصيحة: عند لصق الرابط على لينكدإن أو فيسبوك أو إكس أو واتساب، يظهر الملصق كصورة معاينة. وعلى إنستغرام، ارفع الملصق الذي نزّلته وضع الرابط في السيرة أو القصة.">Tip: when you paste the link on LinkedIn, Facebook, X or WhatsApp, the poster appears as the preview image. On Instagram, upload the downloaded poster and put the link in your bio or story.</p>
    </div>
@@ -3756,7 +3756,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 "use strict";
 /* ---------- Share Smart Spend ---------- */
-const SHARE_URL = "https://fcisglobal.github.io/smart-spend/";
+const SHARE_URL = "https://fcisglobal.github.io/smart-spend.html";
 const shareCap = () => { const p = document.getElementById("shareCaption"); return p ? (lang === "ar" ? p.dataset.capAr : p.dataset.capEn) : ""; };
 const shareTitle = () => lang === "ar" ? "الإنفاق الذكي · الدليل العصري لإعداد الميزانية الشخصية" : "Smart Spend · The Modern Guide to Personal Budgeting";
 function renderShare(){
