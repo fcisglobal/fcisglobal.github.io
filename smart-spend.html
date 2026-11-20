@@ -295,6 +295,32 @@ canvas{display:block;width:100%;height:260px}
 .sn.wa{background:#1f9d55}.sn.li{background:#0a66c2}.sn.fb{background:#1877f2}.sn.x{background:#111}.sn.em{background:var(--navy2)}
 [data-theme=dark] .sn.x{background:#333}
 .sn:hover{filter:brightness(1.1);text-decoration:none}
+.share-contact{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:-4px 0 16px;font-size:.88rem;color:var(--muted)}
+.share-contact small{font-weight:700;color:var(--heading)}
+.mail-box{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:0 0 14px;margin:-4px 0 16px;box-shadow:var(--shadow);overflow:hidden}
+.mail-box[hidden]{display:none}
+.mail-tabs{display:flex;align-items:stretch;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.mail-tabs button[role=tab]{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border:0;background:transparent;padding:12px 10px;font:inherit;font-weight:800;font-size:.88rem;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent}
+.mail-tabs button[role=tab] svg.ic{width:16px;height:16px}
+.mail-tabs button[aria-selected=true]{color:#0e6b5e;border-bottom-color:#0e6b5e;background:var(--surface)}
+[data-theme=dark] .mail-tabs button[aria-selected=true]{color:#5bd5a6;border-bottom-color:#5bd5a6}
+.mail-x{border:0;background:transparent;padding:0 14px;color:var(--muted);cursor:pointer}
+.mail-x svg.ic{width:16px;height:16px}
+.mail-form{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;padding:14px 16px 4px}
+.mf{display:flex;flex-direction:column;gap:5px;font-size:.78rem;font-weight:800;color:var(--muted)}
+.mf:nth-child(3),.mf:nth-child(4){grid-column:1/-1}
+.mf input,.mf textarea{font:inherit;font-size:.9rem;font-weight:500;padding:9px 11px;border-radius:10px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);resize:vertical}
+.mf input[readonly]{background:var(--t-green);border-color:#15976f55;font-weight:800;color:var(--heading)}
+.mf input.bad{border-color:var(--coral);background:var(--t-coral)}
+.mail-box.share #mailNameRow{display:none}
+.mail-box.share .mf:first-child{grid-column:1/-1}
+.mail-send{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 16px 0}
+.mail-send-l{font-size:.82rem;font-weight:800;color:var(--muted)}
+.ms{border:0;border-radius:99px;padding:8px 14px;font:inherit;font-weight:800;font-size:.82rem;color:#fff;cursor:pointer}
+.ms.gm{background:#d93025}.ms.ol{background:#0a64ad}.ms.df{background:var(--navy2)}.ms.cp{background:var(--t-blue);color:var(--blue)}
+.ms:hover{filter:brightness(1.1)}
+.mail-box .fin-msg,.mail-box>.tiny{padding:0 16px;margin:8px 0 0}
+@media(max-width:600px){.mail-form{grid-template-columns:1fr}.mail-tabs button[role=tab] span{font-size:.8rem}}
 .share-cap{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
 .share-cap-h{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:6px;color:var(--heading)}
 .share-cap p{margin:0;font-size:.88rem;line-height:1.65;white-space:pre-line}
@@ -849,7 +875,15 @@ html[lang=ar] .hero-quote{font-style:normal}
    <div class="share-body">
 <p class="lead" data-ar="هل تعرف شخصًا يريد التحكم في أمواله؟ شارك الملصق الرسمي على وسائل التواصل الاجتماعي أو في محادثة الفريق أو عبر البريد الإلكتروني، فهو يقود مباشرة إلى هذا الدليل.">Know someone who wants to take control of their money? Share the official poster on social media, in a team chat or by email. It links straight to this guide.</p>
     <div class="share-actions"><button class="btn dash-primary" onclick="posterDownload()"><svg class="ic" data-i="download"></svg><span data-ar="تنزيل الملصق">Download poster</span></button><button class="btn light" id="shareNativeBtn" onclick="shareNative()" hidden><svg class="ic" data-i="arrow"></svg><span data-ar="مشاركة…">Share…</span></button><button class="btn light" onclick="copyShare('link')"><svg class="ic" data-i="layers"></svg><span data-ar="نسخ الرابط">Copy link</span></button></div>
-    <div class="share-nets" aria-label="Share on"><a class="sn wa" target="_blank" rel="noopener" data-net="wa" href="#">WhatsApp</a><a class="sn li" target="_blank" rel="noopener" data-net="li" href="#">LinkedIn</a><a class="sn fb" target="_blank" rel="noopener" data-net="fb" href="#">Facebook</a><a class="sn x" target="_blank" rel="noopener" data-net="x" href="#">X</a><a class="sn em" data-net="em" href="#"><span data-ar="البريد">Email</span></a></div>
+    <div class="share-nets" aria-label="Share on"><a class="sn wa" target="_blank" rel="noopener" data-net="wa" href="#">WhatsApp</a><a class="sn li" target="_blank" rel="noopener" data-net="li" href="#">LinkedIn</a><a class="sn fb" target="_blank" rel="noopener" data-net="fb" href="#">Facebook</a><a class="sn x" target="_blank" rel="noopener" data-net="x" href="#">X</a><button type="button" class="sn em" onclick="openMail('share')" aria-controls="mailBox" title="Email this guide to someone"><span data-ar="البريد">Email</span></button></div>
+    <div class="share-contact"><span data-ar="لديك سؤال أو اقتراح؟">Questions or feedback?</span><button type="button" class="btn light small" onclick="openMail('contact')" aria-controls="mailBox"><svg class="ic" data-i="info"></svg><span data-ar="تواصل مع FCIS">Contact FCIS</span></button><small>fcisglobal@gmail.com</small></div>
+    <div class="mail-box" id="mailBox" hidden>
+     <div class="mail-tabs" role="tablist"><button type="button" role="tab" id="mtShare" data-mt="share" onclick="openMail('share')"><svg class="ic" data-i="arrow"></svg><span data-ar="شارك مع صديق">Share with a friend</span></button><button type="button" role="tab" id="mtContact" data-mt="contact" onclick="openMail('contact')"><svg class="ic" data-i="info"></svg><span data-ar="تواصل مع FCIS">Contact FCIS</span></button><button type="button" class="mail-x" onclick="closeMail()" aria-label="Close"><svg class="ic" data-i="x"></svg></button></div>
+     <div class="mail-form"><label class="mf"><span data-ar="إلى">To</span><input type="email" id="mailTo" multiple autocomplete="email"></label><label class="mf" id="mailNameRow"><span data-ar="اسمك (اختياري)">Your name (optional)</span><input type="text" id="mailName" maxlength="80" autocomplete="name"></label><label class="mf"><span data-ar="الموضوع">Subject</span><input type="text" id="mailSubject" maxlength="150"></label><label class="mf"><span data-ar="الرسالة">Message</span><textarea id="mailBody" rows="6" maxlength="1800"></textarea></label></div>
+     <div class="mail-send"><span class="mail-send-l" data-ar="أرسل عبر:">Send with:</span><button type="button" class="ms gm" onclick="sendMail('gmail')">Gmail</button><button type="button" class="ms ol" onclick="sendMail('outlook')">Outlook</button><button type="button" class="ms df" onclick="sendMail('app')"><span data-ar="تطبيق البريد">Email app</span></button><button type="button" class="ms cp" onclick="sendMail('copy')"><span data-ar="نسخ الرسالة">Copy message</span></button></div>
+     <p class="fin-msg" id="mailMsg" role="status"></p>
+     <p class="tiny muted" data-ar="يفتح Gmail أو Outlook في علامة تبويب جديدة والرسالة جاهزة؛ راجعها ثم اضغط إرسال. لا يُرسل أي شيء من هذه الصفحة.">Gmail and Outlook open in a new tab with the email ready; check it and press Send. Nothing is sent from this page.</p>
+    </div>
     <div class="share-cap"><div class="share-cap-h"><b data-ar="نص جاهز للنشر">Ready-made caption</b><button class="btn light small" onclick="copyShare('cap')"><svg class="ic" data-i="layers"></svg><span data-ar="نسخ النص">Copy caption</span></button></div><p id="shareCaption" data-cap-en="Introducing Smart Spend by FCIS: the modern guide to personal budgeting. Plan your monthly budget, track your spending, prepare for emergencies and explore long-term growth with free interactive calculators. Explore it today: https://fcisglobal.github.io/smart-spend/ For educational purposes only. Not personalized financial or investment advice. #SmartSpend #PersonalFinance #Budgeting #FCIS" data-cap-ar="نقدّم لكم «الإنفاق الذكي» من FCIS: الدليل العصري لإعداد الميزانية الشخصية. خطّط ميزانيتك الشهرية، وتتبّع إنفاقك، واستعد للطوارئ، واستكشف النمو طويل الأجل عبر حاسبات تفاعلية مجانية. اكتشفه اليوم: https://fcisglobal.github.io/smart-spend/ لأغراض تعليمية فقط، وليس نصيحة مالية أو استثمارية شخصية. #الإنفاق_الذكي #التمويل_الشخصي #FCIS"></p></div>
     <p class="fin-msg" id="shareMsg" role="status"></p>
 <p class="tiny muted" data-ar="نصيحة: عند لصق الرابط على لينكدإن أو فيسبوك أو إكس أو واتساب، يظهر الملصق كصورة معاينة. وعلى إنستغرام، ارفع الملصق الذي نزّلته وضع الرابط في السيرة أو القصة.">Tip: when you paste the link on LinkedIn, Facebook, X or WhatsApp, the poster appears as the preview image. On Instagram, upload the downloaded poster and put the link in your bio or story.</p>
@@ -3757,6 +3791,69 @@ async function shareNative(){
 document.addEventListener("DOMContentLoaded", () => {
   renderShare();
   const al = applyLang; window.applyLang = function(){ const r = al.apply(this, arguments); renderShare(); return r; };
+});
+</script>
+<script>
+"use strict";
+/* ---------- Email composer: share with a friend / contact FCIS ---------- */
+const FCIS_EMAIL = "fcisglobal@gmail.com";
+let mailMode = "share";
+const MT = {
+  en: {shareSub: "Smart Spend · The Modern Guide to Personal Budgeting", toPh: "friend@example.com", contactSub: "Smart Spend enquiry",
+       contactPh: "Write your question or feedback here.", contactSign: n => n ? "\n\nRegards,\n" + n : "", contactHead: "Hello FCIS team,\n\n",
+       badTo: "Enter at least one valid email address in To.", noMsg: "Please write a message first.", opened: w => `${w} opened in a new tab. Check the email and press Send.`,
+       app: "Opening your email app… If nothing opens, use Gmail, Outlook or Copy message.", copied: "Email copied (To, Subject and Message). Paste it into any email app.",
+       blocked: "Your browser blocked the new tab. Allow pop-ups for this site, or use Copy message."},
+  ar: {shareSub: "الإنفاق الذكي · الدليل العصري لإعداد الميزانية الشخصية", toPh: "friend@example.com", contactSub: "استفسار حول الإنفاق الذكي",
+       contactPh: "اكتب سؤالك أو اقتراحك هنا.", contactSign: n => n ? "\n\nمع التحية،\n" + n : "", contactHead: "مرحبًا فريق FCIS،\n\n",
+       badTo: "أدخل عنوان بريد إلكتروني صالحًا واحدًا على الأقل في خانة «إلى».", noMsg: "يرجى كتابة رسالة أولًا.", opened: w => `تم فتح ${w} في علامة تبويب جديدة. راجع الرسالة ثم اضغط إرسال.`,
+       app: "جارٍ فتح تطبيق البريد… إذا لم يُفتح شيء، استخدم Gmail أو Outlook أو نسخ الرسالة.", copied: "تم نسخ الرسالة (إلى والموضوع والنص). الصقها في أي تطبيق بريد.",
+       blocked: "منع المتصفح فتح علامة تبويب جديدة. اسمح بالنوافذ المنبثقة لهذا الموقع، أو استخدم نسخ الرسالة."}
+};
+const mt = k => MT[lang][k];
+function openMail(mode){
+  const box = document.getElementById("mailBox"), switching = box.hidden || mode !== mailMode;
+  mailMode = mode; box.hidden = false; box.className = "mail-box " + mode;
+  ["share", "contact"].forEach(m => { const t = document.querySelector(`.mail-tabs [data-mt="${m}"]`); t.setAttribute("aria-selected", String(m === mode)); });
+  const to = document.getElementById("mailTo"), sub = document.getElementById("mailSubject"), body = document.getElementById("mailBody");
+  to.classList.remove("bad"); document.getElementById("mailMsg").textContent = "";
+  if(switching){
+    if(mode === "contact"){ to.value = FCIS_EMAIL; to.readOnly = true; sub.value = mt("contactSub"); body.value = ""; body.placeholder = mt("contactPh"); }
+    else{ to.value = ""; to.readOnly = false; to.placeholder = mt("toPh"); sub.value = mt("shareSub"); body.value = shareCap(); body.placeholder = ""; }
+  }
+  box.scrollIntoView({behavior: "smooth", block: "nearest"});
+  setTimeout(() => (mode === "contact" ? body : to).focus({preventScroll: true}), 250);
+}
+function closeMail(){ document.getElementById("mailBox").hidden = true; }
+function mailParts(){
+  const to = document.getElementById("mailTo"), list = to.value.split(/[,;\s]+/).filter(Boolean);
+  const ok = list.length && list.every(a => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(a));
+  let body = document.getElementById("mailBody").value.trim();
+  if(mailMode === "contact" && body) body = mt("contactHead") + body + mt("contactSign")(document.getElementById("mailName").value.trim());
+  return {ok, to: list.join(","), sub: document.getElementById("mailSubject").value.trim(), body};
+}
+function mailNote(t, err){ const m = document.getElementById("mailMsg"); m.textContent = t; m.className = "fin-msg" + (err ? " err" : ""); }
+async function sendMail(via){
+  const P = mailParts(), toEl = document.getElementById("mailTo");
+  if(!P.ok){ toEl.classList.add("bad"); toEl.focus(); return mailNote(mt("badTo"), true); }
+  toEl.classList.remove("bad");
+  if(!P.body){ document.getElementById("mailBody").focus(); return mailNote(mt("noMsg"), true); }
+  const e = encodeURIComponent;
+  if(via === "copy"){
+    const txt = (lang === "ar" ? "إلى: " : "To: ") + P.to + "\n" + (lang === "ar" ? "الموضوع: " : "Subject: ") + P.sub + "\n\n" + P.body;
+    try{ await navigator.clipboard.writeText(txt); }catch(_){ const ta = document.createElement("textarea"); ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.append(ta); ta.select(); try{ document.execCommand("copy"); }catch(__){} ta.remove(); }
+    return mailNote(mt("copied"));
+  }
+  if(via === "app"){ location.href = "mailto:" + P.to + "?subject=" + e(P.sub) + "&body=" + e(P.body); return mailNote(mt("app")); }
+  const url = via === "gmail"
+    ? "https://mail.google.com/mail/?view=cm&fs=1&to=" + e(P.to) + "&su=" + e(P.sub) + "&body=" + e(P.body)
+    : "https://outlook.office.com/mail/deeplink/compose?to=" + e(P.to) + "&subject=" + e(P.sub) + "&body=" + e(P.body);
+  const w = window.open(url, "_blank");
+  if(w){ try{ w.opener = null; }catch(_){} }
+  mailNote(w ? mt("opened")(via === "gmail" ? "Gmail" : "Outlook") : mt("blocked"), !w);
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const al = applyLang; window.applyLang = function(){ const r = al.apply(this, arguments); const b = document.getElementById("mailBox"); if(b && !b.hidden){ const m = mailMode; mailMode = ""; openMail(m); } return r; };
 });
 </script>
 </body>
