@@ -1032,6 +1032,33 @@ cite.stp-cite:hover,.rule-insights cite:hover,.rule-src cite:hover,cite.stp-cite
 .stp-mstrip .ms.pos.inp{background:rgba(22,163,74,.08)}
 .stp-mstrip .ms.sel{outline:2px solid var(--accent);outline-offset:1px}
 .stp-mnote{margin:6px 0 0}
+
+.stp-mstrip .ms .ab{font-style:normal;font-size:9.5px;font-weight:800;line-height:1;padding:1px 4px;border-radius:6px;margin-top:1px}
+.stp-mstrip .ms .ab.pos{color:#15803d;background:rgba(22,163,74,.12)}.stp-mstrip .ms .ab.neg{color:#b91c1c;background:rgba(220,38,38,.12)}
+.stp-rv{margin:6px 0 0;padding-inline-start:18px;font-size:13px}.stp-rv li{margin:2px 0}
+.jump-flash{outline:3px solid var(--accent);outline-offset:6px;border-radius:12px;transition:outline-color .6s}
+.cr-link{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.cr-link:hover,.cr-link:focus-visible{text-decoration-thickness:2px}
+
+.stp-mtitle{margin:0 0 4px;font-size:15px;font-weight:800;color:var(--heading)}
+
+.pf-grid td.lock{background:var(--soft,rgba(100,116,139,.08));color:var(--muted);font-variant-numeric:tabular-nums;text-align:center;font-size:13px;position:relative}
+.pf-grid td.fced input{background:#dbeafe !important;border-color:#60a5fa !important}
+html.dark .pf-grid td.fced input,[data-theme="dark"] .pf-grid td.fced input{background:rgba(96,165,250,.18) !important;color:inherit}
+.pf-fcout{margin:14px 0 4px}
+.pf-fct{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+.pf-fct th,.pf-fct td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:end;font-variant-numeric:tabular-nums}
+.pf-fct thead th{font-size:12px;color:var(--muted);font-weight:700}
+.pf-fct tbody th{text-align:start;font-weight:600}
+.pf-fct td.fy{font-weight:800;background:rgba(59,130,246,.07)}
+.pf-fct tr.net th,.pf-fct tr.net td{border-top:2px solid var(--heading);font-weight:800}
+.pf-fct td.neg{color:#dc2626}.pf-fct td.pos{color:#16a34a}
+.pf-fleg{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted);margin:0 0 10px}
+.pf-fleg i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-inline-end:5px;border:1px solid var(--line)}
+.pf-fleg i.l{background:rgba(100,116,139,.15)}.pf-fleg i.y{background:#fff7cc;border-color:#f5d76e}.pf-fleg i.c{background:#dbeafe;border-color:#60a5fa}
+[data-theme=dark] .pf-fleg i.y{background:rgba(250,204,21,.18)}[data-theme=dark] .pf-fleg i.c{background:rgba(96,165,250,.25)}
+[data-theme=dark] .pf-grid td.lock{background:rgba(148,163,184,.10)}
+[data-theme=dark] .pf-grid td.fced input{background:rgba(96,165,250,.22) !important;color:inherit}
 .brand-home{display:flex;align-items:center;gap:12px;min-width:0;flex:1;color:inherit;text-decoration:none}.brand-home:hover .brand-text b{text-decoration:underline}.brand-home .brand-text{display:flex;flex-direction:column}
 
 /* ===== Share Smart Spend (poster) ===== */
@@ -1828,10 +1855,11 @@ html[lang=ar] .hero-quote{font-style:normal}
 <p class="lead" data-ar="حدّد ميزانيتك لكل شهر من العام أولًا، ثم سجّل ما يحدث فعلًا. كل شيء آخر في الميزانية الشخصية (لوحة المتابعة، ومخطط التدفق، وفحص 50/30/20، ومقارنة الأداء) يُحسب مما تُدخله هنا.">Set your budget for each month of the year first, then record what actually happens. Everything else in Personal Budgeting (the Dashboard, the flow diagram, the 50/30/20 check and the performance comparison) is calculated from what you enter here.</p>
   <p class="cur-note"><svg class="ic" data-i="info"></svg><span data-ar="<b>ملاحظة:</b> حاليًا، العملات التي تتغير معها التعليقات تلقائيًا هي <b>الدولار الأمريكي والدولار الكندي والريال السعودي والبيزو الفلبيني</b>. العملات الأخرى تغيّر الرمز فقط، ولم تُخصَّص لها التعليقات والأمثلة بعد."><b>Note:</b> at the moment, the currencies with dynamic commentary are <b>USD, CAD, SAR and PHP</b>. Other currencies change the symbol, but the commentary and examples are not yet tailored to them.</span></p><div class="tool" id="fwTool">
    <div class="tool-head"><span class="tool-ic"><svg class="ic" data-i="piggy"></svg></span><div><div class="eyebrow" data-ar="الأداة التفاعلية 01">Interactive Tool 01</div><h3 data-ar="مخطط «ادفع لنفسك أولًا»">Pay-Yourself-First Planner</h3></div></div>
-   <div class="pf-bar"><div class="pf-tabs" role="tablist"><button type="button" role="tab" data-pf="b" onclick="pfTab('b')"><svg class="ic" data-i="pen"></svg><span data-ar="الميزانية">Budget</span></button><button type="button" role="tab" data-pf="a" onclick="pfTab('a')"><svg class="ic" data-i="check"></svg><span data-ar="الفعلي">Actual</span></button><button type="button" role="tab" data-pf="p" onclick="pfTab('p')"><svg class="ic" data-i="bars"></svg><span data-ar="تحليل الانحرافات">Variance Analysis</span></button></div></div>
+   <div class="pf-bar"><div class="pf-tabs" role="tablist"><button type="button" role="tab" data-pf="b" onclick="pfTab('b')"><svg class="ic" data-i="pen"></svg><span data-ar="الميزانية">Budget</span></button><button type="button" role="tab" data-pf="a" onclick="pfTab('a')"><svg class="ic" data-i="check"></svg><span data-ar="الفعلي">Actual</span></button><button type="button" role="tab" data-pf="f" onclick="pfTab('f')"><svg class="ic" data-i="trend"></svg><span data-ar="التوقع">Forecast</span></button><button type="button" role="tab" data-pf="p" onclick="pfTab('p')"><svg class="ic" data-i="bars"></svg><span data-ar="مراجعة الأداء">Performance Review</span></button></div></div>
    <p class="tiny muted pf-hint" id="pfHint"></p>
    <div id="pfEdit"><div class="pf-grid-wrap"><table class="pf-grid" id="pfGrid"></table></div>
    <div class="pf-actions no-print"><button class="btn light small" id="pfCopyBtn" onclick="pfCopy()"><svg class="ic" data-i="layers"></svg><span id="pfCopyLbl"></span></button><button class="btn light small" onclick="pfClearMonth()"><svg class="ic" data-i="x"></svg><span id="pfClearLbl"></span></button></div>
+   <div id="pfFcOut" class="pf-fcout" hidden></div>
    <h4 class="pf-sub" id="pfSubTitle"></h4>
    <div class="grid3 fw-results"><div class="result"><span class="tiny muted" data-ar="إجمالي الادخار">Total savings</span><strong id="fwSave">0</strong><small id="fwSavePct"></small></div><div class="result"><span class="tiny muted" data-ar="الدخل غير المقيّد">Unencumbered income</span><strong id="fwFree">0</strong><small data-ar="المتاح للإنفاق">free to spend</small></div><div class="result" id="fwNetBox"><span class="tiny muted" data-ar="صافي النقد">Net cash</span><strong id="fwNet">0</strong><small id="fwNetLbl"></small></div></div>
    <div class="fw-wf" id="fwChart"></div></div>
@@ -4772,10 +4800,11 @@ function pfCalc(o){
 }
 function pfSum(list){ const t = pfCalc({}); list.forEach(o => { const c = pfCalc(o); Object.keys(t).forEach(k => { t[k] += c[k]; }); }); return t; }
 const PFT = {
-  en: {b: "Budget", a: "Actual", inc: "Income", res: "Restricted", com: "Committed", asg: "Assigned", save: "Total savings", free: "Unencumbered income", freeS: "Unencumbered",
+  en: {b: "Budget", a: "Actual", fc: "Forecast", inc: "Income", res: "Restricted", com: "Committed", asg: "Assigned", save: "Total savings", free: "Unencumbered income", freeS: "Unencumbered",
        fix: "Fixed", vari: "Variable", home: "Back home", spend: "Total expenses", net: "Net cash", ofInc: p => `${p}% of income`, surplus: "surplus", short: "shortfall",
-       hint: {b: (m) => `Type your budget for each month in the grid. Totals and every chart update as you type. Selected: ${m}.`, a: (m) => `Type what actually happened in each month. Leave a month blank until it is over. Selected: ${m}.`, p: (m, v) => v === "ytd" ? `Variance analysis: actual against budget from January to ${m} (year to date).` : v === "year" ? `Variance analysis: actual against budget for the whole year.` : `Variance analysis: actual against budget for ${m}.`},
-       copyB: m => `Copy ${m} to all empty months`, copyA: m => `Copy ${m} budget into actual`, clearB: m => `Clear ${m} budget`, clearA: m => `Clear ${m} actual`, sub: m => `${m} at a glance`, year: "Year", line: "",
+       hint: {b: (m) => `Type your budget for each month in the grid. Totals and every chart update as you type. Selected: ${m}.`, a: (m) => `Type what actually happened in each month. Leave a month blank until it is over. Selected: ${m}.`, p: (m, v) => `Performance Review is for variance analysis: it compares actual with budget for ${v === "ytd" ? `January to ${m} (year to date)` : v === "year" ? "the whole year" : m}.`,
+           f: (m) => `Forecast for the balance of the year: months with actuals are locked. Check the budget for each remaining month and change any value you now expect to be different (for example a bonus, school fees or a trip). Selected: ${m}.`},
+       copyF: "Fill remaining months with the average of actuals", clearF: "Reset remaining months to budget", filledF: n => `Average of ${n} actual month(s) copied into the remaining months. Now adjust for anything you expect.`, resetF: "Remaining months reset to the budget.", copyB: m => `Copy ${m} to all empty months`, copyA: m => `Copy ${m} budget into actual`, clearB: m => `Clear ${m} budget`, clearA: m => `Clear ${m} actual`, sub: m => `${m} at a glance`, year: "Year", line: "",
        copiedB: n => `Copied to ${n} empty month(s).`, copiedA: "Budget copied into actual. Now adjust it to what really happened.",
        adv: {neg: x => `This month ends ${x} short. Before it starts, trim variable spending, spread the assigned savings over more months, or agree a lower amount back home for a while.`,
              tight: x => `Balanced: savings come first and only ${x} is left over. Keep a small buffer for surprises.`,
@@ -4787,10 +4816,10 @@ const PFT = {
               nobud: "No budget set for this period, so there is nothing to compare against yet."},
        col: {line: "", bud: "Budget", act: "Actual", varc: "Variance", pct: "Var %", st: "Status", last: "Actual last month", mom: "MoM change"},
        fav: "Favourable", unf: "Unfavourable", onb: "On budget", ytd: "YTD", mom: "MoM", kB: "Budget net cash", kA: "Actual net cash", kV: "Net cash B/(W)", kS: "Savings rate (actual)"},
-  ar: {b: "الميزانية", a: "الفعلي", inc: "الدخل", res: "مقيّد", com: "ملتزم به", asg: "مخصّص", save: "إجمالي الادخار", free: "الدخل غير المقيّد", freeS: "غير المقيّد",
+  ar: {b: "الميزانية", a: "الفعلي", fc: "التوقع", inc: "الدخل", res: "مقيّد", com: "ملتزم به", asg: "مخصّص", save: "إجمالي الادخار", free: "الدخل غير المقيّد", freeS: "غير المقيّد",
        fix: "ثابتة", vari: "متغيرة", home: "في الوطن", spend: "إجمالي المصروفات", net: "صافي النقد", ofInc: p => `${p}% من الدخل`, surplus: "فائض", short: "عجز",
-       hint: {b: (m) => `اكتب ميزانيتك لكل شهر في الجدول. تتحدث المجاميع وكل الرسوم أثناء الكتابة. المحدد: ${m}.`, a: (m) => `اكتب ما حدث فعلًا في كل شهر. اترك الشهر فارغًا حتى ينتهي. المحدد: ${m}.`, p: (m, v) => v === "ytd" ? `تحليل الانحرافات: الفعلي مقابل الميزانية من يناير حتى ${m} (منذ بداية العام).` : v === "year" ? `تحليل الانحرافات: الفعلي مقابل الميزانية للسنة كاملة.` : `تحليل الانحرافات: الفعلي مقابل الميزانية لشهر ${m}.`},
-       copyB: m => `انسخ ${m} إلى كل الأشهر الفارغة`, copyA: m => `انسخ ميزانية ${m} إلى الفعلي`, clearB: m => `امسح ميزانية ${m}`, clearA: m => `امسح فعلي ${m}`, sub: m => `${m} في لمحة`, year: "السنة", line: "",
+       hint: {b: (m) => `اكتب ميزانيتك لكل شهر في الجدول. تتحدث المجاميع وكل الرسوم أثناء الكتابة. المحدد: ${m}.`, a: (m) => `اكتب ما حدث فعلًا في كل شهر. اترك الشهر فارغًا حتى ينتهي. المحدد: ${m}.`, f: (m) => `توقع بقية السنة: الأشهر التي لها أرقام فعلية مقفلة. راجع ميزانية كل شهر متبقٍ وغيّر أي رقم تتوقع الآن أن يختلف (مثل مكافأة أو رسوم مدرسية أو سفر). المحدد: ${m}.`, p: (m, v) => `مراجعة الأداء مخصّصة لتحليل الانحرافات: تقارن الفعلي بالميزانية ${v === "ytd" ? `من يناير حتى ${m} (منذ بداية العام)` : v === "year" ? "للسنة كاملة" : `لشهر ${m}`}.`, pOld: (m, v) => v === "ytd" ? `تحليل الانحرافات: الفعلي مقابل الميزانية من يناير حتى ${m} (منذ بداية العام).` : v === "year" ? `تحليل الانحرافات: الفعلي مقابل الميزانية للسنة كاملة.` : `تحليل الانحرافات: الفعلي مقابل الميزانية لشهر ${m}.`},
+       copyF: "املأ الأشهر المتبقية بمتوسط الفعلي", clearF: "أعد الأشهر المتبقية إلى الميزانية", filledF: n => `نُسخ متوسط ${n} شهر فعلي إلى الأشهر المتبقية. عدّلها الآن لأي حدث متوقع.`, resetF: "أُعيدت الأشهر المتبقية إلى الميزانية.", copyB: m => `انسخ ${m} إلى كل الأشهر الفارغة`, copyA: m => `انسخ ميزانية ${m} إلى الفعلي`, clearB: m => `امسح ميزانية ${m}`, clearA: m => `امسح فعلي ${m}`, sub: m => `${m} في لمحة`, year: "السنة", line: "",
        copiedB: n => `تم النسخ إلى ${n} شهر فارغ.`, copiedA: "تم نسخ الميزانية إلى الفعلي. عدّلها الآن وفق ما حدث فعلًا.",
        adv: {neg: x => `ينتهي هذا الشهر بعجز قدره ${x}. قبل بدايته، قلّص الإنفاق المتغير، أو وزّع الادخار المخصّص على أشهر أكثر، أو اتفق مؤقتًا على مبلغ أقل للوطن.`,
              tight: x => `متوازن: الادخار أولًا، ولا يتبقّى سوى ${x}. احتفظ باحتياطي صغير للمفاجآت.`,
@@ -4812,25 +4841,38 @@ const pfFmt = v => (v < 0 ? "(" + Math.abs(Math.round(v)).toLocaleString("en-US"
 const pfSigned = v => (v > 0 ? "+" : v < 0 ? "−" : "") + money(Math.abs(Math.round(v)));
 
 function pfTab(t){ pfMode = t; updateFramework(); }
+/* Balance-of-year forecast: actual where recorded (locked), otherwise the forecast override, otherwise the budget */
+function pfFc(m){ const r = pfRec(pfYear, m); return pfHas(r.a) ? {k: "a", o: r.a} : r.fc ? {k: "f", o: r.fc} : {k: "b", o: r.b || {}}; }
+const pfVal = (m, md) => md === "f" ? pfFc(m).o : ((PF.data[pfYear] || {})[m] || {})[md];
 function pfSelect(m){ pfMonth = m; updateFramework(); }
 function pfCellInput(e){
   const t = e.target; if(!t.dataset || !t.dataset.f || pfMode === "p") return;
   const m = +t.dataset.m; PF.data[pfYear] = PF.data[pfYear] || {}; const rec = PF.data[pfYear][m] = PF.data[pfYear][m] || {};
-  rec[pfMode] = rec[pfMode] || {};
-  const v = t.value.trim(); rec[pfMode][t.dataset.f] = v === "" ? 0 : Math.max(0, Number(v) || 0);
-  if(!pfHas(rec[pfMode])) delete rec[pfMode];
+  const key = pfMode === "f" ? "fc" : pfMode;
+  if(pfMode === "f"){ if(pfHas(rec.a)) return; if(!rec.fc) rec.fc = {...(rec.b || {})}; }
+  rec[key] = rec[key] || {};
+  const v = t.value.trim(); rec[key][t.dataset.f] = v === "" ? 0 : Math.max(0, Number(v) || 0);
+  if(key !== "fc" && !pfHas(rec[key])) delete rec[key];
+  if(key === "fc" && t.parentElement) t.parentElement.classList.toggle("fced", Number(rec.fc[t.dataset.f] || 0) !== Number((rec.b || {})[t.dataset.f] || 0));
   PF.example = false; pfSave();
   if(pfMonth !== m) pfMonth = m;
   updateFramework(true);
 }
 function pfCopy(){
   const y = PF.data[pfYear] = PF.data[pfYear] || {}; const cur = y[pfMonth] = y[pfMonth] || {};
+  if(pfMode === "f"){ // re-run the remaining months from the average of the months already closed
+    const am = [...Array(12)].map((_, i) => i + 1).filter(m => pfHas((y[m] || {}).a)); if(!am.length) return;
+    const avg = {}; PF_F.forEach(k => { avg[k] = Math.round(am.reduce((s2, m) => s2 + (Number(y[m].a[k]) || 0), 0) / am.length); });
+    for(let m = 1; m <= 12; m++){ y[m] = y[m] || {}; if(!pfHas(y[m].a)) y[m].fc = {...avg}; }
+    PF.example = false; pfSave(); const g = $("pfGrid"); if(g) g.dataset.sig = ""; updateFramework(); pfNote(pft("filledF")(am.length)); return; }
   if(pfMode === "a"){ if(!pfHas(cur.b)) return; cur.a = {...cur.b}; pfSave(); updateFramework(); pfNote(pft("copiedA")); return; }
   if(!pfHas(cur.b)) return; let n = 0;
   for(let m = 1; m <= 12; m++){ if(m === pfMonth) continue; y[m] = y[m] || {}; if(!pfHas(y[m].b)){ y[m].b = {...cur.b}; n++; } }
   pfSave(); updateFramework(); pfNote(pft("copiedB")(n));
 }
-function pfClearMonth(){ const y = PF.data[pfYear] || {}; if(y[pfMonth] && pfMode !== "p"){ delete y[pfMonth][pfMode]; pfSave(); updateFramework(); } }
+function pfClearMonth(){ const y = PF.data[pfYear] || {};
+  if(pfMode === "f"){ Object.keys(y).forEach(m => { if(y[m]) delete y[m].fc; }); pfSave(); const g = $("pfGrid"); if(g) g.dataset.sig = ""; updateFramework(); pfNote(pft("resetF")); return; }
+  if(y[pfMonth] && pfMode !== "p"){ delete y[pfMonth][pfMode]; pfSave(); updateFramework(); } }
 function pfClearYear(){ PF.data[pfYear] = {}; PF.example = false; pfSave(); updateFramework(); }
 function pfExample(){ PF.data[pfYear] = pfExampleData(pfYear); PF.example = true; PF.exv = 2; pfMonth = 3; pfSave(); updateFramework(); }
 let pfNoteT; function pfNote(t){ const h = $("pfHint"); h.textContent = t; h.classList.add("flash"); clearTimeout(pfNoteT); pfNoteT = setTimeout(() => { h.classList.remove("flash"); updateFramework(); }, 2600); }
@@ -4840,7 +4882,7 @@ function updateFramework(fromInput){
   renderGlobal();
   document.querySelectorAll(".pf-tabs [data-pf]").forEach(b => b.setAttribute("aria-selected", String(b.dataset.pf === pfMode)));
   if(!$("pfHint").classList.contains("flash")) $("pfHint").textContent = pft("hint")[pfMode](pfMonLong(pfMonth), fwPeriod);
-  $("pfEdit").hidden = pfMode === "p"; $("pfPerf").hidden = pfMode !== "p";
+  $("pfEdit").hidden = pfMode === "p"; $("pfPerf").hidden = pfMode !== "p"; const fo = $("pfFcOut"); if(fo) fo.hidden = pfMode !== "f";
   
   if(pfMode === "p") pfRenderPerf(); else pfRenderEdit(fromInput);
   pfRenderRoll();
@@ -4854,8 +4896,8 @@ function pfRenderGrid(soft){
   const g = $("pfGrid"); if(!g) return;
   if(+g.dataset.lastM !== pfMonth){ const h = pfMonth > 6 ? 2 : 1; if(h !== pfHalf){ pfHalf = h; soft = false; } g.dataset.lastM = pfMonth; }
   const MS = pfHalf === 1 ? [1,2,3,4,5,6] : [7,8,9,10,11,12];
-  const y = PF.data[pfYear] || {}, md = pfMode, C = [...Array(12)].map((_, i) => pfCalc((y[i + 1] || {})[md]));
-  const T = pfSum([...Array(12)].map((_, i) => (y[i + 1] || {})[md])), H = pfSum(MS.map(m => (y[m] || {})[md]));
+  const y = PF.data[pfYear] || {}, md = pfMode, C = [...Array(12)].map((_, i) => pfCalc(pfVal(i + 1, md)));
+  const T = pfSum([...Array(12)].map((_, i) => pfVal(i + 1, md))), H = pfSum(MS.map(m => pfVal(m, md)));
   const fmt = v => v === 0 ? "–" : pfFmt(v), hl = (lang === "ar" ? "النصف " : "H") + pfHalf;
   const hb = $("pfHalf"); if(hb) hb.querySelectorAll("button").forEach(b => { const on = +b.dataset.h === pfHalf; b.classList.toggle("on", on); b.setAttribute("aria-pressed", on); });
   const sig = md + pfYear + lang + pfHalf;
@@ -4869,11 +4911,12 @@ function pfRenderGrid(soft){
     return;
   }
   g.dataset.sig = sig;
-  const head = `<thead><tr><th class="pg-line">${md === "b" ? pft("b") : pft("a")} · ${pfYear}</th>` + MS.map(m => { const r = y[m] || {};
+  const head = `<thead><tr><th class="pg-line">${md === "b" ? pft("b") : md === "f" ? pft("fc") : pft("a")} · ${pfYear}</th>` + MS.map(m => { const r = y[m] || {};
     return `<th data-m="${m}" class="${m === pfMonth ? "sel" : ""}" onclick="pfSelect(${m})">${pfMon(m)}<i class="st ${pfHas(r.a) ? "a" : pfHas(r.b) ? "b" : ""}"></i></th>`; }).join("")
     + `<th class="pg-tot pg-half">${hl}</th><th class="pg-tot">${pft("year")}</th></tr></thead>`;
-  const body = PF_GRID.map(([k, lab, inp]) => `<tr class="${inp ? "in" : k === "net" ? "net" : "calc"}"><th class="pg-line">${pft(lab)}</th>` + MS.map(m => { const i = m - 1, o = (y[m] || {})[md] || {};
-      return inp ? `<td data-col="${m}" class="${m === pfMonth ? "sel" : ""}"><input type="number" min="0" step="any" inputmode="decimal" data-m="${m}" data-f="${k}" value="${Number(o[k]) > 0 ? o[k] : ""}" aria-label="${pft(lab)} ${pfMon(m, "long")}"></td>`
+  const body = PF_GRID.map(([k, lab, inp]) => `<tr class="${inp ? "in" : k === "net" ? "net" : "calc"}"><th class="pg-line">${pft(lab)}</th>` + MS.map(m => { const i = m - 1, o = pfVal(m, md) || {}, lk = md === "f" && pfHas((y[m] || {}).a), ed = md === "f" && !lk && (y[m] || {}).fc && Number(((y[m] || {}).fc || {})[k] || 0) !== Number(((y[m] || {}).b || {})[k] || 0);
+      if(inp && lk) return `<td data-col="${m}" class="lock${m === pfMonth ? " sel" : ""}" title="${lang === "ar" ? "فعلي، مقفل" : "Actual, locked"}">${fmt(Number(o[k]) || 0)}</td>`;
+      return inp ? `<td data-col="${m}" class="${m === pfMonth ? "sel" : ""}${ed ? " fced" : ""}"><input type="number" min="0" step="any" inputmode="decimal" data-m="${m}" data-f="${k}" value="${Number(o[k]) > 0 ? o[k] : ""}" aria-label="${pft(lab)} ${pfMon(m, "long")}"></td>`
                  : `<td data-col="${m}" data-c="${k}-${m}" class="${m === pfMonth ? "sel" : ""}${C[i][k] < 0 ? " neg" : ""}">${fmt(C[i][k])}</td>`; }).join("")
     + `<td class="pg-tot pg-half${H[k] < 0 ? " neg" : ""}" data-h="${k}">${fmt(H[k])}</td><td class="pg-tot${T[k] < 0 ? " neg" : ""}" data-t="${k}">${fmt(T[k])}</td></tr>`).join("");
   g.innerHTML = head + `<tbody>${body}</tbody>`;
@@ -4882,11 +4925,12 @@ function pfRenderGrid(soft){
 function pfRenderEdit(fromInput){
   const ae = document.activeElement, inGrid = ae && ae.closest && ae.closest("#pfGrid");
   pfRenderGrid(!!(fromInput || inGrid));
-  const rec = pfRec(pfYear, pfMonth), o = rec[pfMode] || {}, mon = pfMon(pfMonth, "long");
-  $("pfCopyLbl").textContent = pfMode === "a" ? pft("copyA")(mon) : pft("copyB")(mon);
-  $("pfClearLbl").textContent = pfMode === "a" ? pft("clearA")(mon) : pft("clearB")(mon);
-  $("pfCopyBtn").disabled = !pfHas(rec.b);
-  $("pfSubTitle").textContent = pft("sub")(pfMonLong(pfMonth)) + " · " + (pfMode === "a" ? pft("a") : pft("b"));
+  const rec = pfRec(pfYear, pfMonth), o = pfVal(pfMonth, pfMode) || {}, mon = pfMon(pfMonth, "long"), F = pfMode === "f";
+  $("pfCopyLbl").textContent = F ? pft("copyF") : pfMode === "a" ? pft("copyA")(mon) : pft("copyB")(mon);
+  $("pfClearLbl").textContent = F ? pft("clearF") : pfMode === "a" ? pft("clearA")(mon) : pft("clearB")(mon);
+  $("pfCopyBtn").disabled = F ? !Object.values(PF.data[pfYear] || {}).some(r => r && pfHas(r.a)) : !pfHas(rec.b);
+  $("pfSubTitle").textContent = pft("sub")(pfMonLong(pfMonth)) + " · " + (F ? pft("fc") + (pfFc(pfMonth).k === "a" ? ` (${pft("a")})` : "") : pfMode === "a" ? pft("a") : pft("b"));
+  if(F) pfRenderFcOut();
   const C = pfCalc(o), sp = C.inc ? Math.round(C.save / C.inc * 100) : 0;
   $("fwSave").textContent = money(C.save); $("fwSavePct").textContent = pft("ofInc")(sp);
   $("fwFree").textContent = money(C.free);
@@ -5071,6 +5115,31 @@ function renderGlobal(){
   $("gSummary").textContent = sum;
   const hf = pfMonth > 6 ? 2 : 1; $("gMonths").dataset.half = hf;
   const hb = $("pfHalf"); if(hb) hb.querySelectorAll("button").forEach(b => { const on = +b.dataset.h === hf; b.classList.toggle("on", on); b.setAttribute("aria-pressed", on); });
+}
+
+/* Full-year outlook = actual year to date + forecast for the balance of the year, against the static budget */
+function pfRenderFcOut(){
+  const box = $("pfFcOut"); if(!box) return; const ar = lang === "ar", y = PF.data[pfYear] || {};
+  const ms = [...Array(12)].map((_, i) => i + 1), am = ms.filter(m => pfHas((y[m] || {}).a)), rm = ms.filter(m => !am.includes(m));
+  const A = pfSum(am.map(m => y[m].a)), Fc = pfSum(rm.map(m => pfFc(m).o)), B = pfSum(ms.map(m => (y[m] || {}).b));
+  const FY = {}; Object.keys(A).forEach(k => FY[k] = A[k] + Fc[k]);
+  const chg = rm.filter(m => y[m] && y[m].fc && PF_F.some(k => Number(y[m].fc[k] || 0) !== Number(((y[m].b) || {})[k] || 0)));
+  const L = [["inc", pft("inc"), 1], ["save", pft("save"), 1], ["spend", pft("spend"), -1], ["net", pft("net"), 1]];
+  const bw = (k, d) => { const v = (FY[k] - B[k]) * d; return `<td class="${v < -0.5 ? "neg" : v > 0.5 ? "pos" : ""}">${Math.abs(v) < 0.5 ? "–" : pfFmt(v)}</td>`; };
+  const rng = a => a.length ? (a.length === 1 ? pfMon(a[0]) : pfMon(a[0]) + "–" + pfMon(a[a.length - 1])) : "–";
+  const H = ar ? ["", `الفعلي (${rng(am)})`, `التوقع (${rng(rm)})`, "توقع السنة كاملة", "الميزانية الثابتة", "أفضل/(أسوأ)"] : ["", `Actual (${rng(am)})`, `Forecast (${rng(rm)})`, "Full-year forecast", "Static budget", "B/(W)"];
+  const rows = L.map(([k, lab, d]) => `<tr class="${k === "net" ? "net" : ""}"><th>${lab}</th><td>${pfFmt(A[k])}</td><td>${pfFmt(Fc[k])}</td><td class="fy">${pfFmt(FY[k])}</td><td>${pfFmt(B[k])}</td>${bw(k, d)}</tr>`).join("");
+  const d = FY.net - B.net, M = x => money(Math.round(Math.abs(x)));
+  let msg;
+  if(!am.length) msg = ar ? "لا توجد أرقام فعلية بعد، لذا التوقع يساوي الميزانية. سجّل الأشهر المنتهية في تبويب «الفعلي»." : "No actuals yet, so the forecast equals the budget. Record each month in the Actual tab once it is over.";
+  else msg = (ar ? `صافي النقد المتوقع للسنة كاملة ${FY.net < 0 ? "(" + M(FY.net) + ")" : M(FY.net)}، ` + (Math.abs(d) < 0.5 ? "مطابق للميزانية." : d > 0 ? `أفضل من الميزانية بـ ${M(d)}.` : `أسوأ من الميزانية بـ ${M(d)}.`)
+                 : `Full-year net cash is expected to be ${FY.net < 0 ? "(" + M(FY.net) + ")" : M(FY.net)}, ` + (Math.abs(d) < 0.5 ? "in line with the budget." : d > 0 ? `${M(d)} better than budget.` : `${M(d)} worse than budget.`))
+     + (FY.net < -0.5 ? (ar ? " قبل أن تبدأ الأشهر المتبقية، خفّض الإنفاق المتغير أو الادخار المخطط فيها." : " Before the remaining months start, lower their planned variable spending or saving.") : "")
+     + " " + (chg.length ? (ar ? `غيّرت التوقع في: ${chg.map(m => pfMon(m)).join("، ")}.` : `You changed the forecast for: ${chg.map(m => pfMon(m)).join(", ")}.`) : rm.length ? (ar ? "الأشهر المتبقية ما زالت مطابقة للميزانية؛ هل ما زالت واقعية؟" : "The remaining months still equal the budget; are they still realistic?") : "");
+  box.innerHTML = `<div class="pf-fleg"><span><i class="l"></i>${ar ? "رمادي: فعلي (مقفل)" : "Grey: actual (locked)"}</span><span><i class="y"></i>${ar ? "أصفر: ما زال مطابقًا للميزانية" : "Yellow: still the budget"}</span><span><i class="c"></i>${ar ? "أزرق: غيّرته عن الميزانية" : "Blue: changed from the budget"}</span></div><h4 class="pf-sub">${ar ? "نظرة على السنة كاملة" : "Full-year outlook"} · ${pfYear}</h4>
+    <div class="pf-grid-wrap"><table class="pf-fct"><thead><tr>${H.map(h => `<th>${h}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></div>
+    <p class="fw-advice ${FY.net < -0.5 ? "neg" : d >= -0.5 ? "pos" : ""}">${msg}</p>
+    <p class="tiny muted">${ar ? "توقع السنة كاملة = الفعلي للأشهر المنتهية + التوقع لبقية السنة. الميزانية الثابتة لا تتغير، فتبقى مرجعًا للمقارنة. أفضل/(أسوأ) = توقع السنة كاملة مقابل الميزانية؛ الأقواس تعني أسوأ." : "Full-year forecast = actuals for the months that are over + forecast for the balance of the year. The static budget does not change, so it stays the yardstick. B/(W) = better/(worse): full-year forecast against budget; brackets mean worse."}</p>`;
 }
 
 "use strict";
@@ -5396,6 +5465,11 @@ document.addEventListener("DOMContentLoaded", () => {
     setHash("#" + id);
     if(activeView !== "budgeting") _show("budgeting", false);
     if(typeof closeNav === "function") closeNav();
+    if(!BUD_CH.includes(id)){ // a tool inside a chapter: open its chapter, then scroll to the tool and highlight it
+      const ch = chapterOf(id), el = $(id);
+      if(ch && el){ showChapter(ch); if(typeof goSection === "function") goSection(ch, "#" + id); else setTimeout(() => el.scrollIntoView({behavior: "smooth", block: "start"}), 120);
+        setTimeout(() => { setHash("#" + id); el.classList.add("jump-flash"); setTimeout(() => el.classList.remove("jump-flash"), 1800); }, 1000); return; }
+    }
     showChapter(id);
   };
   window.showView = function(view, push){ const r = _show.apply(this, arguments); if(view === "budgeting") showChapter(budCh, {keepScroll: false}); return r; };
@@ -5950,7 +6024,8 @@ function renderSteps(){
   const net = inc - exp - sav;
   // steps 4 and 7 are checked for the period chosen in the Period bar (MoM month, YTD or Year)
   const pMs = fwPeriod === "mom" ? [pfMonth] : fwPeriod === "ytd" ? [...Array(pfMonth)].map((_, i) => i + 1) : [...Array(12)].map((_, i) => i + 1);
-  const pRows = pMs.map(m => efRolling(pfYear, m)).filter(Boolean), PT = pfSum(pRows.map(r => r.o));
+  const bOf = m => { const r = (y[m] || {}).b; return pfHas(r) ? r : null; };
+  const pRows = pMs.map(bOf).filter(Boolean), PT = pfSum(pRows);
   const pInc = PT.inc, pExp = PT.f + PT.v + PT.h, pSav = PT.r + PT.c + PT.a, pNet = pInc - pExp - pSav;
   const now = new Date(), curY = now.getFullYear(), curM = now.getMonth() + 1;
   const pastMs = pMs.filter(m => pfYear < curY || (pfYear === curY && m < curM)); // months that are over and can be reviewed
@@ -5988,8 +6063,8 @@ function renderSteps(){
   g += `<circle cx="${cx}" cy="${cy}" r="70" class="cyc-core"/><circle cx="${cx}" cy="${cy}" r="70" class="cyc-ring" stroke-dasharray="${(2 * Math.PI * 70 * pctDone / 100).toFixed(1)} 999" transform="rotate(-90 ${cx} ${cy})"/>
     <text x="${cx}" y="${cy - 4}" text-anchor="middle" class="cyc-big">${ok}/${tot}</text><text x="${cx}" y="${cy + 20}" text-anchor="middle" class="cyc-sm">${ar ? "خطوات مكتملة" : "steps in place"}</text><text x="${cx}" y="${cy + 38}" text-anchor="middle" class="cyc-per">${perLbl}</text></svg>`;
   $("stpMap").innerHTML = g;
-  const NX = ar ? ["ابدأ بإدخال ميزانيتك في مخطط الميزانية.", "أدخل دخلك لستة أشهر على الأقل لتحصل على متوسط موثوق.", "أدخل مصروفاتك لشهرين على الأقل.", `صافي النقد في ${perLbl} سالب: ${sg(pNet)}. قلّل الإنفاق أو الادخار المخطط لهذه الفترة.`, "اكتب هدفًا واحدًا على الأقل في الفصل 03.", "", `سجّل الأرقام الفعلية لـ ${missA.map(m => pfMonS(m)).join("، ")} في تبويب «الفعلي».`]
-                 : ["Start by entering your budget in the Budget planner.", "Enter income for at least 6 months to get a reliable average.", "Enter your expenses for at least 2 months.", `Net cash for ${perLbl} is negative: ${sg(pNet)}. Trim spending or the planned saving for this period.`, "Write at least one target in Chapter 03.", "", `Record actuals for ${missA.map(m => pfMonS(m)).join(", ")} in the Actual tab.`];
+  const NX = ar ? ["ابدأ بإدخال ميزانيتك في مخطط الميزانية.", "أدخل دخلك لستة أشهر على الأقل لتحصل على متوسط موثوق.", "أدخل مصروفاتك لشهرين على الأقل.", `صافي النقد في ميزانية ${perLbl} سالب: ${sg(pNet)}. عدّل تبويب الميزانية: خفّض الإنفاق أو الادخار المخطط.`, "اكتب هدفًا واحدًا على الأقل في الفصل 03.", "", `سجّل الأرقام الفعلية لـ ${missA.map(m => pfMonS(m)).join("، ")} في تبويب «الفعلي».`]
+                 : ["Start by entering your budget in the Budget planner.", "Enter income for at least 6 months to get a reliable average.", "Enter your expenses for at least 2 months.", `Budgeted net cash for ${perLbl} is negative: ${sg(pNet)}. Adjust the Budget tab: lower planned spending or saving.`, "Write at least one target in Chapter 03.", "", `Record actuals for ${missA.map(m => pfMonS(m)).join(", ")} in the Actual tab.`];
   $("stpNext").innerHTML = nextI >= 0
     ? `<span class="nx-tag">${ar ? "خطوتك التالية" : "Your next step"}</span><b>${nextI + 1}. ${T[nextI]}</b><p>${NX[nextI]}</p><button class="btn dash-primary small" type="button" onclick="document.getElementById('stp${nextI + 1}').scrollIntoView({behavior:'smooth',block:'center'})">${ar ? "اذهب إلى الخطوة" : "Go to step"} ${nextI + 1}</button>`
     : `<span class="nx-tag done">${ar ? "أحسنت" : "Well done"}</span><b>${ar ? "كل الخطوات القابلة للقياس مكتملة" : "All measurable steps are in place"}</b><p>${ar ? "كرّر الدورة كل شهر: راجع، عدّل، وابدأ من جديد." : "Repeat the cycle each month: review, adjust and start again."}</p>`;
@@ -6006,20 +6081,21 @@ function renderSteps(){
        <div class="stp-leg"><span><i class="f"></i>${ar ? "ثابتة" : "Fixed"} ${M(f)} (${pc(f)}%)</span><span><i class="v"></i>${ar ? "متغيرة" : "Variable"} ${M(v)} (${pc(v)}%)</span><span><i class="h"></i>${ar ? "الأسرة في الوطن" : "Back home"} ${M(h)} (${pc(h)}%)</span></div>
        <small>${ar ? `متوسط شهري لـ ${n6} ${n6 === 1 ? "شهر" : "أشهر"}. المصروفات الثابتة تأخذ ${inc ? Math.round(f / inc * 100) : 0}% من الدخل.` : `Monthly average over ${n6} month${n6 === 1 ? "" : "s"}. Fixed costs take ${inc ? Math.round(f / inc * 100) : 0}% of income.`}</small>`);
   let v4, c4;
-  const negMs = pMs.filter(m => { const r = efRolling(pfYear, m); return r && pfCalc(r.o).net < -0.5; });
-  const negTxt = fwPeriod !== "mom" && negMs.length ? (ar ? ` <span class="warn">صافي نقدي سالب في: ${negMs.map(m => pfMonS(m)).join("، ")}.</span>` : ` <span class="warn">Negative net cash in: ${negMs.map(m => pfMonS(m)).join(", ")}.</span>`) : "";
+  const negMs = pMs.filter(m => { const r = bOf(m); return r && pfCalc(r).net < -0.5; });
+  const negTxt = fwPeriod !== "mom" && negMs.length ? (ar ? ` <span class="warn">صافي نقد الميزانية سالب في: ${negMs.map(m => pfMonS(m)).join("، ")}.</span>` : ` <span class="warn">Budget net cash is negative in: ${negMs.map(m => pfMonS(m)).join(", ")}.</span>`) : "";
   if(!pRows.length){ c4 = ""; v4 = ar ? `لا توجد أرقام لـ ${perLbl}.` : `No figures for ${perLbl}.`; }
-  else if(pNet > 0.5){ c4 = "pos"; v4 = (ar ? `<b>صافي النقد في ${perLbl}: ${sg(pNet)}</b>. الدخل ${M(pInc)} يغطي المصروفات ${M(pExp)} والادخار ${M(pSav)}. وجّه الفائض إلى هدف.` : `<b>Net cash for ${perLbl}: ${sg(pNet)}</b>. Income ${M(pInc)} covers expenses ${M(pExp)} and savings ${M(pSav)}. Send the surplus to a goal.`) + negTxt; }
-  else if(pNet < -0.5){ c4 = "neg"; v4 = (ar ? `<b>صافي النقد في ${perLbl}: ${sg(pNet)}</b>. الدخل ${M(pInc)} أقل من المصروفات ${M(pExp)} مع الادخار ${M(pSav)}. قلّل الإنفاق المتغير، أو خفّض الادخار المخطط لهذا الشهر، أو زد دخلك (الخطوة 6).` : `<b>Net cash for ${perLbl}: ${sg(pNet)}</b>. Income ${M(pInc)} does not cover expenses ${M(pExp)} plus savings ${M(pSav)}. Trim variable spending, lower the planned saving for this month, or grow your income (step 6).`) + negTxt; }
-  else { c4 = "mid"; v4 = (ar ? `<b>صافي النقد في ${perLbl}: صفر</b>. كل ريال له وجهة؛ هذا مقبول، لكن لا يوجد هامش للطوارئ.` : `<b>Net cash for ${perLbl}: zero</b>. Every unit of income has a job; that is fine, but there is no cushion.`) + negTxt; }
+  else if(pNet > 0.5){ c4 = "pos"; v4 = (ar ? `<b>صافي النقد في ميزانية ${perLbl}: ${sg(pNet)}</b>. الدخل المخطط ${M(pInc)} يغطي المصروفات ${M(pExp)} والادخار ${M(pSav)}. وجّه الفائض إلى هدف.` : `<b>Budgeted net cash for ${perLbl}: ${sg(pNet)}</b>. Planned income ${M(pInc)} covers expenses ${M(pExp)} and savings ${M(pSav)}. Send the surplus to a goal.`) + negTxt; }
+  else if(pNet < -0.5){ c4 = "neg"; v4 = (ar ? `<b>صافي النقد في ميزانية ${perLbl}: ${sg(pNet)}</b>. الدخل المخطط ${M(pInc)} أقل من المصروفات ${M(pExp)} مع الادخار ${M(pSav)}. عدّل الميزانية: قلّل الإنفاق المتغير المخطط، أو خفّض الادخار المخطط، أو زد دخلك (الخطوة 6).` : `<b>Budgeted net cash for ${perLbl}: ${sg(pNet)}</b>. Planned income ${M(pInc)} does not cover expenses ${M(pExp)} plus savings ${M(pSav)}. Adjust the budget: trim planned variable spending, lower the planned saving, or grow your income (step 6).`) + negTxt; }
+  else { c4 = "mid"; v4 = (ar ? `<b>صافي النقد في ميزانية ${perLbl}: صفر</b>. كل ريال له وجهة؛ هذا مقبول، لكن لا يوجد هامش للطوارئ.` : `<b>Budgeted net cash for ${perLbl}: zero</b>. Every unit of income has a job; that is fine, but there is no cushion.`) + negTxt; }
   // month-by-month check strip (each month must have net cash of 0 or more)
-  let strip = `<div class="stp-mstrip" role="group" aria-label="${ar ? "فحص كل شهر" : "Monthly check"}">`;
-  for(let m = 1; m <= 12; m++){ const r = efRolling(pfYear, m), n = r ? pfCalc(r.o).net : null;
+  let strip = `<div class="stp-mstrip" role="group" aria-label="${ar ? "فحص كل شهر" : "Month-by-Month Check"}">`;
+  for(let m = 1; m <= 12; m++){ const bo = bOf(m), n = bo ? pfCalc(bo).net : null, ao = (y[m] || {}).a, an = pfHas(ao) ? pfCalc(ao).net : null;
     const cl = n === null ? "na" : n < -0.5 ? "neg" : "pos", inP = pMs.includes(m) ? " inp" : "", sel = m === pfMonth ? " sel" : "";
-    const tip = n === null ? (ar ? "لا أرقام" : "No figures") : `${ar ? "صافي النقد" : "Net cash"} ${sg(n)} · ${r.k === "a" ? (ar ? "فعلي" : "Actual") : (ar ? "ميزانية" : "Budget")}`;
-    strip += `<button type="button" class="ms ${cl}${inP}${sel}" title="${pfMonS(m)}: ${tip}" onclick="pfSelect(${m})"><span>${pfMonS(m)}</span><i>${n === null ? "–" : n < -0.5 ? "✕" : "✓"}</i></button>`; }
-  strip += `</div><p class="tiny muted stp-mnote">${ar ? "كل شهر يُفحص وحده: ✓ صافي نقدي صفر أو أكثر، ✕ سالب. انقر على شهر لفحصه. المصدر: الفعلي إن وُجد، وإلا الميزانية." : "Each month is tested on its own: ✓ net cash of zero or more, ✕ negative. Click a month to check it. Uses actuals where recorded, otherwise budget."}</p>`;
-  const ms = $("stpMonths"); if(ms) ms.innerHTML = `<div class="stp-check">${ar ? "يُفحص الآن:" : "Checking:"} <b>${perLbl}</b> · ${fwPeriod === "mom" ? (ar ? "شهري" : "MoM") : fwPeriod === "ytd" ? "YTD" : (ar ? "سنة" : "Year")}</div>` + strip;
+    const tip = (n === null ? (ar ? "لا ميزانية" : "No budget") : `${ar ? "الميزانية" : "Budget"} ${sg(n)}`) + (an === null ? "" : ` · ${ar ? "الفعلي" : "Actual"} ${sg(an)}`);
+    const ab = an === null ? "" : `<em class="ab ${an < -0.5 ? "neg" : "pos"}">${ar ? "ف" : "A"} ${an < -0.5 ? "✕" : "✓"}</em>`;
+    strip += `<button type="button" class="ms ${cl}${inP}${sel}" title="${pfMonS(m)}: ${tip}" onclick="pfSelect(${m})"><span>${pfMonS(m)}</span><i>${n === null ? "–" : n < -0.5 ? "✕" : "✓"}</i>${ab}</button>`; }
+  strip += `</div><p class="tiny muted stp-mnote">${ar ? "الخطوة 4 تفحص الميزانية (ما زال بإمكانك تعديلها): ✓ صافي نقد صفر أو أكثر، ✕ سالب. «ف» = النتيجة الفعلية، لا تُعدَّل بل تُراجَع في الخطوة 7. انقر على شهر لفحصه." : "Step 4 tests the budget, the plan you can still change: ✓ net cash of zero or more, ✕ negative. \"A\" is the actual result; it can't be changed, so it is reviewed in step 7. Click a month to check it."}</p>`;
+  const ms = $("stpMonths"); if(ms) ms.innerHTML = `<h4 class="stp-mtitle">${ar ? "فحص كل شهر" : "Month-by-Month Check"}</h4><div class="stp-check">${ar ? "يُفحص الآن:" : "Checking:"} <b>${perLbl}</b> · ${fwPeriod === "mom" ? (ar ? "شهري" : "MoM") : fwPeriod === "ytd" ? "YTD" : (ar ? "سنة" : "Year")}</div>` + strip;
   set("stpV4", v4); const s4 = $("stpV4"); if(s4) s4.className = "stp-val " + c4;
   document.querySelectorAll("#stp4 .stp-cmp button").forEach(b => { const on = b.dataset.r === c4; b.classList.toggle("you", on); let t = b.querySelector(".you-tag"); if(on && !t){ t = document.createElement("i"); t.className = "you-tag"; b.prepend(t); } if(t){ t.textContent = ar ? "أنت هنا" : "You are here"; t.hidden = !on; } });
   set("stpV5", goals ? (ar ? `كتبت <b>${goals}</b> ${goals === 1 ? "هدفًا" : "أهداف"} في جدول «هدفي» في المقدمة.` : `You have written <b>${goals}</b> target${goals === 1 ? "" : "s"} in the My target table (Introduction).`) : (ar ? "لم تكتب أهدافًا بعد؛ اختر مثالًا أدناه أو اكتب هدفك في المقدمة." : "No targets written yet. Pick an example below or write your own in the Introduction."));
@@ -6027,7 +6103,13 @@ function renderSteps(){
   set("stpV6", fI && lI && fI.m !== lI.m && fI.o.inc
     ? (ar ? `الدخل في ${pfMonLong(lI.m)}: <b>${M(lI.o.inc)}</b> مقابل ${M(fI.o.inc)} في ${pfMonLong(fI.m)} (${lI.o.inc >= fI.o.inc ? "+" : ""}${Math.round((lI.o.inc / fI.o.inc - 1) * 100)}%). كل ${M(1000)} إضافية شهريًا تعني ${M(12000)} في السنة.` : `Income in ${pfMonLong(lI.m)}: <b>${M(lI.o.inc)}</b> vs ${M(fI.o.inc)} in ${pfMonLong(fI.m)} (${lI.o.inc >= fI.o.inc ? "+" : ""}${Math.round((lI.o.inc / fI.o.inc - 1) * 100)}%). Every extra ${M(1000)} a month adds ${M(12000)} a year.`)
     : (ar ? `كل ${M(1000)} إضافية شهريًا تعني ${M(12000)} في السنة.` : `Every extra ${M(1000)} a month adds ${M(12000)} a year.`));
-  set("stpV7", aMonths ? (ar ? `سجّلت أرقامًا فعلية لـ <b>${aMonths}</b> ${aMonths === 1 ? "شهر" : "أشهر"}؛ قارنها بالميزانية في «تحليل الانحرافات».` : `You have recorded actuals for <b>${aMonths}</b> month${aMonths === 1 ? "" : "s"}; compare them with the budget in Variance Analysis.`) : (ar ? "لا أرقام فعلية بعد؛ سجّلها في تبويب «الفعلي» كل شهر." : "No actuals yet. Record them in the Actual tab each month."));
+  const LBL = ar ? {inc: "الدخل", r: "المقيّد", c: "الملتزم", a: "المخصّص", f: "الثابتة", v: "المتغيرة", h: "الأسرة في الوطن"} : {inc: "Income", r: "Restricted", c: "Committed", a: "Assigned", f: "Fixed", v: "Variable", h: "Back home"};
+  const rv = pMs.filter(m => pfHas((y[m] || {}).a)).map(m => { const A = pfCalc(y[m].a), B = pfCalc(bOf(m) || {}), d = A.net - B.net;
+    let top = null, tv = 0; ["inc", "r", "c", "a", "f", "v", "h"].forEach(k => { const e = k === "inc" ? A[k] - B[k] : B[k] - A[k]; if(Math.abs(e) > Math.abs(tv)) { tv = e; top = k; } });
+    return {m, an: A.net, bn: B.net, d, top, tv, sv: ["r", "c", "a"].includes(top)}; });
+  const rvTxt = rv.length ? `<ul class="stp-rv">${rv.map(x => `<li><b>${pfMonS(x.m)}</b>: ${ar ? "الفعلي" : "actual"} ${sg(x.an)} ${ar ? "مقابل ميزانية" : "vs budget"} ${sg(x.bn)}${Math.abs(x.d) > 0.5 && x.top ? ` · ${ar ? "السبب الرئيسي" : "main driver"}: ${LBL[x.top]} ${x.tv < 0 ? (ar ? "أعلى من المخطط بـ" : "above plan by") : (ar ? "أفضل من المخطط بـ" : "better than plan by")} ${M(Math.abs(x.tv))}${x.sv && x.tv < 0 ? (ar ? " (ادخار إضافي، ليس إنفاقًا زائدًا)" : " (extra saving, not overspending)") : ""}` : ""}${x.an < -0.5 ? (x.sv && x.tv < 0 ? (ar ? ". الدرس: الادخار الإضافي جيد، لكن خطّط له في الميزانية حتى لا يصبح صافي النقد سالبًا." : ". Lesson: saving more is good, but put it in the budget so net cash stays at zero or more.") : (ar ? ". الدرس: عدّل ميزانية الشهر القادم." : ". Lesson: adjust next month's budget.")) : ""}</li>`).join("")}</ul>` : "";
+  set("stpV7", aMonths ? (ar ? `سجّلت أرقامًا فعلية لـ <b>${aMonths}</b> ${aMonths === 1 ? "شهر" : "أشهر"}؛ قارنها بالميزانية في «مراجعة الأداء».` : `You have recorded actuals for <b>${aMonths}</b> month${aMonths === 1 ? "" : "s"}; compare them with the budget in Performance Review.`) : (ar ? "لا أرقام فعلية بعد؛ سجّلها في تبويب «الفعلي» كل شهر." : "No actuals yet. Record them in the Actual tab each month."));
+  { const e7 = $("stpV7"); if(e7 && rvTxt) e7.innerHTML += rvTxt; }
   // saving ideas (Save & Realign) and highlights (Review)
   const setC = (cls, html) => document.querySelectorAll("." + cls).forEach(e => e.innerHTML = html);
   setC("siv-var", n6 ? (ar ? `إنفاقك المتغير: <b>${M(v)}</b> شهريًا (${inc ? Math.round(v / inc * 100) : 0}% من الدخل). هذا أول مكان تبحث فيه عن التوفير.` : `Your variable spending: <b>${M(v)}</b> a month (${inc ? Math.round(v / inc * 100) : 0}% of income). This is the first place to look for savings.`) : "");
@@ -6151,7 +6233,7 @@ function exPick(step, i){
 }
 function exGoInput(f, m){
   if(m) pfMonth = m;
-  if(typeof pfMode !== "undefined" && pfMode === "p") pfMode = "b";
+  if(typeof pfMode !== "undefined" && (pfMode === "p" || pfMode === "f")) pfMode = "b";
   try{ jumpChapter({preventDefault(){}}, "planner"); }catch(e){}
   try{ updateFramework(true); }catch(e){}
   setTimeout(() => {
