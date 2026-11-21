@@ -1207,6 +1207,23 @@ body{background:#f4f6f9}
 [dir=rtl] .sh-axis b{transform:translateX(50%)}
 .sh-axis b:first-child{transform:none}[dir=rtl] .sh-axis b:first-child{transform:none}
 .dash-share-note{font-size:13.5px;font-weight:600;color:var(--heading);margin:10px 0 4px}
+/* Performance Review: grouped horizontal bars */
+.cmp-leg{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted);font-weight:700}.cmp-leg>span{display:inline-flex;align-items:center;gap:5px}
+.hbars{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px 10px;display:grid;gap:14px}
+.hb-grp{display:grid;gap:5px}.hb-grp.net{border-top:2px solid var(--heading);padding-top:12px}
+.hb-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.hb-h b{font-size:14px;color:var(--heading)}.hb-grp.net .hb-h b{font-size:15px}
+.hb-bw{font-size:12.5px;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}.hb-bw.pos{color:var(--c-good)}.hb-bw.neg{color:var(--c-bad)}
+.hb-line{display:grid;grid-template-columns:58px minmax(0,1fr) 112px;align-items:center;gap:10px;font-size:12.5px}
+.hb-k{color:var(--muted)}
+.hb-track{position:relative;height:20px}
+.hb-bar{position:absolute;top:0;bottom:0;border-radius:5px}
+.hb-bar.cb{background:var(--c-budget)}.hb-bar.ca{background:var(--c-actual)}.hb-bar.ca.worse{background:var(--c-bad)}
+.hb-zero{position:absolute;top:-4px;bottom:-4px;border-inline-start:1.5px solid var(--muted)}
+.hb-na{position:absolute;inset:0;display:flex;align-items:center;font-size:11.5px;font-style:italic;color:var(--muted)}
+.hb-v{text-align:end;font-weight:800;color:var(--heading);font-variant-numeric:tabular-nums;white-space:nowrap}.hb-v.neg{color:var(--c-bad)}
+.hb-per{margin:2px 0 0;font-size:12px;font-weight:700;color:var(--muted);text-align:center}
+@media (max-width:560px){.hb-line{grid-template-columns:48px minmax(0,1fr) 92px;gap:6px}}
 .brand-home{display:flex;align-items:center;gap:12px;min-width:0;flex:1;color:inherit;text-decoration:none}.brand-home:hover .brand-text b{text-decoration:underline}.brand-home .brand-text{display:flex;flex-direction:column}
 
 /* ===== Share Smart Spend (poster) ===== */
@@ -2015,7 +2032,7 @@ html[lang=ar] .hero-quote{font-style:normal}
    <h4 class="pf-sub" id="pfSubTitle"></h4>
    <div class="grid3 fw-results"><div class="result"><span class="tiny muted" data-ar="إجمالي الادخار">Total savings</span><strong id="fwSave">0</strong><small id="fwSavePct"></small></div><div class="result"><span class="tiny muted" data-ar="الدخل غير المقيّد">Unencumbered income</span><strong id="fwFree">0</strong><small data-ar="المتاح للإنفاق">free to spend</small></div><div class="result" id="fwNetBox"><span class="tiny muted" data-ar="صافي النقد">Net cash</span><strong id="fwNet">0</strong><small id="fwNetLbl"></small></div></div>
    <div class="fw-wf" id="fwChart"></div></div>
-   <div id="pfPerf" hidden><div class="pf-kpis" id="pfKpis"></div><div class="tablewrap"><table class="fw-table pf-ptable" id="pfPTable"></table></div><div class="pv-note"><b data-ar="كيف تقرأ الجدول">How to read this table</b><ul><li data-ar="<b>B/(W)</b> = أفضل/(أسوأ) من الميزانية. الرقم العادي أفضل من الميزانية، والرقم بين قوسين أسوأ منها."><b>B/(W)</b> = Better/(Worse) than budget. A plain number is better than budget; a number in (brackets) is worse.</li><li data-ar="<b>Abs</b> = القيمة المطلقة: فرق المبلغ بين الفعلي والميزانية. <b>%</b> = هذا الفرق ÷ الميزانية."><b>Abs</b> = absolute amount: the money gap between actual and budget. <b>%</b> = that gap ÷ budget.</li><li data-ar="<b>n.m.</b> = غير ذي دلالة: يظهر عندما يكون أحد الرقمين موجبًا والآخر سالبًا، فتصبح النسبة مضللة. <b>n/a</b> = لا توجد ميزانية للمقارنة."><b>n.m.</b> = not meaningful: shown when one figure is positive and the other negative, so a % would mislead. <b>n/a</b> = no budget to compare with.</li><li data-ar="«أفضل» يعني: دخل أو ادخار أكثر من المخطط، أو إنفاق أقل منه. «أسوأ» عكس ذلك.">“Better” means more income or savings than planned, or less spending. “Worse” is the opposite.</li><li data-ar="تُقارن فقط الأشهر التي سُجّلت لها أرقام فعلية، حسب الشهر المختار وخيار MoM أو YTD أو السنة.">Only months with actual figures are compared, using the selected month and the MoM, YTD or Year choice.</li></ul></div><div class="pf-roll pv-chart"><div class="pf-roll-h"><h4 data-ar="الفعلي مقابل الميزانية">Actual vs budget</h4><label class="dash-pick small"><span data-ar="البند">Line</span><select id="pfMetric" aria-label="Line"></select></label></div><p class="tiny muted" id="pfEvoSub"></p><div class="fw-evo-wrap" id="pfEvo"></div></div></div>
+   <div id="pfPerf" hidden><div class="pf-kpis" id="pfKpis"></div><div class="tablewrap"><table class="fw-table pf-ptable" id="pfPTable"></table></div><div class="pv-note"><b data-ar="كيف تقرأ الجدول">How to read this table</b><ul><li data-ar="<b>B/(W)</b> = أفضل/(أسوأ) من الميزانية. الرقم العادي أفضل من الميزانية، والرقم بين قوسين أسوأ منها."><b>B/(W)</b> = Better/(Worse) than budget. A plain number is better than budget; a number in (brackets) is worse.</li><li data-ar="<b>Abs</b> = القيمة المطلقة: فرق المبلغ بين الفعلي والميزانية. <b>%</b> = هذا الفرق ÷ الميزانية."><b>Abs</b> = absolute amount: the money gap between actual and budget. <b>%</b> = that gap ÷ budget.</li><li data-ar="<b>n.m.</b> = غير ذي دلالة: يظهر عندما يكون أحد الرقمين موجبًا والآخر سالبًا، فتصبح النسبة مضللة. <b>n/a</b> = لا توجد ميزانية للمقارنة."><b>n.m.</b> = not meaningful: shown when one figure is positive and the other negative, so a % would mislead. <b>n/a</b> = no budget to compare with.</li><li data-ar="«أفضل» يعني: دخل أو ادخار أكثر من المخطط، أو إنفاق أقل منه. «أسوأ» عكس ذلك.">“Better” means more income or savings than planned, or less spending. “Worse” is the opposite.</li><li data-ar="تُقارن فقط الأشهر التي سُجّلت لها أرقام فعلية، حسب الشهر المختار وخيار MoM أو YTD أو السنة.">Only months with actual figures are compared, using the selected month and the MoM, YTD or Year choice.</li></ul></div><div class="pf-roll pv-chart"><div class="pf-roll-h"><h4 data-ar="الفعلي مقابل الميزانية">Actual vs budget</h4><span class="cmp-leg"><span><i class="dot bdot"></i><span data-ar="الميزانية">Budget</span></span><span><i class="dot sdot"></i><span data-ar="الفعلي">Actual</span></span><span><i class="dot odot"></i><span data-ar="الفعلي أسوأ من الميزانية">Actual worse than budget</span></span></span></div><p class="tiny muted" id="pfEvoSub"></p><div class="fw-evo-wrap" id="pfEvo"></div></div></div>
    <p class="fw-advice" id="fwAdvice" role="status"></p>
    <div hidden><div id="pfTable"></div><div id="pfChart"></div></div>
    <div class="pf-actions no-print"><button class="btn light small" onclick="pfExample()"><svg class="ic" data-i="spark"></svg><span data-ar="تحميل مثال الدورة">Load the course example</span></button><button class="btn light small" onclick="pfClearYear()"><svg class="ic" data-i="x"></svg><span data-ar="مسح هذا العام">Clear this year</span></button><span class="tiny muted" data-ar="تُحفظ الأرقام في هذا المتصفح فقط.">Figures are saved in this browser only.</span></div>
@@ -5820,56 +5837,38 @@ function renderBalance(){
   try{ renderBalance(); }catch(e){}
 })();
 
-/* ===== Variance Analysis: Actual vs Budget column chart (2 columns, period from the header) ===== */
+/* ===== Performance Review: Actual vs Budget, grouped horizontal bars for the four headline lines ===== */
 let pfMetric = "spend";
-function pfEvoCmp(){
+function pfEvoCmp(){ // grouped horizontal bars: Income, Total savings, Total expenses, Net cash — Budget vs Actual
   const box = $("pfEvo"); if(!box) return;
   const ar = lang === "ar", y = PF.data[pfYear] || {};
-  const MET = {inc: [pft("inc"), 1], save: [pft("save"), 1], spend: [pft("spend"), -1], net: [pft("net"), 1]};
-  const val = (m, k) => { const r = (y[m] || {})[k]; return pfHas(r) ? pfCalc(r)[pfMetric] : null; };
+  const MET = [["inc", pft("inc"), 1], ["save", pft("save"), 1], ["spend", pft("spend"), -1], ["net", pft("net"), 1]];
   const months = fwPeriod === "mom" ? [pfMonth] : fwPeriod === "ytd" ? [...Array(pfMonth)].map((_, i) => i + 1) : [...Array(12)].map((_, i) => i + 1);
-  const withA = months.filter(m => val(m, "a") !== null);
-  const base = withA.length ? withA : months, sum = (ms, k) => ms.reduce((s, m) => s + (val(m, k) || 0), 0);
-  const hasB = base.some(m => val(m, "b") !== null);
-  const B = hasB ? sum(base, "b") : null, A = withA.length ? sum(withA, "a") : null;
+  const withA = months.filter(m => pfHas((y[m] || {}).a)), base = withA.length ? withA : months;
+  const hasB = base.some(m => pfHas((y[m] || {}).b));
+  const tot = (ms, k, f) => ms.reduce((s2, m) => s2 + (pfHas((y[m] || {})[k]) ? pfCalc(y[m][k])[f] : 0), 0);
+  const rows = MET.map(([f, lab, d]) => ({f, lab, d, B: hasB ? tot(base, "b", f) : null, A: withA.length ? tot(withA, "a", f) : null}));
   const per = fwPeriod === "mom" ? pfMonLong(pfMonth) : fwPeriod === "ytd" ? (ar ? `منذ بداية العام: يناير–${pfMonLong(pfMonth)}` : `YTD: Jan–${pfMonLong(pfMonth)}`) : (ar ? `السنة ${pfYear}` : `Full year ${pfYear}`);
-  const cur = currency || "";
-  const W = 640, H = 330, L = 44, R = 20, T = 44, Bm = 62, plotW = W - L - R;
-  const vals = [B, A].filter(v => v !== null);
-  const rawMx = Math.max(1, ...vals, 0), rawMn = Math.min(0, ...vals), rng = rawMx - rawMn || 1;
-  const p10 = Math.pow(10, Math.floor(Math.log10(rng / 4))), st = [1, 2, 2.5, 5, 10].map(k => k * p10).find(k => rng / k <= 5);
-  const mx = Math.ceil(rawMx / st) * st, mn = Math.floor(rawMn / st) * st, span = mx - mn || 1;
-  const Yv = v => T + (mx - v) / span * (H - T - Bm), z = Yv(0);
-  let o = `<svg viewBox="0 0 ${W} ${H}" class="pf-cols pf-cmp" role="img" aria-label="${MET[pfMetric][0]} · ${per}">`;
-  o += `<line x1="${L}" x2="${W - R}" y1="${z.toFixed(1)}" y2="${z.toFixed(1)}" class="zl"/><line x1="${L}" x2="${L}" y1="${T - 6}" y2="${H - Bm}" class="zl"/>`;
-  const cols = [[B, "cb", ar ? "الميزانية" : "Budget"], [A, "ca", ar ? "الفعلي" : "Actual"]], slot = plotW / 2, bw = Math.min(120, slot * .5);
-  cols.forEach(([v, c, lab], i) => {
-    const cx = L + slot * i + slot / 2, x = cx - bw / 2;
-    if(v === null) o += `<text x="${cx}" y="${(z - 10).toFixed(1)}" text-anchor="middle" class="vl na">${ar ? "لا توجد أرقام" : "No figures yet"}</text>`;
-    else { const y1 = Math.min(Yv(v), z), h = Math.max(2, Math.abs(Yv(v) - z));
-      o += `<rect x="${x.toFixed(1)}" y="${y1.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="6" class="${c}${v < 0 ? " neg" : ""}"><title>${lab}: ${money(v)}</title></rect>`
-         + `<text x="${cx}" y="${(v >= 0 ? y1 - 8 : y1 + h + 16).toFixed(1)}" text-anchor="middle" class="vl big">${money(v)}</text>`; }
-    o += `<text x="${cx}" y="${H - Bm + 22}" text-anchor="middle" class="cat">${lab}</text>`;
-  });
-  // axis titles
-  o += `<text transform="translate(16 ${((T + H - Bm) / 2).toFixed(0)}) rotate(-90)" text-anchor="middle" class="axt">${ar ? "المبلغ" : "Amount"} (${cur})</text>`;
-  o += `<text x="${L + plotW / 2}" y="${H - 10}" text-anchor="middle" class="axt">${ar ? "الفترة" : "Period"}: ${per}</text>`;
-  o += `<text x="${L}" y="20" class="lg">${MET[pfMetric][0]}</text>`;
-  if(A !== null && B !== null){ const good = (A - B) * MET[pfMetric][1], cls = Math.abs(good) < .5 ? "" : good > 0 ? "pos" : "neg";
-    o += `<text x="${W - R}" y="20" text-anchor="end" class="bw ${cls}">B/(W): ${Math.abs(good) < .5 ? "–" : (good < 0 ? "(" : "") + money(Math.abs(good)) + (good < 0 ? ")" : "")}</text>`; }
-  box.innerHTML = o + `</svg>`;
+  const all = rows.flatMap(r => [r.B, r.A]).filter(v => v !== null);
+  const mx = Math.max(1, ...all, 0), mn = Math.min(0, ...all), span = mx - mn || 1;
+  const pos = v => (v - mn) / span * 100, z = pos(0);
+  const bar = (v, cls, lab) => { if(v === null) return `<div class="hb-line"><span class="hb-k">${lab}</span><span class="hb-track"><span class="hb-na">${ar ? "لا توجد أرقام" : "No figures yet"}</span></span><span class="hb-v">–</span></div>`;
+    const a = Math.min(pos(v), z), w = Math.max(.6, Math.abs(pos(v) - z));
+    return `<div class="hb-line"><span class="hb-k">${lab}</span><span class="hb-track"><span class="hb-bar ${cls}" style="inset-inline-start:${a.toFixed(2)}%;width:${w.toFixed(2)}%" title="${lab}: ${money(v)}"></span>${mn < 0 ? `<i class="hb-zero" style="inset-inline-start:${z.toFixed(2)}%"></i>` : ""}</span><span class="hb-v${v < 0 ? " neg" : ""}">${v < 0 ? "(" + money(-v) + ")" : money(v)}</span></div>`; };
+  let o = `<div class="hbars" role="img" aria-label="${ar ? "الفعلي مقابل الميزانية" : "Actual vs budget"} · ${per}">`;
+  rows.forEach(r => { const good = r.A !== null && r.B !== null ? (r.A - r.B) * r.d : null, worse = good !== null && good < -0.5;
+    const bw = good === null ? "" : `<span class="hb-bw ${Math.abs(good) < .5 ? "" : good > 0 ? "pos" : "neg"}">B/(W) ${Math.abs(good) < .5 ? "–" : (good < 0 ? "(" : "") + money(Math.abs(good)) + (good < 0 ? ")" : "")}</span>`;
+    o += `<div class="hb-grp${r.f === "net" ? " net" : ""}"><div class="hb-h"><b>${r.lab}</b>${bw}</div>${bar(r.B, "cb", ar ? "الميزانية" : "Budget")}${bar(r.A, worse ? "ca worse" : "ca", ar ? "الفعلي" : "Actual")}</div>`; });
+  o += `<p class="hb-per">${ar ? "الفترة" : "Period"}: ${per} · ${ar ? "المبالغ" : "Amounts"} (${currency || ""})</p></div>`;
+  box.innerHTML = o;
   const sub = $("pfEvoSub");
   if(sub) sub.textContent = ar
-    ? `${MET[pfMetric][0]}: الفعلي مقابل الميزانية لـ ${per}.${fwPeriod !== "mom" && withA.length ? " تشمل الميزانية الأشهر نفسها التي لها أرقام فعلية فقط." : ""}`
-    : `${MET[pfMetric][0]}: actual against budget for ${per}.${fwPeriod !== "mom" && withA.length ? " The budget covers only the months that have actual figures." : ""}`;
-  const sel = $("pfMetric");
-  if(sel){ sel.innerHTML = Object.entries(MET).map(([k, v]) => `<option value="${k}">${v[0]}</option>`).join(""); sel.value = pfMetric; }
+    ? `الدخل والادخار والمصروفات وصافي النقد: الفعلي مقابل الميزانية لـ ${per}.${fwPeriod !== "mom" && withA.length ? " تشمل الميزانية الأشهر نفسها التي لها أرقام فعلية فقط." : ""}`
+    : `Income, savings, expenses and net cash: actual against budget for ${per}.${fwPeriod !== "mom" && withA.length ? " The budget covers only the months that have actual figures." : ""}`;
 }
 (function(){
   const _r = window.pfRenderRoll;
   window.pfRenderRoll = function(){ const r = _r.apply(this, arguments); try{ pfEvoCmp(); }catch(e){ console.error(e); } return r; };
-  const sel = $("pfMetric");
-  if(sel) sel.addEventListener("input", e => { e.stopPropagation(); pfMetric = e.target.value; pfEvoCmp(); }, true);
   try{ pfEvoCmp(); }catch(e){}
 })();
 
