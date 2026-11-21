@@ -1106,6 +1106,90 @@ html.dark .pf-grid td.fced input,[data-theme="dark"] .pf-grid td.fced input{back
 @media (max-width:760px){.flowmap .fm-row{grid-template-columns:minmax(0,1fr)}.fm-arrow{justify-self:center;transform:rotate(90deg)}.fm-arrow.loop{transform:rotate(90deg)}.howwhy{grid-template-columns:minmax(0,1fr)}}
 [dir=rtl] .fm-arrow:not(.loop),[dir=rtl] .fs-row i{display:inline-block;transform:scaleX(-1)}
 @media (max-width:760px){[dir=rtl] .fm-arrow:not(.loop){transform:rotate(90deg)}}
+/* Similarity: Budget and Actual use the same colours as the Performance Review chart everywhere */
+:root{--c-budget:#003A6C;--c-actual:#15976f;--c-over:#c4503a}
+[data-theme=dark]{--c-budget:#3D7CC0}
+i.dot.bdot{background:var(--c-budget);border:0}i.dot.sdot{background:var(--c-actual)}i.dot.odot{background:var(--c-over)}
+svg.dash-flow-svg .bb{fill:var(--c-budget);fill-opacity:.45;stroke:none}
+svg.dash-flow-svg .bsel{fill:var(--c-budget);fill-opacity:1}
+svg.dash-flow-svg .sb2{fill:var(--c-actual);fill-opacity:.45}
+svg.dash-flow-svg .ssel{fill:var(--c-actual);fill-opacity:1}
+svg.dash-flow-svg .ssel.over{fill:var(--c-over);fill-opacity:1}svg.dash-flow-svg .sb2.over{fill:var(--c-over);fill-opacity:.45}
+.pf-cols .cb,.pf-cols .lb{fill:var(--c-budget)}.pf-cols .ca,.pf-cols .la{fill:var(--c-actual)}.pf-cols .ca.neg{fill:var(--c-over)}
+/* ===== flow map v2 (Gestalt: proximity, similarity, common region, continuity, closure) ===== */
+.fm2{display:grid;grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr);align-items:stretch;gap:6px;margin:16px 0 8px}
+.fm2-grp{border-radius:18px;padding:12px 10px 10px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.fm2-grp.ctl{background:rgba(0,58,108,.06)}.fm2-grp.grow{background:rgba(21,151,111,.08)}
+.fm2-lab{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding-inline-start:6px}
+.fm2-grp.ctl .fm2-lab{color:var(--c-budget)}.fm2-grp.grow .fm2-lab{color:var(--c-actual)}
+.fm2-cards{display:grid;grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr);align-items:center;gap:4px;flex:1}
+.fm2-card{display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:start;background:transparent;border:0;border-radius:12px;padding:8px;cursor:pointer;color:var(--text);font:inherit;height:100%;min-width:0;transition:background .15s}
+.fm2-card:hover,.fm2-card:focus-visible{background:var(--card)}
+.fm2-top{display:flex;align-items:center;gap:8px;margin-bottom:2px}
+.fm2-top .ic{width:20px;height:20px}
+.fm2-n{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:11.5px;font-weight:800;color:#fff}
+.ctl .fm2-n{background:var(--c-budget)}.ctl .fm2-top .ic{color:var(--c-budget)}
+.grow .fm2-n{background:var(--c-actual)}.grow .fm2-top .ic{color:var(--c-actual)}
+.fm2-card>b{font-size:15.5px;color:var(--heading)}.fm2-f b{font-weight:800;color:var(--heading)}
+.fm2-card small{font-size:12.5px;color:var(--muted);line-height:1.4}
+.fm2-f{font-size:12px;line-height:1.45;color:var(--text);margin-top:4px;padding-top:6px;border-top:1px dashed var(--line);width:100%}
+.fm2-arrow,.fm2-loop{display:grid;place-items:center;align-self:center}
+.fm2-arrow svg{width:26px;height:14px;fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fm2-loop svg{width:40px;height:58px;fill:none;stroke:var(--c-actual);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.fm2-note{font-size:13.5px;color:var(--muted);margin:4px 0 0}
+[dir=rtl] .fm2-arrow svg,[dir=rtl] .fm2-loop svg{transform:scaleX(-1)}
+@media (max-width:900px){.fm2{grid-template-columns:minmax(0,1fr)}.fm2>.fm2-arrow{transform:rotate(90deg);height:26px}[dir=rtl] .fm2>.fm2-arrow svg{transform:none}}
+@media (max-width:560px){.fm2-cards{grid-template-columns:minmax(0,1fr)}.fm2-cards>.fm2-arrow{transform:rotate(90deg)}.fm2-loop{transform:rotate(90deg)}}
+.fs-pill.ctl span{color:var(--c-budget)}.fs-pill.grow span{color:var(--c-actual)}
+.fs-pill.ctl.on{background:var(--c-budget);border-color:var(--c-budget);color:#fff}.fs-pill.grow.on{background:var(--c-actual);border-color:var(--c-actual);color:#fff}
+.fs-pill.on span{color:#fff}
+/* ================= Gestalt rules, site-wide =================
+   Similarity: one colour = one meaning. Comparison charts: Budget = navy, Actual = green, Worse/over = red.
+   Closure: no gridlines where bars carry their own labels or a tooltip gives the value. */
+:root{--c-good:#15976f;--c-bad:#c4503a}
+/* Budget markers everywhere = navy */
+.pf-ptable thead th.tb,.fw-table thead th.tb{background:var(--c-budget)!important}
+.pf-ptable thead th.ta,.fw-table thead th.ta{background:var(--c-actual)!important}
+svg .fw-evo rect.bud,.fw-evo rect.bud{fill:var(--c-budget)!important;fill-opacity:.85}.fw-evo rect.bud.neg{fill:var(--c-budget)!important;fill-opacity:.5}
+.fw-evo rect.act{fill:var(--c-actual)!important}.fw-evo rect.act.neg{fill:var(--c-bad)!important}
+.fw-evo .kl.b{fill:var(--c-budget)!important}.fw-evo .kl.a{fill:var(--c-actual)!important}
+.pf-bars .pb{fill:var(--c-budget)!important;fill-opacity:.85}.pf-bars .pa{fill:var(--c-actual)!important}.pf-bars .pa.neg{fill:var(--c-bad)!important}
+i.dot.pbd{background:var(--c-budget)}i.dot.pad{background:var(--c-actual)}
+.pf-grid thead th i.st.b,.pf-m .st.b,.fg-leg .st.b,.fg-leg i.st.b{background:var(--c-budget)!important}
+.pf-grid thead th i.st.a,.pf-m .st.a,.fg-leg .st.a,.fg-leg i.st.a{background:var(--c-actual)!important}
+.pf-grid thead th.sel i.st.b{background:#fff!important;box-shadow:0 0 0 2px var(--c-budget)}
+.pf-tabs button[data-pf=b][aria-selected=true]{color:var(--c-budget)!important}.pf-tabs button[data-pf=a][aria-selected=true]{color:var(--c-actual)!important}
+[data-theme=dark] .pf-tabs button[data-pf=b][aria-selected=true]{color:#7fb0e6!important}
+.fs-c i.a{background:var(--c-actual)!important}.fs-c i.neg{background:var(--c-bad)!important}
+/* Radar (last 6 months, actual against budget): actual = green, the 100% budget ring = navy */
+svg.dash-radar-svg .area{fill:var(--c-actual);fill-opacity:.22;stroke:var(--c-actual)}
+svg.dash-radar-svg .dotp{fill:var(--c-actual)}svg.dash-radar-svg .dotp.on{fill:var(--c-actual)}
+svg.dash-radar-svg .ring.r100{stroke:var(--c-budget);stroke-opacity:.7;stroke-dasharray:4 3}
+/* One red for "worse / negative", one green for "better / positive" */
+.pf-fct td.neg,.stp-mstrip .ms.neg i,.rd.no .rd-i{color:var(--c-bad)}.pf-fct td.pos,.stp-mstrip .ms.pos i{color:var(--c-good)}
+.rd.no .rd-i{background:var(--c-bad);color:#fff}.rd.ok .rd-i{background:var(--c-good);color:#fff}
+.stp-mstrip .ms .ab.neg{color:var(--c-bad)}.stp-mstrip .ms .ab.pos{color:var(--c-good)}
+/* Closure: remove gridlines, keep only the zero baseline */
+svg.dash-flow-svg line.grid:not(.z){display:none}
+#fwChart line.gl:not(.z){display:none}#fwChart text.ax{display:none}
+/* Variance columns are a different kind of number from Budget/Actual: neutral slate, not navy */
+.pf-ptable thead th.tv{background:#4b5b70!important;color:#fff!important}
+[data-theme=dark] .pf-ptable thead th.tv{background:#5b6b82!important}
+.pf-ptable td.pv-ins.neg{color:var(--c-bad)!important}.pf-ptable td.pv-ins.pos{color:var(--c-good)!important}
+/* ===== Figure and ground: quiet neutral page, colour only where it means something ===== */
+:root{--bg:#f4f6f9}
+body{background:#f4f6f9}
+.topbar{background:rgba(244,246,249,.88)!important}
+.chapter-nav{background:rgba(244,246,249,.92)!important}
+[data-theme=dark]{--bg:#0b1220}
+[data-theme=dark] body{background:#0b1220}
+[data-theme=dark] .topbar{background:rgba(11,18,32,.86)!important}
+[data-theme=dark] .chapter-nav{background:rgba(11,18,32,.9)!important}
+/* Banners: "control" parts and the overview are navy; "grow" parts keep navy-to-green */
+.view .sheet.hero{background:linear-gradient(125deg,#0b1a35 0%,#003a6c 100%)}
+#networth .sheet.hero,#investments .sheet.hero{background:linear-gradient(125deg,#0b1a35 0%,#003a6c 55%,#15976f 100%)}
+[data-theme=dark] .view .sheet.hero{background:linear-gradient(125deg,#08142b 0%,#0f3a66 100%)}
+[data-theme=dark] #networth .sheet.hero,[data-theme=dark] #investments .sheet.hero{background:linear-gradient(125deg,#08142b 0%,#0f3a66 55%,#0f7a5a 100%)}
 .brand-home{display:flex;align-items:center;gap:12px;min-width:0;flex:1;color:inherit;text-decoration:none}.brand-home:hover .brand-text b{text-decoration:underline}.brand-home .brand-text{display:flex;flex-direction:column}
 
 /* ===== Share Smart Spend (poster) ===== */
@@ -1698,7 +1782,7 @@ html[lang=ar] .hero-quote{font-style:normal}
    <div class="ti-group"><h4><svg class="ic" data-i="pie"></svg><span data-ar="الاستثمارات">Investments</span> <em>2</em></h4><button onclick="goTool('investments','feeTool')"><svg class="ic flip" data-i="arrow"></svg><span data-ar="محاكي رسوم المنصات">Platform fee simulator</span></button><button onclick="goTool('investments','ddTool')"><svg class="ic flip" data-i="arrow"></svg><span data-ar="قائمة العناية الواجبة">Due-diligence checklist</span></button></div>
   </div>
  </section>
-<section class="sheet flowmap" id="howItConnects"><div class="section-head"><div class="section-icon"><svg class="ic" data-i="flow"></svg></div><div><div class="eyebrow" data-ar="ابدأ من هنا">Start here</div><h2 data-ar="كيف ترتبط الأجزاء الأربعة">How the four parts connect</h2></div></div><p class="lead" data-ar="يتبع Smart Spend مسارًا واحدًا: <b>خطّط</b> لمالك، ثم <b>تحقّق</b> مما حدث فعلًا، ثم <b>قِس</b> النتيجة، ثم <b>نمِّ</b> ما يتبقى.">Smart Spend follows one path: <b>plan</b> your money, <b>check</b> what really happened, <b>measure</b> the result, then <b>grow</b> what is left over.</p><div class="fm-row"><button type="button" class="fm-card" onclick="showView('budgeting')"><span class="fm-n">1</span><span class="fm-ic"><svg class="ic" data-i="wallet"></svg></span><b data-ar="الميزانية">Budget</b><small data-ar="أين يجب أن يذهب مالي كل شهر؟">Where should my money go each month?</small></button><span class="fm-arrow" aria-hidden="true">→</span><button type="button" class="fm-card" onclick="showView('cashflow')"><span class="fm-n">2</span><span class="fm-ic"><svg class="ic" data-i="flow"></svg></span><b data-ar="التدفق النقدي">Cash Flow</b><small data-ar="أين ذهب مالي فعلًا؟">Where did my money actually go?</small></button><span class="fm-arrow" aria-hidden="true">→</span><button type="button" class="fm-card" onclick="showView('networth')"><span class="fm-n">3</span><span class="fm-ic"><svg class="ic" data-i="scale"></svg></span><b data-ar="صافي الثروة">Net Worth</b><small data-ar="ما أملكه ناقص ما عليّ؟">What do I own minus what I owe?</small></button><span class="fm-arrow loop" aria-hidden="true">⇄</span><button type="button" class="fm-card" onclick="showView('investments')"><span class="fm-n">4</span><span class="fm-ic"><svg class="ic" data-i="trend"></svg></span><b data-ar="الاستثمار">Invest</b><small data-ar="كيف أنمّي المال الفائض؟">How do I grow the extra money?</small></button></div><div class="fm-steps"><p data-ar="<b>1 الميزانية:</b> الدخل − ادفع لنفسك أولًا − الإنفاق = صافي النقد."><b>1 Budget:</b> income − pay yourself first − spending = net cash.</p><p data-ar="<b>2 التدفق النقدي:</b> المال الداخل − المال الخارج = صافي التدفق؛ أضفه إلى الرصيد الافتتاحي لتحصل على الرصيد الختامي."><b>2 Cash Flow:</b> money in − money out = net cash flow; add it to your opening balance to get your closing balance.</p><p data-ar="<b>3 صافي الثروة:</b> ما تملكه − ما عليك. بنود الادخار والفائض ترفعه شهرًا بعد شهر."><b>3 Net Worth:</b> what you own − what you owe. Your savings lines and surplus raise it month after month.</p><p data-ar="<b>4 الاستثمار:</b> بعد اكتمال صندوق الطوارئ، استثمر الفائض. أرباح الاستثمار تضاف إلى ما تملكه فترتفع الثروة مجددًا: <b>3 و4 تدور في حلقة</b> (⇄)."><b>4 Invest:</b> once your emergency fund is full, invest the surplus. Investment gains add to what you own, which raises net worth again: <b>3 and 4 form a loop</b> (⇄).</p></div><div class="howwhy"><div><b data-ar="«كيف»">The “How”</b><p data-ar="<b>مخطط الميزانية</b> يبيّن «كيف»: مبلغ كل بند في كل شهر.">The <b>Budget planner</b> shows how: the amount for each line, each month.</p></div><div><b data-ar="«لماذا»">The “Why”</b><p data-ar="<b>الفصل 06 أفسح المجال للنمو</b> يبيّن «لماذا»: كل بند ادخار يبني ما تملكه، والفائض هو ما يمكنك استثماره."><b>Chapter 06 Make Room for Future Growth</b> shows why: every saving line builds what you own, and the surplus is what you can invest.</p></div></div></section>
+<section class="sheet flowmap" id="howItConnects"><div class="section-head"><div class="section-icon"><svg class="ic" data-i="flow"></svg></div><div><div class="eyebrow" data-ar="ابدأ من هنا">Start here</div><h2 data-ar="كيف ترتبط الأجزاء الأربعة">How the four parts connect</h2></div></div><p class="lead" data-ar="يتبع Smart Spend مسارًا واحدًا: <b>خطّط</b> لمالك، ثم <b>تحقّق</b> مما حدث فعلًا، ثم <b>قِس</b> النتيجة، ثم <b>نمِّ</b> ما يتبقى.">Smart Spend follows one path: <b>plan</b> your money, <b>check</b> what really happened, <b>measure</b> the result, then <b>grow</b> what is left over.</p><div class="fm2"><div class="fm2-grp ctl"><div class="fm2-lab" data-ar="تحكّم في مالك">Control your money</div><div class="fm2-cards"><button type="button" class="fm2-card" onclick="showView('budgeting')"><span class="fm2-top"><span class="fm2-n">1</span><svg class="ic" data-i="wallet"></svg></span><b data-ar="الميزانية">Budget</b><small data-ar="أين يجب أن يذهب مالي كل شهر؟">Where should my money go each month?</small><span class="fm2-f" data-ar="الدخل − ادفع لنفسك أولًا − الإنفاق = <b>صافي النقد</b>">Income − pay yourself first − spending = <b>net cash</b></span></button><span class="fm2-arrow" aria-hidden="true"><svg viewBox="0 0 28 14"><path d="M1 7 H25" /><path d="M20 2 L26 7 L20 12" /></svg></span><button type="button" class="fm2-card" onclick="showView('cashflow')"><span class="fm2-top"><span class="fm2-n">2</span><svg class="ic" data-i="flow"></svg></span><b data-ar="التدفق النقدي">Cash Flow</b><small data-ar="أين ذهب مالي فعلًا؟">Where did my money actually go?</small><span class="fm2-f" data-ar="الداخل − الخارج + الرصيد الافتتاحي = <b>الرصيد الختامي</b>">Money in − money out + opening balance = <b>closing balance</b></span></button></div></div><span class="fm2-arrow" aria-hidden="true"><svg viewBox="0 0 28 14"><path d="M1 7 H25" /><path d="M20 2 L26 7 L20 12" /></svg></span><div class="fm2-grp grow"><div class="fm2-lab" data-ar="نمِّ مالك · حلقة">Grow your money · a loop</div><div class="fm2-cards"><button type="button" class="fm2-card" onclick="showView('networth')"><span class="fm2-top"><span class="fm2-n">3</span><svg class="ic" data-i="scale"></svg></span><b data-ar="صافي الثروة">Net Worth</b><small data-ar="ما أملكه ناقص ما عليّ؟">What do I own minus what I owe?</small><span class="fm2-f" data-ar="ما تملكه − ما عليك = <b>صافي الثروة</b>">What you own − what you owe = <b>net worth</b></span></button><span class="fm2-loop" aria-label="loop"><svg viewBox="0 0 44 64" aria-hidden="true"><path d="M6 24 Q22 6 38 24" /><path d="M33 19 L38 24 L31 26" /><path d="M38 40 Q22 58 6 40" /><path d="M11 45 L6 40 L13 38" /></svg></span><button type="button" class="fm2-card" onclick="showView('investments')"><span class="fm2-top"><span class="fm2-n">4</span><svg class="ic" data-i="trend"></svg></span><b data-ar="الاستثمار">Invest</b><small data-ar="كيف أنمّي المال الفائض؟">How do I grow the extra money?</small><span class="fm2-f" data-ar="استثمر الفائض بعد اكتمال صندوق الطوارئ؛ <b>الأرباح تعود إلى صافي الثروة</b>">Invest the surplus after a full emergency fund; <b>gains go back to net worth</b></span></button></div></div></div><p class="fm2-note" data-ar="الجزآن 1 و2 يُبقيان مالك تحت السيطرة. والجزآن 3 و4 يدوران في حلقة: الاستثمار يرفع صافي ثروتك، وثروة أعلى مع فائض ثابت تسمح لك باستثمار المزيد.">Parts 1 and 2 keep your money under control. Parts 3 and 4 turn into a loop: investing raises your net worth, and a higher net worth with steady surplus lets you invest more.</p><div class="howwhy"><div><b data-ar="«كيف»">The “How”</b><p data-ar="<b>مخطط الميزانية</b> يبيّن «كيف»: مبلغ كل بند في كل شهر.">The <b>Budget planner</b> shows how: the amount for each line, each month.</p></div><div><b data-ar="«لماذا»">The “Why”</b><p data-ar="<b>الفصل 06 أفسح المجال للنمو</b> يبيّن «لماذا»: كل بند ادخار يبني ما تملكه، والفائض هو ما يمكنك استثماره."><b>Chapter 06 Make Room for Future Growth</b> shows why: every saving line builds what you own, and the surplus is what you can invest.</p></div></div></section>
 
 
  <section class="sheet share-sheet no-print" id="shareSmartSpend">
@@ -1871,7 +1955,7 @@ html[lang=ar] .hero-quote{font-style:normal}
   <p data-ar="لست بحاجة إلى أن تكون خبيرًا ماليًا لتكون ذكيًا مع المال. ابدأ بخطة بسيطة، وافهم إنفاقك، واجعل مالك يعمل لما يهمك.">You don’t need to be a finance expert to be smart with money. Start with a simple plan, understand your spending, and make your money work toward what matters.</p>
   <span class="pill" data-ar="خطط ← تتبّع ← ادّخر ← نمِّ">PLAN → TRACK → SAVE → GROW</span>
  </section>
-<div class="flowstrip no-print"><div class="fs-row"><button type="button" class="fs-pill on" onclick="showView('budgeting')" aria-current="step"><span>1</span><span data-ar="الميزانية">Budget</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill" onclick="showView('cashflow')"><span>2</span><span data-ar="التدفق النقدي">Cash Flow</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill" onclick="showView('networth')"><span>3</span><span data-ar="صافي الثروة">Net Worth</span></button><i aria-hidden="true">⇄</i><button type="button" class="fs-pill" onclick="showView('investments')"><span>4</span><span data-ar="الاستثمار">Invest</span></button></div><p class="fs-txt" data-ar="<b>الجزء 1 من 4: خطّط.</b> حدّد أين يذهب مالك كل شهر. بعدها يتحقق التدفق النقدي مما حدث فعلًا."><b>Part 1 of 4: plan.</b> Set where your money goes each month. Next, Cash Flow checks what really happened.</p></div>
+<div class="flowstrip no-print"><div class="fs-row"><button type="button" class="fs-pill ctl on" onclick="showView('budgeting')" aria-current="step"><span>1</span><span data-ar="الميزانية">Budget</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill ctl" onclick="showView('cashflow')"><span>2</span><span data-ar="التدفق النقدي">Cash Flow</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill grow" onclick="showView('networth')"><span>3</span><span data-ar="صافي الثروة">Net Worth</span></button><i aria-hidden="true">⇄</i><button type="button" class="fs-pill grow" onclick="showView('investments')"><span>4</span><span data-ar="الاستثمار">Invest</span></button></div><p class="fs-txt" data-ar="<b>الجزء 1 من 4: خطّط.</b> حدّد أين يذهب مالك كل شهر. بعدها يتحقق التدفق النقدي مما حدث فعلًا."><b>Part 1 of 4: plan.</b> Set where your money goes each month. Next, Cash Flow checks what really happened.</p></div>
 
 
  <nav class="chapter-nav no-print" aria-label="Budgeting chapters">
@@ -2283,7 +2367,7 @@ html[lang=ar] .hero-quote{font-style:normal}
   <h1 data-ar="إدارة <span>التدفق النقدي.</span>">Cash Flow <span>Management.</span></h1>
   <p class="lead" data-ar="افهم متى يدخل المال ومتى يخرج، وكيف تحافظ على وضع نقدي سليم.">Understand when money comes in, when it goes out, and how to maintain a healthy cash position.</p>
  </section>
-<div class="flowstrip no-print"><div class="fs-row"><button type="button" class="fs-pill" onclick="showView('budgeting')"><span>1</span><span data-ar="الميزانية">Budget</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill on" onclick="showView('cashflow')" aria-current="step"><span>2</span><span data-ar="التدفق النقدي">Cash Flow</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill" onclick="showView('networth')"><span>3</span><span data-ar="صافي الثروة">Net Worth</span></button><i aria-hidden="true">⇄</i><button type="button" class="fs-pill" onclick="showView('investments')"><span>4</span><span data-ar="الاستثمار">Invest</span></button></div><p class="fs-txt" data-ar="<b>الجزء 2 من 4: تحقّق.</b> قارن المال الداخل والخارج بميزانيتك واعرف ما تبقى في الحساب. بعدها يقيس صافي الثروة النتيجة."><b>Part 2 of 4: check.</b> Compare money in and out with your budget and see what is left in the bank. Next, Net Worth measures the result.</p></div>
+<div class="flowstrip no-print"><div class="fs-row"><button type="button" class="fs-pill ctl" onclick="showView('budgeting')"><span>1</span><span data-ar="الميزانية">Budget</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill ctl on" onclick="showView('cashflow')" aria-current="step"><span>2</span><span data-ar="التدفق النقدي">Cash Flow</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill grow" onclick="showView('networth')"><span>3</span><span data-ar="صافي الثروة">Net Worth</span></button><i aria-hidden="true">⇄</i><button type="button" class="fs-pill grow" onclick="showView('investments')"><span>4</span><span data-ar="الاستثمار">Invest</span></button></div><p class="fs-txt" data-ar="<b>الجزء 2 من 4: تحقّق.</b> قارن المال الداخل والخارج بميزانيتك واعرف ما تبقى في الحساب. بعدها يقيس صافي الثروة النتيجة."><b>Part 2 of 4: check.</b> Compare money in and out with your budget and see what is left in the bank. Next, Net Worth measures the result.</p></div>
 
 
  <section class="sheet">
@@ -2368,7 +2452,7 @@ html[lang=ar] .hero-quote{font-style:normal}
   <h1 data-ar="تحسين <span>صافي الثروة.</span>">Net Worth <span>Improvement.</span></h1>
   <p class="lead" data-ar="اعرف ما تملك، وافهم ما عليك، وقِس تقدّمك مع مرور الوقت.">Know what you own, understand what you owe, and measure progress over time.</p>
  </section>
-<div class="flowstrip no-print"><div class="fs-row"><button type="button" class="fs-pill" onclick="showView('budgeting')"><span>1</span><span data-ar="الميزانية">Budget</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill" onclick="showView('cashflow')"><span>2</span><span data-ar="التدفق النقدي">Cash Flow</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill on" onclick="showView('networth')" aria-current="step"><span>3</span><span data-ar="صافي الثروة">Net Worth</span></button><i aria-hidden="true">⇄</i><button type="button" class="fs-pill" onclick="showView('investments')"><span>4</span><span data-ar="الاستثمار">Invest</span></button></div><p class="fs-txt" data-ar="<b>الجزء 3 من 4: قِس.</b> ما تملكه ناقص ما عليك. بنود الادخار ترفعه، والاستثمار (الجزء 4) ينمّيه أكثر، وتعود الأرباح إلى هنا (⇄)."><b>Part 3 of 4: measure.</b> What you own minus what you owe. Your savings lines raise it; investing (part 4) grows it further, and the gains come back here (⇄).</p></div>
+<div class="flowstrip no-print"><div class="fs-row"><button type="button" class="fs-pill ctl" onclick="showView('budgeting')"><span>1</span><span data-ar="الميزانية">Budget</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill ctl" onclick="showView('cashflow')"><span>2</span><span data-ar="التدفق النقدي">Cash Flow</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill grow on" onclick="showView('networth')" aria-current="step"><span>3</span><span data-ar="صافي الثروة">Net Worth</span></button><i aria-hidden="true">⇄</i><button type="button" class="fs-pill grow" onclick="showView('investments')"><span>4</span><span data-ar="الاستثمار">Invest</span></button></div><p class="fs-txt" data-ar="<b>الجزء 3 من 4: قِس.</b> ما تملكه ناقص ما عليك. بنود الادخار ترفعه، والاستثمار (الجزء 4) ينمّيه أكثر، وتعود الأرباح إلى هنا (⇄)."><b>Part 3 of 4: measure.</b> What you own minus what you owe. Your savings lines raise it; investing (part 4) grows it further, and the gains come back here (⇄).</p></div>
 
 
  <section class="sheet">
@@ -2456,7 +2540,7 @@ html[lang=ar] .hero-quote{font-style:normal}
   <h1 data-ar="منصات <span>الاستثمار.</span>">Investment <span>Platforms.</span></h1>
   <p class="lead" data-ar="تعرّف على كيفية عمل قنوات الاستثمار المختلفة، وما قد تكلّفه الرسوم، وكيف تقيّم المخاطر قبل الاستثمار.">Learn how different investment channels work, what fees can cost, and how to assess risk before investing.</p>
  </section>
-<div class="flowstrip no-print"><div class="fs-row"><button type="button" class="fs-pill" onclick="showView('budgeting')"><span>1</span><span data-ar="الميزانية">Budget</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill" onclick="showView('cashflow')"><span>2</span><span data-ar="التدفق النقدي">Cash Flow</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill" onclick="showView('networth')"><span>3</span><span data-ar="صافي الثروة">Net Worth</span></button><i aria-hidden="true">⇄</i><button type="button" class="fs-pill on" onclick="showView('investments')" aria-current="step"><span>4</span><span data-ar="الاستثمار">Invest</span></button></div><p class="fs-txt" data-ar="<b>الجزء 4 من 4: نمِّ.</b> استثمر فقط الفائض بعد اكتمال صندوق الطوارئ. الأرباح تضاف إلى صافي ثروتك (الجزء 3) وتستمر الحلقة (⇄)."><b>Part 4 of 4: grow.</b> Invest only the surplus left after your emergency fund is full. Gains add to your net worth (part 3), and the loop continues (⇄).</p></div>
+<div class="flowstrip no-print"><div class="fs-row"><button type="button" class="fs-pill ctl" onclick="showView('budgeting')"><span>1</span><span data-ar="الميزانية">Budget</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill ctl" onclick="showView('cashflow')"><span>2</span><span data-ar="التدفق النقدي">Cash Flow</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill grow" onclick="showView('networth')"><span>3</span><span data-ar="صافي الثروة">Net Worth</span></button><i aria-hidden="true">⇄</i><button type="button" class="fs-pill grow on" onclick="showView('investments')" aria-current="step"><span>4</span><span data-ar="الاستثمار">Invest</span></button></div><p class="fs-txt" data-ar="<b>الجزء 4 من 4: نمِّ.</b> استثمر فقط الفائض بعد اكتمال صندوق الطوارئ. الأرباح تضاف إلى صافي ثروتك (الجزء 3) وتستمر الحلقة (⇄)."><b>Part 4 of 4: grow.</b> Invest only the surplus left after your emergency fund is full. Gains add to your net worth (part 3), and the loop continues (⇄).</p></div>
 
 <section class="sheet" id="invGrowth"><div class="section-head"><div class="section-icon"><svg class="ic" data-i="trend"></svg></div><div><div class="eyebrow" data-ar="الخطوة 00">Step 00</div><h2 data-ar="شاهد كيف ينمو الاستثمار المنتظم">See how regular investing can grow</h2></div></div><p class="lead" data-ar="استخدم الفائض الذي تتركه ميزانيتك كل شهر بعد اكتمال صندوق الطوارئ. ما تستثمره يصبح أصلًا في <b>صافي ثروتك</b>؛ وأرباحه ترفع الثروة مجددًا، وتستمر الحلقة.">Use the surplus your budget leaves each month, after the emergency fund is full. What you invest becomes an asset in your <b>Net Worth</b>; its gains raise net worth again, and the loop continues.</p>
   <div class="notice"><svg class="ic" data-i="info"></svg><span data-ar="<strong>تذكّر:</strong> توقعات الاستثمار توضيحية وليست وعودًا. ضع في اعتبارك المخاطر والرسوم والتضخم وظروفك الشخصية."><strong>Remember:</strong> investment projections are illustrations, not promises. Consider risk, fees, inflation, and personal circumstances.</span></div>
@@ -5079,7 +5163,7 @@ function pfCols(rows){
   const Y = v => T + (mx - v) / span * (H - T - Bm), z = Y(0);
   const ticks = []; for(let t = mn; t <= mx + st / 2; t += st) ticks.push(t);
   let o = `<svg viewBox="0 0 ${W} ${H}" class="pf-cols" role="img" aria-label="${ar ? "مقارنة الفعلي بالميزانية" : "Actual vs budget"}">`;
-  ticks.forEach(t => { const y = Y(t); o += `<line x1="${L}" x2="${W - R}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" class="gl"/><text x="${L - 8}" y="${(y + 4).toFixed(1)}" text-anchor="end" class="ax">${t < 0 ? "−" : ""}${shortNum(Math.abs(t))}</text>`; });
+  ticks.forEach(t => { const y = Y(t); o += `<line x1="${L}" x2="${W - R}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" class="gl${t === 0 ? " z" : ""}"/><text x="${L - 8}" y="${(y + 4).toFixed(1)}" text-anchor="end" class="ax">${t < 0 ? "−" : ""}${shortNum(Math.abs(t))}</text>`; });
   o += `<line x1="${L}" x2="${W - R}" y1="${z.toFixed(1)}" y2="${z.toFixed(1)}" class="zl"/>`;
   rows.forEach(([lab, b, a, dir], i) => {
     const cx = L + gw * i + gw / 2, good = (a - b) * dir, cls = Math.abs(good) < .5 ? "" : good > 0 ? "pos" : "neg";
@@ -5381,7 +5465,7 @@ function dkFlow(y, months){
   const mx = niceMax(Math.max(0, ...vals.map(v => Math.max(v.b || 0, v.a || 0))) * 1.08);
   const base = H - Bm, slot = (W - L - R) / 12, bw = Math.min(26, slot * .32);
   let o = `<svg class="chart dash-flow-svg" viewBox="0 0 ${W} ${H}" role="img"><defs><pattern id="dashHatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" class="hb"/><line x1="0" y1="0" x2="0" y2="7" class="hl"/></pattern></defs>`;
-  for(let i = 0; i <= 4; i++){ const v = mx * i / 4, yy = base - (base - T) * i / 4; o += `<line x1="${L}" y1="${yy}" x2="${W - R}" y2="${yy}" class="grid"/><text x="${L - 8}" y="${yy + 4}" text-anchor="end" class="ax">${shortMoney(v)}</text>`; }
+  for(let i = 0; i <= 4; i++){ const v = mx * i / 4, yy = base - (base - T) * i / 4; o += `<line x1="${L}" y1="${yy}" x2="${W - R}" y2="${yy}" class="grid${i === 0 ? " z" : ""}"/><text x="${L - 8}" y="${yy + 4}" text-anchor="end" class="ax">${shortMoney(v)}</text>`; }
   vals.forEach(({m, b, a}, i) => {
     const inr = months.includes(m), x0 = L + i * slot + (slot - bw * 2 - 4) / 2;
     if(inr) o += `<rect x="${(L + i * slot + 2).toFixed(1)}" y="${T - 6}" width="${(slot - 4).toFixed(1)}" height="${base - T + 30}" rx="8" class="selband"/>`;
