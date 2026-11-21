@@ -5928,14 +5928,15 @@ function renderSteps(){
   const hNow = pfMonth > 6 ? 2 : 1;
   if(hNow !== exLastHalf){ exLastHalf = hNow; exSel[2] = {f: "inc", m: 0}; try{ renderExamples(); }catch(e){} }
   const ar = lang === "ar", M = x => money(Math.round(x)), y = PF.data[pfYear] || {};
-  const all = stpMonths(), upto = all.filter(x => x.m <= pfMonth), last6 = upto.slice(-6), n6 = last6.length;
+  // progress uses every month of the selected year that has figures (the planner is an annual budget)
+  const all = stpMonths(), upto = all, last6 = all, n6 = all.length;
   const avg = k => n6 ? last6.reduce((s, x) => s + (x.o[k] || 0), 0) / n6 : 0;
   const inc = avg("inc"), f = avg("f"), v = avg("v"), h = avg("h"), exp = f + v + h, sav = avg("r") + avg("c") + avg("a");
   const bMonths = Object.keys(y).filter(m => pfHas((y[m] || {}).b)).length, aMonths = Object.keys(y).filter(m => pfHas((y[m] || {}).a)).length;
   const goals = [...document.querySelectorAll("#whyRows input")].filter((el, i) => i % 2 === 1 && el.value.trim()).length;
   const net = inc - exp - sav;
   const done = [bMonths > 0, n6 >= 6, upto.filter(x => x.o.f + x.o.v + x.o.h > 0).length >= 2, n6 > 0 && inc - exp >= 0, goals > 0, null, aMonths > 0];
-  const per = n6 ? (ar ? `متوسط ${n6} ${n6 === 1 ? "شهر" : "أشهر"} حتى ${pfMonLong(pfMonth)}` : `average of ${n6} month${n6 === 1 ? "" : "s"} to ${pfMonLong(pfMonth)}`) : "";
+  const per = n6 ? (ar ? `متوسط ${n6} ${n6 === 1 ? "شهر" : "أشهر"} في ${pfYear}` : `average of ${n6} month${n6 === 1 ? "" : "s"} in ${pfYear}`) : "";
   // roadmap
   const T = ar ? ["اختر طريقة التتبّع", "حدّد دخلك", "صنّف مصروفاتك", "قارن", "حدّد أهدافك", "زد دخلك", "راجع وقيّم"]
                : ["Choose how to track", "Know your income", "Sort your expenses", "Compare", "Set your goals", "Grow your income", "Review & evaluate"];
@@ -6029,9 +6030,9 @@ function exModel(){
   o.incs = [0, 1, 2, 3, 4, 5].map(i => o.sal + (i === o.bi ? o.bonus : 0) + (i === o.si ? o.side : 0));
   o.tot6 = o.incs.reduce((a, b) => a + b, 0); o.avg = Math.round(o.tot6 / 6);
   o.fix = o.rent + o.car + o.ins; o.need = o.groc + o.trans + o.phone + o.med; o.want = o.eat + o.ent + o.gift; o.exp = o.fix + o.need + o.want;
-  o.surplus = o.avg - o.exp; o.short = o.drop - o.exp; o.efT = 3 * o.exp; o.efM = Math.round(o.efT / o.ef); o.efM2 = Math.round(o.efT / (o.ef + o.extra));
+  o.surplus = o.sal - o.exp; o.short = o.drop - o.exp; o.efT = 3 * o.exp; o.efM = Math.round(o.efT / o.ef); o.efM2 = Math.round(o.efT / (o.ef + o.extra));
   o.eduM = Math.round(o.edu / 60); o.extraY = o.extra * 12; o.over = o.wantsAct - o.want;
-  o.carPct = Math.round(o.car / o.avg * 100); o.marPct = Math.round(((o.sal + o.bonus) / o.avg - 1) * 100);
+  o.carPct = Math.round(o.car / o.sal * 100); o.marPct = Math.round(((o.sal + o.bonus) / o.avg - 1) * 100);
   return o;
 }
 const _exF = {};
@@ -6064,13 +6065,13 @@ function renderExamples(){
       <div class="stp-bar ex"><span class="f" style="width:${pc(o.fix)}%"></span><span class="v" style="width:${pc(o.need)}%"></span><span class="d" style="width:${pc(o.want)}%"></span></div><div class="ex-detail" id="exD3" hidden></div>${exGoBtn(3)}`;
   box("exB1", `Omar opens the Budget planner on payday, types his budget for the month, and records what he actually spent on the last day of the month. One place, two dates a month.`,
               `يفتح عمر مخطط الميزانية يوم استلام الراتب، ويكتب ميزانية الشهر، ثم يسجّل ما أنفقه فعلًا في آخر يوم من الشهر. مكان واحد، وموعدان في الشهر.`);
-  box("exB2", `<span class="ex-half">${hl} · ${mL(0)}–${mL(5)}</span> Omar’s salary is ${m(o.sal)}, but ${o.si < o.bi ? `${mL(o.si)} had ${m(o.side)} from a side job and ${mL(o.bi)} a ${m(o.bonus)} bonus` : `${mL(o.bi)} had a ${m(o.bonus)} bonus and ${mL(o.si)} ${m(o.side)} from a side job`}. Six months total ${m(o.tot6)}, so his average is <b>${m(o.avg)} a month</b>. Planning on ${mL(o.bi)} alone (${m(o.sal + o.bonus)}) would overstate his income by about ${o.marPct}%.`,
-              `<span class="ex-half">${hl} · ${mL(0)}–${mL(5)}</span> راتب عمر ${m(o.sal)}، لكن ${o.si < o.bi ? `${mL(o.si)} تضمّن ${m(o.side)} من عمل إضافي و${mL(o.bi)} مكافأة ${m(o.bonus)}` : `${mL(o.bi)} تضمّن مكافأة ${m(o.bonus)} و${mL(o.si)} ${m(o.side)} من عمل إضافي`}. مجموع ستة أشهر ${m(o.tot6)}، فمتوسطه <b>${m(o.avg)} شهريًا</b>. لو خطط على أساس ${mL(o.bi)} وحده (${m(o.sal + o.bonus)}) لبالغ في تقدير دخله بنحو ${o.marPct}%.`, bars);
+  box("exB2", `<span class="ex-half">${hl} · ${mL(0)}–${mL(5)}</span> Omar earns a steady salary of <b>${m(o.sal)}</b> every month. He also expects ${o.si < o.bi ? `${m(o.side)} from a side job in ${mL(o.si)} and a ${m(o.bonus)} bonus in ${mL(o.bi)}` : `a ${m(o.bonus)} bonus in ${mL(o.bi)} and ${m(o.side)} from a side job in ${mL(o.si)}`}, so he budgets each one in the month it arrives. ✓ His regular monthly plan stays on his salary, and the extra money gets a job of its own: the bonus goes straight to his emergency fund. 🎯`,
+              `<span class="ex-half">${hl} · ${mL(0)}–${mL(5)}</span> يتقاضى عمر راتبًا ثابتًا قدره <b>${m(o.sal)}</b> كل شهر. ويتوقع أيضًا ${o.si < o.bi ? `${m(o.side)} من عمل إضافي في ${mL(o.si)} ومكافأة ${m(o.bonus)} في ${mL(o.bi)}` : `مكافأة ${m(o.bonus)} في ${mL(o.bi)} و${m(o.side)} من عمل إضافي في ${mL(o.si)}`}، فيضع كلًّا منها في ميزانية الشهر الذي يصل فيه. ✓ وتبقى خطته الشهرية المعتادة على أساس راتبه، ويحصل المال الإضافي على وظيفة خاصة به: تذهب المكافأة مباشرة إلى صندوق الطوارئ. 🎯`, bars);
   box("exB3", `Omar tracks two months without changing his habits, then averages them into three groups. His car loan (${m(o.car)}) is about ${o.carPct}% of income, well inside safe limits. The ${m(o.want)} of wants is where he has the most room to adjust.`,
               `يتتبّع عمر شهرين دون تغيير عاداته، ثم يحسب المتوسط في ثلاث مجموعات. قرض السيارة (${m(o.car)}) يعادل نحو ${o.carPct}% من دخله، ضمن الحدود الآمنة. ومبلغ الرغبات ${m(o.want)} هو المكان الذي يملك فيه أكبر مجال للتعديل.`, tbl);
-  box("exB4", `Income ${m(o.avg)} − expenses ${m(o.exp)} = <b>${m(o.surplus)} surplus</b> (income &gt; expenses), so Omar can save and invest it. If his income fell to ${m(o.drop)}, he would be ${m(-o.short)} short (income &lt; expenses) and would cut his wants first.`,
-              `الدخل ${m(o.avg)} − المصروفات ${m(o.exp)} = <b>فائض ${m(o.surplus)}</b> (الدخل &gt; المصروفات)، فيستطيع عمر ادخاره واستثماره. لو انخفض دخله إلى ${m(o.drop)} لعجز بمقدار ${m(-o.short)} (الدخل &lt; المصروفات) ولبدأ بتقليص الرغبات.`,
-              `<div class="ex-eq"><span class="in">${m(o.avg)}</span><b>−</b><span class="out">${m(o.exp)}</span><b>=</b><span class="res">+${m(o.surplus)}</span></div>`);
+  box("exB4", `In a regular month: salary ${m(o.sal)} − expenses ${m(o.exp)} = <b>${m(o.surplus)} surplus</b> (income &gt; expenses), so Omar saves and invests it. In ${mL(o.bi)}, the bonus adds another ${m(o.bonus)} for his goals. If his income ever fell to ${m(o.drop)}, he would be ${m(-o.short)} short and would trim his wants first.`,
+              `في الشهر المعتاد: الراتب ${m(o.sal)} − المصروفات ${m(o.exp)} = <b>فائض ${m(o.surplus)}</b> (الدخل &gt; المصروفات)، فيدّخره عمر ويستثمره. وفي ${mL(o.bi)} تضيف المكافأة ${m(o.bonus)} أخرى لأهدافه. ولو انخفض دخله يومًا إلى ${m(o.drop)} لعجز بمقدار ${m(-o.short)} ولبدأ بتقليص الرغبات.`,
+              `<div class="ex-eq"><span class="in">${m(o.sal)}</span><b>−</b><span class="out">${m(o.exp)}</span><b>=</b><span class="res">+${m(o.surplus)}</span></div>`);
   box("exB5", `Omar gives the surplus two jobs. <b>Emergency fund:</b> 3 months of expenses = ${m(o.efT)}, saving ${m(o.ef)} a month, reached in about ${o.efM} months. <b>Child’s education:</b> ${m(o.edu)} in 5 years = about ${m(o.eduM)} a month.`,
               `يعطي عمر الفائض وظيفتين. <b>صندوق الطوارئ:</b> مصروفات 3 أشهر = ${m(o.efT)}، بادخار ${m(o.ef)} شهريًا، يكتمل في نحو ${o.efM} شهرًا. <b>تعليم الابن:</b> ${m(o.edu)} خلال 5 سنوات = نحو ${m(o.eduM)} شهريًا.`);
   box("exB6", `A weekend side job adds ${m(o.extra)} a month, or ${m(o.extraY)} a year. Putting it into the emergency fund (${m(o.ef + o.extra)} a month instead of ${m(o.ef)}) fills it in about ${o.efM2} months instead of ${o.efM}, roughly ${o.efM - o.efM2} months sooner.`,
@@ -6095,10 +6096,10 @@ function exPick(step, i){
   let txt, f, mm = 0, row;
   if(step === 2){
     f = "inc"; mm = i < 6 ? MONL[i] : 0;
-    const extra = i === o.bi ? (ar ? ` + مكافأة ${o.half === 1 ? "سنوية" : "نهاية العام"} ${n(o.bonus)} = <b>${n(o.incs[i])}</b>. دخل لمرة واحدة؛ لا تخطط كل شهر على أساسه.` : ` + ${o.half === 1 ? "annual" : "year-end"} bonus ${n(o.bonus)} = <b>${n(o.incs[i])}</b>. A one-off: do not plan every month on it.`)
-                : i === o.si ? (ar ? ` + عمل إضافي ${n(o.side)} = <b>${n(o.incs[i])}</b>.` : ` + side job ${n(o.side)} = <b>${n(o.incs[i])}</b>.`) : ".";
+    const extra = i === o.bi ? (ar ? ` + مكافأة ${n(o.bonus)} = <b>${n(o.incs[i])}</b>. ✓ ضعها في ميزانية هذا الشهر، وأعطها وظيفة مثل صندوق الطوارئ.` : ` + bonus ${n(o.bonus)} = <b>${n(o.incs[i])}</b>. ✓ Budget it in this month and give it a job, such as the emergency fund.`)
+                : i === o.si ? (ar ? ` + عمل إضافي ${n(o.side)} = <b>${n(o.incs[i])}</b>. ✓ ضعه في ميزانية هذا الشهر.` : ` + side job ${n(o.side)} = <b>${n(o.incs[i])}</b>. ✓ Budget it in this month.`) : (ar ? ". شهر معتاد." : ". A regular month.");
     txt = i < 6 ? (ar ? `${pfMonLong(mm).split(" ")[0]}: راتب ${n(o.sal)}${extra}` : `${pfMonLong(mm).split(" ")[0]}: salary ${n(o.sal)}${extra}`)
-                : (ar ? `المتوسط: (${o.incs.map(n).join(" + ")}) ÷ 6 = ${n(o.tot6)} ÷ 6 = <b>${n(o.avg)}</b>. هذا هو الرقم الذي تخطط به.` : `Average: (${o.incs.map(n).join(" + ")}) ÷ 6 = ${n(o.tot6)} ÷ 6 = <b>${n(o.avg)}</b>. This is the figure to plan with.`);
+                : (ar ? `المتوسط: (${o.incs.map(n).join(" + ")}) ÷ 6 = ${n(o.tot6)} ÷ 6 = <b>${n(o.avg)}</b>. مفيد كمرشد إذا كان دخلك يتغير من شهر لآخر.` : `Average: (${o.incs.map(n).join(" + ")}) ÷ 6 = ${n(o.tot6)} ÷ 6 = <b>${n(o.avg)}</b>. A handy guide if your income changes from month to month.`);
   } else {
     const D = [
       ["f", ar ? `الثابتة: إيجار ${n(o.rent)} + قرض سيارة ${n(o.car)} + تأمين ${n(o.ins)} = <b>${n(o.fix)}</b>. نادرًا ما تتغير، لذا تأتي أولًا.` : `Fixed: rent ${n(o.rent)} + car loan ${n(o.car)} + insurance ${n(o.ins)} = <b>${n(o.fix)}</b>. These rarely change, so they come first.`, ar ? "الثابتة" : "Fixed"],
