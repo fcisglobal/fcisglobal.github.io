@@ -1190,6 +1190,23 @@ body{background:#f4f6f9}
 #networth .sheet.hero,#investments .sheet.hero{background:linear-gradient(125deg,#0b1a35 0%,#003a6c 55%,#15976f 100%)}
 [data-theme=dark] .view .sheet.hero{background:linear-gradient(125deg,#08142b 0%,#0f3a66 100%)}
 [data-theme=dark] #networth .sheet.hero,[data-theme=dark] #investments .sheet.hero{background:linear-gradient(125deg,#08142b 0%,#0f3a66 55%,#0f7a5a 100%)}
+/* share of planned spending used: horizontal bars */
+.dk-sub6{margin:-4px 0 10px}
+.dash-share{display:grid;gap:9px;margin:4px 0 6px}
+.sh-row,.sh-axis{display:grid;grid-template-columns:72px minmax(0,1fr) 44px;align-items:center;gap:8px;font-size:12.5px}
+.sh-m{color:var(--muted);white-space:nowrap}.sh-row.on .sh-m,.sh-row.on .sh-v{color:var(--heading);font-weight:800}
+.sh-track{position:relative;height:14px;border-radius:7px;background:rgba(100,116,139,.10)}
+.sh-bar{position:absolute;inset-block:0;inset-inline-start:0;border-radius:7px}
+.sh-bar.ok{background:var(--c-actual)}.sh-bar.over{background:var(--c-bad)}
+.sh-row:not(.on) .sh-bar{opacity:.55}
+.sh-100{position:absolute;top:-4px;bottom:-4px;border-inline-start:2px dashed var(--c-budget);transform:translateX(-1px)}
+.sh-none{position:absolute;inset:0;display:flex;align-items:center;padding-inline-start:8px;font-size:11.5px;color:var(--muted);font-style:italic}
+.sh-v{text-align:end;font-variant-numeric:tabular-nums;color:var(--text)}
+.sh-row.na .sh-v{color:var(--muted)}
+.sh-axis .sh-track{background:none;height:14px}.sh-axis b{position:absolute;top:0;transform:translateX(-50%);font-size:10.5px;font-weight:700;color:var(--muted)}
+[dir=rtl] .sh-axis b{transform:translateX(50%)}
+.sh-axis b:first-child{transform:none}[dir=rtl] .sh-axis b:first-child{transform:none}
+.dash-share-note{font-size:13.5px;font-weight:600;color:var(--heading);margin:10px 0 4px}
 .brand-home{display:flex;align-items:center;gap:12px;min-width:0;flex:1;color:inherit;text-decoration:none}.brand-home:hover .brand-text b{text-decoration:underline}.brand-home .brand-text{display:flex;flex-direction:column}
 
 /* ===== Share Smart Spend (poster) ===== */
@@ -2016,7 +2033,7 @@ html[lang=ar] .hero-quote{font-style:normal}
   </div>
   <div class="dk-card dk-flowcard"><div class="dk-head"><h3 data-ar="الإنفاق: الميزانية مقابل الفعلي">Budget vs actual spending</h3><div class="dk-tools"><span class="dk-leg"><i class="dot bdot"></i><span data-ar="الميزانية">Budget</span></span><span class="dk-leg"><i class="dot sdot"></i><span data-ar="الفعلي">Actual</span></span><span class="dk-leg"><i class="dot odot"></i><span data-ar="تجاوز الميزانية">Over budget</span></span></div></div><div class="dash-flow" id="dashFlow"></div><p class="tiny muted dash-empty" id="dashFlowEmpty" hidden></p></div>
   <div class="dash-row2">
-   <div class="dk-card"><div class="dk-head"><h3 data-ar="آخر 6 أشهر">Last 6 months</h3></div><div id="dashRadar" class="dash-radar"></div><p class="tiny muted dash-center" id="dashRadarNote"></p><p class="tiny muted dash-center" data-ar="كل نقطة هي نسبة ما أُنفق فعليًا من الإنفاق المخطط لذلك الشهر. والحلقة الداكنة تمثل 100%.">Each point is the share of that month’s budgeted spending actually spent. The darker ring is 100%.</p></div>
+   <div class="dk-card"><div class="dk-head"><h3 data-ar="نسبة الإنفاق المخطط المستخدمة">Share of planned spending used</h3></div><p class="tiny muted dk-sub6" data-ar="آخر 6 أشهر">Last 6 months</p><div id="dashRadar" class="dash-share"></div><p class="dash-share-note" id="dashRadarNote"></p><p class="tiny muted" data-ar="الإنفاق الفعلي (الثابت + المتغير + الأسرة في الوطن) ÷ الإنفاق المخطط. الخط المتقطع يمثل 100%: عليه يعني كما خُطط، وبعده يعني تجاوزًا.">Actual spending (fixed + variable + back home) ÷ budgeted spending. The dashed line is 100%: on it means as planned, past it means overspent.</p></div>
    <div class="dk-card"><div class="dk-head"><h3><span data-ar="تفصيل الميزانية">Budget breakdown</span> · <span id="dashBreakTitleM"></span></h3></div><div class="tablewrap"><table class="dk-table"><thead><tr><th><span data-ar="الفئة">Category</span></th><th><span data-ar="الميزانية">Budget</span></th><th><span data-ar="الفعلي">Actual</span></th><th><span data-ar="التقدّم">Progress</span></th><th><span data-ar="المستخدم">Used</span></th></tr></thead><tbody id="dashRows"></tbody></table></div><p class="tiny muted" data-ar="في الادخار، بلوغ 100% أو أكثر أمر جيد. وفي المصروفات، البقاء عند 100% أو أقل أمر جيد. ويشمل الفعلي الأشهر المسجّلة فقط.">For savings, reaching 100% or more is good. For expenses, staying at or under 100% is good. Actual covers only the months you have recorded.</p></div>
   </div>
   <div class="dk-card dk-rule"><div class="dk-head"><h3 data-ar="فحص قاعدة 50/30/20">50/30/20 check</h3><small class="muted" data-ar="كيف تقارن خطتك بقاعدة الاحتياجات 50% · الرغبات 30% · الادخار 20%">How your plan compares with Needs 50% · Wants 30% · Savings 20%</small></div><div class="rule-wrap"><div class="rule-donut" id="ruleDonut1"></div><div class="rule-side"><div class="rule-head"><small class="rule-per" id="rulePer1"></small><label class="rule-home no-print"><span data-ar="«في الوطن» يُحتسب ضمن">“Back home” counts as</span><select class="rule-home-sel" id="ruleHome1"><option value="needs">Needs</option><option value="wants">Wants</option></select></label></div><div class="tablewrap"><table class="dk-table rule-table"><thead><tr><th data-ar="الفئة">Category</th><th data-ar="المبلغ">Amount</th><th data-ar="الفعلي %">Share</th><th data-ar="الهدف">Target</th><th data-ar="الحالة">Status</th></tr></thead><tbody id="ruleRows1"></tbody></table></div><div class="rule-map"><div class="rm"><span class="rm-t n" data-ar="الاحتياجات 50%">Needs 50%</span><i>=</i><span class="rm-p"><span data-ar="ثابتة">Fixed</span> <span class="rule-home-txt" data-ar="+ في الوطن">+ Back home</span></span></div><div class="rm"><span class="rm-t w" data-ar="الرغبات 30%">Wants 30%</span><i>=</i><span class="rm-p"><span data-ar="متغيرة">Variable</span> <span class="rule-home-txt2" data-ar="+ في الوطن" hidden>+ Back home</span></span></div><div class="rm"><span class="rm-t s" data-ar="الادخار 20%">Savings 20%</span><i>=</i><span class="rm-p" data-ar="إجمالي الادخار (مقيّد + ملتزم به + مخصّص)">Total savings (restricted + committed + assigned)</span></div></div><p class="rule-ins" id="ruleIns1"></p></div></div><p class="rule-src"><span data-ar="المصدر:">Source:</span> <cite>(Warren &amp; Warren Tyagi, 2005; Hayes, 2026)</cite> · <span data-ar="الرؤى الكاملة والمراجع في الفصل 03.">Full insights and references in Chapter 03.</span></p></div>
@@ -5445,7 +5462,7 @@ function renderDash(){
   // radar: last 6 months ending at the selected month
   $("dashRadar").innerHTML = dkRadar();
   const sel = pfHas(recA(pfMonth)) && pfHas(recB(pfMonth)) ? Math.round(pfCalc(recA(pfMonth)).spend / Math.max(1, pfCalc(recB(pfMonth)).spend) * 100) : null;
-  $("dashRadarNote").textContent = sel === null ? dkt("radarNone") : dkt("radar")(pfMonLong(pfMonth), sel);
+  $("dashRadarNote").textContent = dkShareNote();
   // breakdown table
   const line = (k, lab, isSave, cls) => {
     const b = B[k], a = Aw[k], p = b > 0 ? a / b * 100 : 0, bad = isSave ? p < 100 && withA.length && Bw[k] > Aw[k] : Aw[k] > Bw[k];
@@ -5485,19 +5502,27 @@ function dkTip(h){
   let x = rr.left - br.left + box.scrollLeft + rr.width / 2 - tip.offsetWidth / 2; x = Math.max(4 + box.scrollLeft, Math.min(box.scrollLeft + br.width - tip.offsetWidth - 4, x));
   tip.style.left = x + "px"; tip.style.top = "8px";
 }
-function dkRadar(){
+function dkRadar(){ // horizontal bars: share of planned spending used, last 6 months ending at the selected month
+  const ar = lang === "ar", cap = 150;
   const keys = [...Array(6)].map((_, i) => { const d = new Date(pfYear, pfMonth - 1 - (5 - i), 1); return [d.getFullYear(), d.getMonth() + 1]; });
-  const W = 340, H = 300, cx = W / 2, cy = 150, Rr = 100, cap = 150;
-  const pt = (i, r) => { const ang = -Math.PI / 2 + i * Math.PI * 2 / 6; return [cx + Math.cos(ang) * r, cy + Math.sin(ang) * r]; };
-  const vals = keys.map(([yy, mm]) => { const r = (PF.data[yy] || {})[mm] || {}; return pfHas(r.a) && pfHas(r.b) ? Math.min(cap, pfCalc(r.a).spend / Math.max(1, pfCalc(r.b).spend) * 100) : 0; });
-  let o = `<svg class="chart dash-radar-svg" viewBox="0 0 ${W} ${H}" role="img">`;
-  [50, 100, 150].forEach(v => { o += `<polygon points="${keys.map((_, i) => pt(i, Rr * v / cap).join(",")).join(" ")}" class="ring${v === 100 ? " r100" : ""}"/>`; });
-  keys.forEach(([yy, mm], i) => { const [x, y2] = pt(i, Rr); o += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y2}" class="spoke"/>`; const [lx, ly] = pt(i, Rr + 24);
-    o += `<text x="${lx}" y="${ly + 4}" text-anchor="middle" class="rl${vals[i] ? "" : " dim"}">${new Date(yy, mm - 1, 1).toLocaleDateString(pfLoc(), {month: "short"})}</text>`; });
-  o += `<polygon points="${vals.map((v, i) => pt(i, Rr * v / cap).join(",")).join(" ")}" class="area"/>`;
-  vals.forEach((v, i) => { const [x, y2] = pt(i, Rr * v / cap); const on = keys[i][0] === pfYear && keys[i][1] === pfMonth; o += `<circle cx="${x}" cy="${y2}" r="${on ? 5 : 3.2}" class="dotp${on ? " on" : ""}"><title>${Math.round(v)}%</title></circle>`; });
-  const [tx, ty] = pt(0, Rr * 100 / cap); o += `<text x="${tx + 4}" y="${ty - 4}" class="ax">100%</text>`;
-  return o + "</svg>";
+  return keys.map(([yy, mm]) => { const r = (PF.data[yy] || {})[mm] || {}, has = pfHas(r.a) && pfHas(r.b) && pfCalc(r.b).spend > 0;
+    const p = has ? pfCalc(r.a).spend / pfCalc(r.b).spend * 100 : null, on = yy === pfYear && mm === pfMonth;
+    const lab = new Date(yy, mm - 1, 1).toLocaleDateString(pfLoc(), {month: "short", year: "numeric"});
+    const bar = p === null ? `<span class="sh-none">${ar ? "لا توجد بيانات" : "No data"}</span>`
+      : `<span class="sh-bar ${p > 100.5 ? "over" : "ok"}" style="width:${(Math.min(cap, p) / cap * 100).toFixed(1)}%"></span>`;
+    return `<div class="sh-row${on ? " on" : ""}${p === null ? " na" : ""}" title="${lab}: ${p === null ? (ar ? "لا توجد بيانات" : "No data") : Math.round(p) + "%"}"><span class="sh-m">${lab}</span><span class="sh-track">${bar}<i class="sh-100" style="inset-inline-start:${(100 / cap * 100).toFixed(1)}%"></i></span><span class="sh-v">${p === null ? "–" : Math.round(p) + "%"}</span></div>`;
+  }).join("") + `<div class="sh-axis"><span></span><span class="sh-track"><b style="inset-inline-start:0">0%</b><b style="inset-inline-start:${(100 / cap * 100).toFixed(1)}%">100%</b><b style="inset-inline-start:100%">150%</b></span><span></span></div>`;
+}
+function dkShareNote(){
+  const ar = lang === "ar", keys = [...Array(6)].map((_, i) => { const d = new Date(pfYear, pfMonth - 1 - (5 - i), 1); return [d.getFullYear(), d.getMonth() + 1]; });
+  const rows = keys.map(([yy, mm]) => { const r = (PF.data[yy] || {})[mm] || {}; return pfHas(r.a) && pfHas(r.b) && pfCalc(r.b).spend > 0 ? {yy, mm, p: pfCalc(r.a).spend / pfCalc(r.b).spend * 100} : null; }).filter(Boolean);
+  if(!rows.length) return ar ? "لم تُسجّل أرقام فعلية في آخر 6 أشهر. سجّلها في تبويب «الفعلي»." : "No actuals in the last 6 months yet. Record them in the Actual tab.";
+  const mn = x => new Date(x.yy, x.mm - 1, 1).toLocaleDateString(pfLoc(), {month: "short"});
+  const over = rows.filter(x => x.p > 100.5), exact = rows.filter(x => Math.abs(x.p - 100) <= 0.5), under = rows.filter(x => x.p < 99.5);
+  const rng = rows.length > 1 ? `${mn(rows[0])}–${mn(rows[rows.length - 1])} ${rows[rows.length - 1].yy}` : `${mn(rows[0])} ${rows[0].yy}`;
+  if(over.length) return ar ? `تجاوزت الإنفاق المخطط في ${over.map(mn).join("، ")} (حتى ${Math.round(Math.max(...over.map(x => x.p)))}%). افتح «مراجعة الأداء» لترى البند الذي تجاوز.` : `You overspent in ${over.map(mn).join(", ")} (up to ${Math.round(Math.max(...over.map(x => x.p)))}% of plan). Open Performance Review to see which line went over.`;
+  if(exact.length === rows.length) return ar ? `${rng}: أنفقت بالضبط ما خططت له كل شهر.` : `${rng}: you spent exactly what you planned each month.`;
+  return ar ? `${rng}: بقيت ضمن الخطة كل شهر${under.length ? `، وأنفقت أقل من المخطط في ${under.map(mn).join("، ")}` : ""}.` : `${rng}: you stayed within plan every month${under.length ? `, and spent less than planned in ${under.map(mn).join(", ")}` : ""}.`;
 }
 
 "use strict";
