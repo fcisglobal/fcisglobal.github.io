@@ -1224,6 +1224,114 @@ body{background:#f4f6f9}
 .hb-v{text-align:end;font-weight:800;color:var(--heading);font-variant-numeric:tabular-nums;white-space:nowrap}.hb-v.neg{color:var(--c-bad)}
 .hb-per{margin:2px 0 0;font-size:12px;font-weight:700;color:var(--muted);text-align:center}
 @media (max-width:560px){.hb-line{grid-template-columns:48px minmax(0,1fr) 92px;gap:6px}}
+.ef-link{margin:14px 0 4px;padding:12px 14px;border-radius:12px;background:rgba(0,58,108,.05);border:1px solid rgba(0,58,108,.18);font-size:13.5px}
+.ef-l-t{display:block;line-height:1.6}.ef-l-t .ic{width:18px;height:18px;color:var(--c-budget);vertical-align:-4px;margin-inline-end:6px}
+.ef-l-b{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.ef-l-n{margin:8px 0 0}
+[data-theme=dark] .ef-link{background:rgba(61,124,192,.10);border-color:rgba(61,124,192,.3)}
+.pg-ef{display:block;margin-top:2px;background:none;border:0;padding:0;font:inherit;font-size:10.5px;font-weight:700;color:var(--accent,#2878e5);cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+input.jump-flash{outline:3px solid var(--accent);outline-offset:2px}
+.ef-l-t svg.ic{display:inline-block!important}
+/* ===== Cash Flow redesign ===== */
+.cf-nav{margin-top:10px}
+.cf-formula{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;margin:16px 0 10px;font-size:15px}
+.cf-formula b{font-size:20px;color:var(--muted)}
+.cff{padding:8px 14px;border-radius:999px;font-weight:800;color:#fff}.cff.in{background:#2878e5}.cff.out{background:#ee745f}.cff.net{background:var(--c-budget)}
+.cf-example{max-width:420px;margin:8px auto 4px;border:1px solid var(--line);border-radius:14px;padding:10px 14px;background:var(--surface)}
+.cf-example>div{display:flex;justify-content:space-between;padding:4px 0;font-variant-numeric:tabular-nums}.cf-example>div.neg{border-top:2px solid var(--heading);margin-top:4px;padding-top:8px;color:var(--c-bad);font-weight:800}
+.cf-ex-note{font-size:13px;color:var(--muted);margin:8px 0 0}
+.cf-you{margin:12px 0 0;padding:10px 14px;border-radius:12px;background:rgba(0,58,108,.05);font-size:14px}.cf-you:empty{display:none}
+.cf-you .neg,.cf-runt td.neg,.cf-checks em.neg{color:var(--c-bad)}.cf-you .pos{color:var(--c-good)}
+.cf-2col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0}
+.cf-wrong,.cf-right,.cf-lever{border-radius:16px;padding:14px 16px;border:1px solid var(--line);background:var(--surface);min-width:0}
+.cf-wrong{border-top:4px solid var(--c-bad)}.cf-right{border-top:4px solid var(--c-good)}
+.cf-tag{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em}.cf-wrong .cf-tag{color:var(--c-bad)}.cf-right .cf-tag{color:var(--c-good)}
+.cf-eq{font-size:17px;margin:8px 0;color:var(--heading)}.cf-wrong p,.cf-right p{font-size:14px;margin:6px 0}
+.cf-pyf{font-size:13.5px;margin:6px 0;padding:8px 10px;border-radius:10px;background:rgba(21,151,111,.08)}.cf-pyf:empty{display:none}
+.cf-keep{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:8px 0}.cf-keep .field{max-width:140px}
+.cf-kx{font-size:20px;font-weight:800;color:var(--muted)}
+.cf-kv{display:flex;flex-direction:column;padding:8px 12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);min-width:130px}
+.cf-kv span{font-size:12px;color:var(--muted)}.cf-kv b{font-size:17px;color:var(--heading);font-variant-numeric:tabular-nums}.cf-kv.keep{border-color:var(--c-good)}.cf-kv.keep b{color:var(--c-good)}
+.cf-open{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:10px 0}.cf-open label{font-weight:700;font-size:14px}.cf-open input{max-width:160px}
+.cf-chart{margin:8px 0}
+.cf-svg{width:100%;height:auto;display:block;direction:ltr}
+.cf-svg .zl{stroke:var(--muted);stroke-width:1}.cf-svg .zt{font-size:10px;fill:var(--muted)}
+.cf-svg .ar{fill:var(--c-budget);fill-opacity:.07}
+.cf-svg .ln{stroke-width:2.5;fill:none}.cf-svg .ln.act{stroke:var(--c-actual)}.cf-svg .ln.plan{stroke:var(--c-budget);stroke-dasharray:6 5}
+.cf-svg .pt{stroke-width:2.5}.cf-svg .pt.act{fill:var(--c-actual);stroke:var(--c-actual)}.cf-svg .pt.plan{fill:var(--surface);stroke:var(--c-budget)}.cf-svg .pt.neg{stroke:var(--c-bad)}.cf-svg .pt.act.neg{fill:var(--c-bad)}
+.cf-svg .vl{font-size:12px;font-weight:800;fill:var(--heading)}.cf-svg .vl.neg{fill:var(--c-bad)}
+.cf-svg .mx{font-size:11.5px;fill:var(--muted)}.cf-svg .mx.on{fill:var(--heading);font-weight:800}
+.cf-leg{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted);font-weight:700;justify-content:center}
+.cf-leg i.pt{display:inline-block;width:10px;height:10px;border-radius:50%;margin-inline-end:5px;vertical-align:-1px;border:2px solid}
+.cf-leg i.act{background:var(--c-actual);border-color:var(--c-actual)}.cf-leg i.plan{background:var(--surface);border-color:var(--c-budget)}.cf-leg i.neg{background:var(--c-bad);border-color:var(--c-bad)}
+.cf-runt{width:100%;border-collapse:collapse;font-size:13px;min-width:620px;margin-top:6px}
+.cf-runt th,.cf-runt td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:end;font-variant-numeric:tabular-nums}
+.cf-runt tbody th,.cf-runt thead th:first-child{text-align:start}
+.cf-runt thead th{font-size:12px}.cf-runt thead th small{display:block;font-size:10px;font-weight:700;color:var(--muted)}
+.cf-runt thead th small.a{color:var(--c-actual)}.cf-runt thead th small.b,.cf-runt thead th small.f{color:var(--c-budget)}
+.cf-runt th.sel,.cf-runt td.sel{background:rgba(0,58,108,.06)}
+.cf-runt tr.net th,.cf-runt tr.net td{border-top:2px solid var(--heading);font-weight:800}
+.cf-runt tr.cash th,.cf-runt tr.cash td{background:rgba(100,116,139,.06)}.cf-runt tr.end th,.cf-runt tr.end td{font-weight:800}
+.cf-runt tr.ef th,.cf-runt tr.ef td{color:var(--muted);font-size:12.5px}
+.cf-lever h3{margin:6px 0}.cf-ln{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;background:var(--c-budget)}.cf-lever.grow .cf-ln{background:var(--c-actual)}
+.cf-q{margin:8px 0;padding:8px 12px;border-inline-start:4px solid var(--c-budget);font-weight:700;color:var(--heading);background:rgba(0,58,108,.04);border-radius:8px}
+.cf-lever p{font-size:14px}
+.cf-lux,.cf-src{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.cf-lux>span,.cf-src>span{font-size:12.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2,rgba(100,116,139,.06))}
+.cf-888{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:8px 0}.cf-888>div{text-align:center;padding:8px;border-radius:12px;background:rgba(100,116,139,.08);font-size:12.5px}.cf-888 b{display:block;font-size:18px;color:var(--heading)}
+.cf-888 .sp{background:rgba(21,151,111,.14)}.cf-888 .sp b{color:var(--c-actual)}
+.cf-live{font-size:13px;margin-top:8px;padding:8px 10px;border-radius:10px;background:rgba(0,58,108,.05)}.cf-live:empty{display:none}
+.cf-checks{list-style:none;margin:10px 0;padding:0;display:grid;gap:8px}
+.cf-checks li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface)}
+.cf-cn{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;background:var(--c-budget)}
+.cf-checks li:last-child .cf-cn{background:var(--c-actual)}
+.cf-checks li>div>b{display:block;color:var(--heading)}.cf-checks li>div>span{display:block;font-size:13px;color:var(--muted)}.cf-checks em{display:block;font-style:normal;font-size:12.5px;font-weight:700;margin-top:3px;color:var(--heading)}
+.cf-take{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.cf-take>div{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface)}.cf-take>div>b{display:block;color:var(--heading)}.cf-take>div>span{display:block;font-size:13px;color:var(--muted)}
+@media (max-width:760px){.cf-2col,.cf-take{grid-template-columns:minmax(0,1fr)}.cf-checks li{grid-template-columns:28px minmax(0,1fr)}.cf-checks li .btn{grid-column:2}}
+#cashflow .cf-nav{position:static;margin-top:8px}
+#cashflow .fw-global{margin-top:12px;top:var(--top-h)}
+.crumb-title{display:inline}
+.crumb-sub{margin-inline-start:6px;font-weight:600;color:var(--muted);font-size:.92em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:42vw;display:inline-block;vertical-align:bottom}
+@media (max-width:700px){.crumb-sub{display:none}}
+#cashGroup .sub-nav{display:none}#cashGroup.open .sub-nav{display:block}
+.cf-stepnav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:14px 0 6px}
+.cf-sn-c{font-size:12px;font-weight:700;color:var(--muted)}
+#cashflow .ch-off{display:none!important}
+@media print{#cashflow .ch-off{display:block!important}.cf-stepnav{display:none!important}}
+/* Cash balance table uses the planner grid look */
+.cf-rg tr.calc0 td,.cf-rg tr.calc0 th{padding:8px 5px}
+.cf-rg tr.end td,.cf-rg tr.end th{font-weight:900}
+.cf-rg tr.ef td,.cf-rg tr.ef th{color:var(--muted);font-weight:600;padding:7px 5px}
+.cf-rg td{padding:8px 6px}
+.cf-rg tr.calc0 td,.cf-rg tr.calc0 th{color:var(--heading)}
+.cf-rg td.neg{color:var(--c-bad)!important}
+.cf-tabs{margin:12px 0 4px}.cf-rg tr.in td,.cf-rg tr.in th{color:var(--heading)}
+/* cash bridge waterfall */
+.cf-wf-h{margin:14px 0 4px;font-size:15px;color:var(--heading)}
+.cf-wf{width:100%;height:auto;display:block;direction:ltr;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.cf-wf .zl{stroke:var(--muted);stroke-width:1}
+.cf-wf .wb.bud{fill:var(--c-budget)}.cf-wf .wb.act{fill:var(--c-actual)}.cf-wf .wb.bud.neg,.cf-wf .wb.act.neg{fill-opacity:.85}
+.cf-wf .wb.up{fill:var(--c-good);fill-opacity:.75}.cf-wf .wb.down{fill:var(--c-bad);fill-opacity:.85}.cf-wf .wb.zero{fill:var(--muted);fill-opacity:.4}
+.cf-wf .cn{stroke:var(--muted);stroke-dasharray:3 3}
+.cf-wf .wv{font-size:12.5px;font-weight:800;fill:var(--heading)}.cf-wf .wv.neg{fill:var(--c-bad)}
+.cf-wf .wl{font-size:11.5px;font-weight:700;fill:var(--heading)}.cf-wf .wl.tot{font-weight:800}
+.cf-wf .wn{font-size:10.5px;fill:var(--muted)}
+.cf-wf-note{font-size:13.5px;margin:8px 0 0;color:var(--text)}.cf-wf-empty{margin:10px 0}
+/* Increase/(Decrease): table left, waterfall right */
+.cf-pv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:16px;align-items:start;margin-top:8px}
+.cf-pv .pf-ptable-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+.cf-pvt{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums}
+.cf-pvt th,.cf-pvt td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:end;white-space:nowrap}
+.cf-pvt thead th{color:#fff;font-weight:800}.cf-pvt thead th:first-child{text-align:start;color:var(--heading);background:var(--surface-2)}
+.cf-pvt tbody th{text-align:start;font-weight:700;color:var(--heading)}
+.cf-pvt tr.hl th,.cf-pvt tr.hl td{background:var(--t-blue);font-weight:800}
+.cf-pvt tr.net th,.cf-pvt tr.net td{border-top:2px solid var(--heading);font-weight:800;font-size:14.5px}
+.cf-pvt td.neg{color:var(--c-bad)}
+.cf-pv-r .cf-wf-h{margin-top:0}
+@media (max-width:1100px){.cf-pv{grid-template-columns:minmax(0,1fr)}}
+.cf-pv{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+.cf-pvt th,.cf-pvt td{padding:8px 8px}.cf-pvt thead th{white-space:normal;line-height:1.2;font-size:12.5px;vertical-align:middle}
+.cf-pvt th,.cf-pvt td{padding:8px 7px}
+.cf-wait{font-size:13.5px;margin:8px 0;padding:8px 10px;border-radius:10px;background:rgba(0,58,108,.05)}
 .brand-home{display:flex;align-items:center;gap:12px;min-width:0;flex:1;color:inherit;text-decoration:none}.brand-home:hover .brand-text b{text-decoration:underline}.brand-home .brand-text{display:flex;flex-direction:column}
 
 /* ===== Share Smart Spend (poster) ===== */
@@ -1703,7 +1811,7 @@ html[lang=ar] .hero-quote{font-style:normal}
 }
 </style>
 </head>
-<body>
+<body><script>window.__initHash=location.hash;</script>
 <div class="app" id="app">
 
 <!-- ================= SIDEBAR ================= -->
@@ -1737,9 +1845,9 @@ html[lang=ar] .hero-quote{font-style:normal}
      <a class="sub-link" href="#review" data-ch="review" onclick="jumpChapter(event,'review')"><svg class="ic" data-i="check"></svg><span data-ar="المراجعة">Review</span></a>
     </div>
    </div>
-   <button class="nav-item" data-view="cashflow" onclick="showView('cashflow')" title="Cash Flow">
+   <div class="nav-group" id="cashGroup"><button class="nav-item" data-view="cashflow" onclick="showView('cashflow')" title="Cash Flow">
     <span class="ic-wrap"><svg class="ic" data-i="flow"></svg></span><span class="label" data-ar="التدفق النقدي">Cash Flow</span><span class="nav-num">02</span>
-   </button>
+   </button><div class="sub-nav"><a class="sub-link cf-sub" href="#cfS1" data-cf="cfS1" onclick="event.preventDefault();cfShow('cfS1')"><svg class="ic" data-i="book"></svg><span data-ar="الأساسيات">Basics</span></a><a class="sub-link cf-sub" href="#cfFormula" data-cf="cfFormula" onclick="event.preventDefault();cfShow('cfFormula')"><svg class="ic" data-i="scale"></svg><span data-ar="معادلة الادخار">Saving formula</span></a><a class="sub-link cf-sub" href="#cfRun" data-cf="cfRun" onclick="event.preventDefault();cfShow('cfRun')"><svg class="ic" data-i="flow"></svg><span data-ar="الرصيد النقدي">Cash balance</span></a><a class="sub-link cf-sub" href="#cfS2" data-cf="cfS2" onclick="event.preventDefault();cfShow('cfS2')"><svg class="ic" data-i="table"></svg><span data-ar="القائمة الشهرية">Monthly statement</span></a><a class="sub-link cf-sub" href="#cfGrow" data-cf="cfGrow" onclick="event.preventDefault();cfShow('cfGrow')"><svg class="ic" data-i="trend"></svg><span data-ar="زيادة التدفق">Increase cash flow</span></a><a class="sub-link cf-sub" href="#cfRevise" data-cf="cfRevise" onclick="event.preventDefault();cfShow('cfRevise')"><svg class="ic" data-i="repeat"></svg><span data-ar="مراجعة الميزانية">Revise budget</span></a><a class="sub-link cf-sub" href="#cfS3" data-cf="cfS3" onclick="event.preventDefault();cfShow('cfS3')"><svg class="ic" data-i="calendar"></svg><span data-ar="توقيت الدفع">Payment timing</span></a><a class="sub-link cf-sub" href="#cfTake" data-cf="cfTake" onclick="event.preventDefault();cfShow('cfTake')"><svg class="ic" data-i="check"></svg><span data-ar="الخلاصة">Takeaways</span></a></div></div>
    <button class="nav-item" data-view="networth" onclick="showView('networth')" title="Net Worth">
     <span class="ic-wrap"><svg class="ic" data-i="scale"></svg></span><span class="label" data-ar="صافي الثروة">Net Worth</span><span class="nav-num">03</span>
    </button>
@@ -2004,7 +2112,7 @@ html[lang=ar] .hero-quote{font-style:normal}
   <a href="#growth" onclick="jumpChapter(event,'growth')"><svg class="ic" data-i="bars"></svg><span data-ar="06 النمو">06 Growth</span></a>
   <a href="#review" onclick="jumpChapter(event,'review')"><svg class="ic" data-i="check"></svg><span data-ar="07 المراجعة">07 Review</span></a>
  </nav>
-   <div class="fw-global no-print" id="fwGlobal" role="region" aria-label="Period selection"><div class="fg-top"><span class="fg-title"><svg class="ic" data-i="calendar"></svg><b data-ar="الفترة">Period</b></span><label class="dash-pick small"><select id="gYear" aria-label="Year"></select></label><label class="dash-pick small"><select id="gMonth" aria-label="Month"></select></label><label class="dash-pick small"><svg class="ic" data-i="layers"></svg><select id="gPeriod" aria-label="Period"><option value="mom">MoM</option><option value="ytd">YTD</option><option value="year">Year</option></select></label><div class="pf-half" id="pfHalf" role="group" aria-label="Half year"><button type="button" data-h="1" title="Jan – Jun" onclick="pfSetHalf(1)"><b>H1</b> <span data-ar="يناير – يونيو">Jan – Jun</span></button><button type="button" data-h="2" title="Jul – Dec" onclick="pfSetHalf(2)"><b>H2</b> <span data-ar="يوليو – ديسمبر">Jul – Dec</span></button></div><label class="dash-pick small" title="Currency"><svg class="ic" data-i="coins"></svg><select id="gCur" aria-label="Currency"></select></label><span class="fg-unit" id="gUnit" role="group" aria-label="Display units"></span><span class="fg-sum" id="gSummary"></span></div><div class="fg-months" id="gMonths" role="group" aria-label="Month"></div><div class="fg-leg"><span><i class="st a"></i><span data-ar="فعلي مُسجّل">Actual recorded</span></span><span><i class="st b"></i><span data-ar="ميزانية فقط">Budget only</span></span><span><i class="st"></i><span data-ar="فارغ">Empty</span></span><span class="fg-note" data-ar="اختيار واحد يحدّث كل الرسوم والجداول في الميزانية الشخصية.">One selection updates every chart and table in Personal Budgeting.</span></div></div>
+   <div class="fw-global no-print" id="fwGlobal" role="region" aria-label="Period selection"><div class="fg-top"><span class="fg-title"><svg class="ic" data-i="calendar"></svg><b data-ar="الفترة">Period</b></span><label class="dash-pick small"><select id="gYear" aria-label="Year"></select></label><label class="dash-pick small"><select id="gMonth" aria-label="Month"></select></label><label class="dash-pick small"><svg class="ic" data-i="layers"></svg><select id="gPeriod" aria-label="Period"><option value="mom">MoM</option><option value="ytd">YTD</option><option value="year">Year</option></select></label><div class="pf-half" id="pfHalf" role="group" aria-label="Half year"><button type="button" data-h="1" title="Jan – Jun" onclick="pfSetHalf(1)"><b>H1</b> <span data-ar="يناير – يونيو">Jan – Jun</span></button><button type="button" data-h="2" title="Jul – Dec" onclick="pfSetHalf(2)"><b>H2</b> <span data-ar="يوليو – ديسمبر">Jul – Dec</span></button></div><label class="dash-pick small" title="Currency"><svg class="ic" data-i="coins"></svg><select id="gCur" aria-label="Currency"></select></label><span class="fg-unit" id="gUnit" role="group" aria-label="Display units"></span><span class="fg-sum" id="gSummary"></span></div><div class="fg-months" id="gMonths" role="group" aria-label="Month"></div><div class="fg-leg"><span><i class="st a"></i><span data-ar="فعلي مُسجّل">Actual recorded</span></span><span><i class="st b"></i><span data-ar="ميزانية فقط">Budget only</span></span><span><i class="st"></i><span data-ar="فارغ">Empty</span></span><span class="fg-note" data-ar="اختيار واحد يحدّث كل الرسوم والجداول في الميزانية الشخصية والتدفق النقدي.">One selection updates every chart and table in Personal Budgeting and Cash Flow.</span></div></div>
 <section class="sheet chapter" id="steps">
   <div class="section-head">
    <div class="section-icon"><svg class="ic" data-i="table"></svg></div>
@@ -2287,6 +2395,7 @@ html[lang=ar] .hero-quote{font-style:normal}
     </div>
     <div class="field"><label for="currentSavings" data-ar="المدخر حاليًا (<span class='cur'>₱</span>)">Already saved (<span class='cur'>₱</span>)</label><input type="number" id="currentSavings" min="0" value="10000"></div>
    </div>
+   <div class="ef-link" id="efLink" role="status"></div>
    <div class="formgrid two" style="margin-top:14px">
     <div class="field"><label for="monthlyDeposit" data-ar="المساهمة الشهرية (<span class='cur'>₱</span>)">Monthly contribution (<span class='cur'>₱</span>)</label><input type="number" id="monthlyDeposit" min="0" value="2500"></div>
     <div class="result"><span class="tiny muted" data-ar="الصندوق المستهدف">Target fund</span><strong id="emergencyTarget">75,000</strong></div>
@@ -2404,7 +2513,7 @@ html[lang=ar] .hero-quote{font-style:normal}
 <div class="flowstrip no-print"><div class="fs-row"><button type="button" class="fs-pill ctl" onclick="showView('budgeting')"><span>1</span><span data-ar="الميزانية">Budget</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill ctl on" onclick="showView('cashflow')" aria-current="step"><span>2</span><span data-ar="التدفق النقدي">Cash Flow</span></button><i aria-hidden="true">→</i><button type="button" class="fs-pill grow" onclick="showView('networth')"><span>3</span><span data-ar="صافي الثروة">Net Worth</span></button><i aria-hidden="true">⇄</i><button type="button" class="fs-pill grow" onclick="showView('investments')"><span>4</span><span data-ar="الاستثمار">Invest</span></button></div><p class="fs-txt" data-ar="<b>الجزء 2 من 4: تحقّق.</b> قارن المال الداخل والخارج بميزانيتك واعرف ما تبقى في الحساب. بعدها يقيس صافي الثروة النتيجة."><b>Part 2 of 4: check.</b> Compare money in and out with your budget and see what is left in the bank. Next, Net Worth measures the result.</p></div>
 
 
- <section class="sheet">
+ <section class="sheet" id="cfS1">
   <div class="section-head">
    <div class="section-icon"><svg class="ic" data-i="flow"></svg></div>
    <div><div class="eyebrow" data-ar="الخطوة 01">Step 01</div><h2 data-ar="افهم تدفقك النقدي">Understand your cash flow</h2></div>
@@ -2418,12 +2527,16 @@ html[lang=ar] .hero-quote{font-style:normal}
   <div class="notice"><svg class="ic" data-i="info"></svg><span data-ar="<strong>مثال تطبيقي:</strong> تدفقات داخلة <span class='amt' data-amt='35000'>35,000</span> ناقص تدفقات خارجة <span class='amt' data-amt='29000'>29,000</span> = تدفق نقدي شهري موجب قدره <span class='amt' data-amt='6000'>6,000</span>."><strong>Worked example:</strong> <span class='amt' data-amt='35000'>35,000</span> inflows minus <span class='amt' data-amt='29000'>29,000</span> outflows = <span class='amt' data-amt='6000'>6,000</span> positive monthly cash flow.</span></div>
   <h3 data-ar="التدفق النقدي يختلف عن الربح">Cash flow is different from profit</h3>
   <p data-ar="قد تكسب الأسرة ما يكفي خلال الشهر، ومع ذلك تواجه عجزًا نقديًا إذا استحقت فواتير كبيرة قبل يوم الراتب. التوقيت مهم بقدر أهمية الإجمالي الشهري.">A household can earn enough over a month yet still face a cash shortage if large bills are due before payday. Timing matters as much as the monthly total.</p>
- </section>
+ <div class="cf-formula"><span class="cff in"><span data-ar="الدخل">Income</span></span><b>−</b><span class="cff out"><span data-ar="المصروفات">Expenses</span></span><b>=</b><span class="cff net"><span data-ar="التدفق النقدي">Cash flow</span></span></div><div class="cf-example"><div><span><span data-ar="الدخل الشهري">Monthly income</span></span><b>70,000</b></div><div><span><span data-ar="المصروفات الشهرية">Monthly expenses</span></span><b>80,000</b></div><div class="neg"><span><span data-ar="التدفق النقدي">Cash flow</span></span><b>(10,000)</b></div><p class="cf-ex-note" data-ar="إنفاق أكثر مما تكسب أمر شائع. الشهر السالب يُدفع من المدخرات أو الديون، لذا يجب إصلاحه في الميزانية لا تجاهله.">Spending more than you earn is common. A negative month is paid from savings or debt, so it must be fixed in the budget, not ignored.</p></div><div class="cf-you" id="cfYou"></div></section>
+<section class="sheet" id="cfFormula"><div class="section-head"><div class="section-icon"><svg class="ic" data-i="scale"></svg></div><div><div class="eyebrow" data-ar="الخطوة 02">Step 02</div><h2 data-ar="معادلة الادخار الخاطئة والصحيحة">Wrong and right saving formula</h2></div></div><p class="lead" data-ar="الترتيب مهم. إذا جاء الادخار أخيرًا، فغالبًا لا يتبقى شيء.">The order matters. If savings come last, there is usually nothing left.</p><div class="cf-2col"><div class="cf-wrong"><div class="cf-tag">✕ <span data-ar="خاطئة">Wrong</span></div><div class="cf-eq"><span data-ar="الدخل − المصروفات = <b>ادخار؟</b>">Income − Expenses = <b>Savings?</b></span></div><p data-ar="تُدفع الفواتير والتسوق والمطاعم والبطاقات أولًا. الادخار هو ما يتبقى، وغالبًا لا شيء.">Bills, shopping, eating out and card payments are paid first. Savings is whatever is left, often nothing.</p></div><div class="cf-right"><div class="cf-tag">✓ <span data-ar="صحيحة: ادفع لنفسك أولًا">Right: pay yourself first</span></div><div class="cf-eq"><span data-ar="الدخل − <b>الادخار</b> = المصروفات">Income − <b>Savings</b> = Expenses</span></div><p data-ar="يُقتطع الادخار أولًا. وتنفق فقط ما يتبقى، أي <b>الدخل غير المقيّد</b>.">Savings is taken out first. You spend only what is left, the <b>unencumbered income</b>.</p><div id="cfPyf" class="cf-pyf"></div><button type="button" class="stp-inline" onclick="jumpChapter({preventDefault(){}},'planner')"><span data-ar="حدّده في مخطط الميزانية ←">Set it in the Budget planner →</span></button></div></div><h3 class="sub-h"><span data-ar="العبرة ليست بما تكسب، بل بما تحتفظ به">It’s not what you earn, it’s what you keep</span></h3><div class="cf-keep"><div class="field"><label for="cfYears"><span data-ar="سنوات العمل">Years worked</span></label><input type="number" id="cfYears" min="1" max="50" value="10"></div><div class="cf-kx">×</div><div class="cf-kv"><span><span data-ar="الدخل السنوي (المخطط)">Yearly income (planner)</span></span><b id="cfKInc">–</b></div><div class="cf-kx">=</div><div class="cf-kv"><span><span data-ar="إجمالي ما كسبته">Total earned</span></span><b id="cfKTot">–</b></div><div class="cf-kx">→</div><div class="cf-kv keep"><span><span data-ar="ما تحتفظ به بنسبة ادخارك">Kept at your savings rate</span></span><b id="cfKKeep">–</b></div></div><p class="tiny muted" id="cfKNote"></p></section>
+<section class="sheet" id="cfRun"><div class="section-head"><div class="section-icon"><svg class="ic" data-i="flow"></svg></div><div><div class="eyebrow" data-ar="الخطوة 03">Step 03</div><h2 data-ar="رصيدك النقدي شهرًا بشهر">Your cash balance, month by month</h2></div></div><p class="lead" data-ar="يُضاف صافي نقد كل شهر إلى النقد الذي بدأت به. بضعة أشهر سالبة صغيرة قد تفرغ حسابك قبل أن تلاحظ.">Each month’s net cash is added to the cash you started with. A few small negative months can empty your account before you notice.</p><div class="cf-open"><label for="cfOpen0"><span data-ar="النقد في بداية السنة">Cash at the start of the year</span> (<span class="cur">₱</span>)</label><input type="number" id="cfOpen0" min="0" value="0"><span class="tiny muted"><span data-ar="هذا هو المدخل الجديد الوحيد هنا. كل ما عداه يأتي من مخطط الميزانية.">Your only new input here. Everything else comes from the Budget planner.</span></span></div><div class="pf-tabs cf-tabs" role="tablist"><button type="button" role="tab" data-pf="b" onclick="pfTab('b')"><svg class="ic" data-i="pen"></svg><span data-ar="الميزانية">Budget</span></button><button type="button" role="tab" data-pf="a" onclick="pfTab('a')"><svg class="ic" data-i="check"></svg><span data-ar="الفعلي">Actual</span></button><button type="button" role="tab" data-pf="f" onclick="pfTab('f')"><svg class="ic" data-i="trend"></svg><span data-ar="التوقع">Forecast</span></button><button type="button" role="tab" data-pf="p" onclick="pfTab('p')"><svg class="ic" data-i="bars"></svg><span data-ar="زيادة / (نقص)">Increase / (Decrease)</span></button></div><p class="tiny muted" id="cfRunHint"></p><div class="pf-grid-wrap"><table class="pf-grid cf-rg" id="cfRunT"></table></div><div class="cf-pvbox" id="cfPvBox" hidden></div><div class="cf-chart" id="cfRunChart"></div><p class="fw-advice" id="cfRunMsg"></p><div class="ready-nav"><button type="button" class="btn small ghost" onclick="jumpChapter({preventDefault(){}},'planner');setTimeout(()=>pfTab('b'),150)"><span data-ar="عدّل الميزانية">Edit the budget</span></button><button type="button" class="btn small ghost" onclick="jumpChapter({preventDefault(){}},'planner');setTimeout(()=>pfTab('f'),150)"><span data-ar="راجع بقية السنة (التوقع)">Revise the rest of the year (Forecast)</span></button><button type="button" class="btn small ghost" onclick="jumpChapter({preventDefault(){}},'emergencyTool')"><span data-ar="مخطط صندوق الطوارئ">Emergency Fund Planner</span></button></div></section>
 
- <section class="sheet">
+
+
+ <section class="sheet" id="cfS2">
   <div class="section-head">
    <div class="section-icon"><svg class="ic" data-i="calc"></svg></div>
-   <div><div class="eyebrow" data-ar="الخطوة 02">Step 02</div><h2 data-ar="أعدّ قائمة تدفق نقدي شهرية">Build a monthly cash flow statement</h2></div>
+   <div><div class="eyebrow" data-ar="الخطوة 04">Step 04</div><h2 data-ar="أعدّ قائمة تدفق نقدي شهرية">Build a monthly cash flow statement</h2></div>
   </div>
   <p data-ar="استخدم الحاسبة لمقارنة التدفقات الداخلة والخارجة. تُحتسب تحويلات الادخار كنقد يخرج من حساب إنفاقك المتاح، لكنها ليست بالضرورة خسارة اقتصادية.">Use the calculator to compare inflows and outflows. Savings transfers are counted as cash leaving your available spending account; they are not necessarily an economic loss.</p>
   <div class="tool" id="cfTool">
@@ -2439,6 +2552,7 @@ html[lang=ar] .hero-quote{font-style:normal}
     <div class="field"><label for="cfSavings" data-ar="تحويلات الادخار (<span class='cur'>₱</span>)">Savings transfers (<span class='cur'>₱</span>)</label><input type="number" id="cfSavings" min="0" value="3000"></div>
     <div class="field"><label for="cfOtherOut" data-ar="تدفقات خارجة أخرى (<span class='cur'>₱</span>)">Other outflows (<span class='cur'>₱</span>)</label><input type="number" id="cfOtherOut" min="0" value="0"></div>
    </div>
+   <div class="ef-link" id="cfLink" role="status"></div>
    <div class="grid3" style="margin-top:17px">
     <div class="result" style="border-inline-start-color:var(--green-500)"><span class="tiny muted" data-ar="إجمالي التدفقات الداخلة">Total inflows</span><strong id="cfIn">0</strong></div>
     <div class="result"><span class="tiny muted" data-ar="إجمالي التدفقات الخارجة">Total outflows</span><strong id="cfOut">0</strong></div>
@@ -2451,11 +2565,15 @@ html[lang=ar] .hero-quote{font-style:normal}
    <div class="notice" id="cfAdvice" role="status"></div>
   </div>
  </section>
+<section class="sheet" id="cfGrow"><div class="section-head"><div class="section-icon"><svg class="ic" data-i="trend"></svg></div><div><div class="eyebrow" data-ar="الخطوة 05">Step 05</div><h2 data-ar="طريقتان لزيادة تدفقك النقدي">Two ways to increase your cash flow</h2></div></div><div class="cf-2col"><div class="cf-lever"><div class="cf-ln">1</div><h3 data-ar="أنفق أقل: عِش دون إمكاناتك">Spend less: live below your means</h3><blockquote class="cf-q"><span data-ar="«الهدف أن تكون غنيًا، لا أن تبدو غنيًا.»">“The goal is to be rich, not to look rich.”</span></blockquote><p data-ar="<b>وقفة مع الواقع:</b> كثير من العاملين في الخارج يكسبون جيدًا لسنوات ثم يعودون بالقليل: الهاتف الجديد، والحقيبة الفاخرة، وقرض السيارة. مظهر غني ونقد فقير."><b>Reality check:</b> many workers abroad earn well for years yet go home with little: the new phone, the branded bag, the car loan. Dressed rich, cash poor.</p><div class="cf-lux"><span>📱 <span data-ar="هاتف جديد كل سنة">New phone every year</span></span><span>👜 <span data-ar="حقائب وملابس فاخرة">Designer bags and clothes</span></span><span>🚙 <span data-ar="سيارة بالتقسيط">Car on a loan</span></span><span>☕ <span data-ar="المقهى والمول يوميًا">Daily café and mall trips</span></span></div><div class="cf-live" id="cfLiveV"></div></div><div class="cf-lever grow"><div class="cf-ln">2</div><h3 data-ar="اكسب أكثر: استثمر وقت فراغك">Earn more: use your spare time</h3><div class="cf-888"><div><b>8h</b><span data-ar="العمل">Work</span></div><div><b>8h</b><span data-ar="النوم">Sleep</span></div><div class="sp"><b>8h</b><span data-ar="وقت الفراغ">Spare time</span></div></div><p data-ar="وقت الفراغ أفضل وقت لبناء دخل إضافي. مصادر غير الراتب:">Spare time is the best time to build extra income. Sources beyond salary:</p><div class="cf-src"><span><span data-ar="البدلات (سكن، مواصلات، تعليم)">Allowances (housing, transport, education)</span></span><span><span data-ar="مكافأة أو حافز">Bonus or incentive</span></span><span><span data-ar="عمولة">Commission</span></span><span><span data-ar="عمل جانبي">Side business</span></span><span><span data-ar="دخل إيجار">Rental income</span></span><span><span data-ar="دخل من الاستثمارات">Income from investments</span></span></div><div class="cf-live" id="cfLiveI"></div></div></div></section>
+<section class="sheet" id="cfRevise"><div class="section-head"><div class="section-icon"><svg class="ic" data-i="repeat"></svg></div><div><div class="eyebrow" data-ar="الخطوة 06">Step 06</div><h2 data-ar="راجع ميزانيتك في ست خطوات">Revise your budget in six checks</h2></div></div><p class="lead" data-ar="عندما يصبح الرصيد النقدي سالبًا، مرّ على هذه الخطوات للشهر المحدد في شريط الفترة. كل خطوة تفتح الصف نفسه في المخطط.">When the cash balance turns negative, work through these checks for the month selected in the Period bar. Each one opens the exact row in the planner.</p><ol class="cf-checks" id="cfChecks"></ol><p class="tiny muted" data-ar="نصيحة: أجرِ تغييرات الأشهر المتبقية في تبويب <b>التوقع</b>. تبقى ميزانيتك الأصلية مرجعًا، مثل «النسخة 1» من ميزانية معدّلة.">Tip: make changes for the remaining months in the <b>Forecast</b> tab. Your original budget stays as the yardstick, like “Version 1” of a revised budget.</p></section>
 
- <section class="sheet">
+
+
+ <section class="sheet" id="cfS3">
   <div class="section-head">
    <div class="section-icon"><svg class="ic" data-i="clock"></svg></div>
-   <div><div class="eyebrow" data-ar="الخطوة 03">Step 03</div><h2 data-ar="أدِر توقيت المدفوعات">Manage payment timing</h2></div>
+   <div><div class="eyebrow" data-ar="الخطوة 07">Step 07</div><h2 data-ar="أدِر توقيت المدفوعات">Manage payment timing</h2></div>
   </div>
   <p data-ar="دوّن أيام الرواتب المتوقعة وتواريخ استحقاق الفواتير. التدفق النقدي الشهري الموجب لا يعني تلقائيًا أن لديك نقدًا كافيًا في كل يوم من الشهر.">List your expected paydays and bill due dates. A positive monthly cash flow does not automatically mean you have enough cash on every day of the month.</p>
   <div class="grid2">
@@ -2475,7 +2593,10 @@ html[lang=ar] .hero-quote{font-style:normal}
   <h3 data-ar="تمرين تأمّلي">Reflection exercise</h3>
   <p data-ar="أي فاتورة تسبب أكبر ضغط في التوقيت؟ هل يمكنك تعديل تاريخ استحقاقها، أو تقليل مصروف غير ضروري، أو تجنيب المال في وقت أبكر؟">Which bill creates the greatest timing pressure? Could you adjust its due date, reduce a nonessential expense, or set aside money earlier?</p>
  </section>
- <div class="pager no-print" data-pager="cashflow"></div>
+<section class="sheet" id="cfTake"><div class="section-head"><div class="section-icon"><svg class="ic" data-i="check"></svg></div><div><div class="eyebrow" data-ar="الخطوة 08">Step 08</div><h2 data-ar="بناء الصحة المالية: الخلاصة">Build financial health: takeaways</h2></div></div><div class="cf-take"><div><b><span data-ar="حدّد هدف ادخار">Set a target savings goal</span></b><span data-ar="شهريًا أو سنويًا، ثم ضعه أولًا في الميزانية.">Monthly or yearly, then budget it first.</span></div><div><b><span data-ar="ادّخر بالترتيب: المقيّد ثم الملتزم ثم المخصّص">Save in order: Restricted, Committed, Assigned</span></b><span data-ar="الالتزامات أولًا، ثم منزلك، ثم صندوق الطوارئ.">Obligations first, then your home, then your emergency fund.</span></div><div><b><span data-ar="اجعله عادة">Make it a habit</span></b><span data-ar="خصّص الادخار كل شهر، ولو مبالغ صغيرة.">Set savings aside every month, even small amounts.</span></div><div><b><span data-ar="اعرف ما يمكن التفاوض عليه">Know what is negotiable</span></b><span data-ar="الإنفاق الاختياري قابل للتغيير؛ العقود غالبًا لا.">Discretionary spending can move; contracts usually cannot.</span></div><div><b><span data-ar="سدّد الديون في وقتها">Service debt on time</span></b><span data-ar="استخدم الدين فقط لما تزيد قيمته.">Use debt only for things that grow in value.</span></div><div><b><span data-ar="دع العائد المركب يعمل">Let compounding work</span></b><span data-ar="ابدأ مبكرًا؛ الوقت يقوم بمعظم العمل.">Start early; time does most of the work.</span></div><div><b><span data-ar="الميزانية محددة بزمن">Budget is time-bound</span></b><span data-ar="راجعها كل شهر وعدّلها.">Review it every month and adjust.</span></div><div><b><span data-ar="ابنِ أكثر من مصدر دخل">Build more than one income</span></b><span data-ar="الدخل الجانبي أو الإيجاري أو الاستثماري يزيد المرونة.">Side, rental or investment income adds resilience.</span></div></div><div class="ready-nav"><button type="button" class="btn small" onclick="showView('networth')"><span data-ar="التالي: صافي الثروة ←">Next: Net Worth →</span></button><button type="button" class="btn small ghost" onclick="goSection('growth')"><span data-ar="لماذا بنود الادخار مهمة (الفصل 06)">Why the savings lines matter (Chapter 06)</span></button></div></section>
+
+ <div class="cf-stepnav no-print" id="cfStepNav"></div>
+<div class="pager no-print" data-pager="cashflow"></div>
 </div>
 
 <!-- ================= NET WORTH ================= -->
@@ -5103,7 +5224,7 @@ function pfRenderGrid(soft){
   const head = `<thead><tr><th class="pg-line">${md === "b" ? pft("b") : md === "f" ? pft("fc") : pft("a")} · ${pfYear}</th>` + MS.map(m => { const r = y[m] || {};
     return `<th data-m="${m}" class="${m === pfMonth ? "sel" : ""}" onclick="pfSelect(${m})">${pfMon(m)}<i class="st ${pfHas(r.a) ? "a" : pfHas(r.b) ? "b" : ""}"></i></th>`; }).join("")
     + `<th class="pg-tot pg-half">${hl}</th><th class="pg-tot">${pft("year")}</th></tr></thead>`;
-  const body = PF_GRID.map(([k, lab, inp]) => `<tr class="${inp ? "in" : k === "net" ? "net" : "calc"}"><th class="pg-line">${pft(lab)}</th>` + MS.map(m => { const i = m - 1, o = pfVal(m, md) || {}, lk = md === "f" && pfHas((y[m] || {}).a), ed = md === "f" && !lk && (y[m] || {}).fc && Number(((y[m] || {}).fc || {})[k] || 0) !== Number(((y[m] || {}).b || {})[k] || 0);
+  const body = PF_GRID.map(([k, lab, inp]) => `<tr class="${inp ? "in" : k === "net" ? "net" : "calc"}"><th class="pg-line">${pft(lab)}${k === "a" ? `<button type="button" class="pg-ef" onclick="jumpChapter({preventDefault(){}},'emergencyTool')" title="${lang === "ar" ? "افتح مخطط صندوق الطوارئ" : "Open the Emergency Fund Planner"}">${lang === "ar" ? "صندوق الطوارئ ↗" : "Emergency fund ↗"}</button>` : ""}</th>` + MS.map(m => { const i = m - 1, o = pfVal(m, md) || {}, lk = md === "f" && pfHas((y[m] || {}).a), ed = md === "f" && !lk && (y[m] || {}).fc && Number(((y[m] || {}).fc || {})[k] || 0) !== Number(((y[m] || {}).b || {})[k] || 0);
       if(inp && lk) return `<td data-col="${m}" class="lock${m === pfMonth ? " sel" : ""}" title="${lang === "ar" ? "فعلي، مقفل" : "Actual, locked"}">${fmt(Number(o[k]) || 0)}</td>`;
       return inp ? `<td data-col="${m}" class="${m === pfMonth ? "sel" : ""}${ed ? " fced" : ""}"><input type="number" min="0" step="any" inputmode="decimal" data-m="${m}" data-f="${k}" value="${Number(o[k]) > 0 ? o[k] : ""}" aria-label="${pft(lab)} ${pfMon(m, "long")}"></td>`
                  : `<td data-col="${m}" data-c="${k}-${m}" class="${m === pfMonth ? "sel" : ""}${C[i][k] < 0 ? " neg" : ""}">${fmt(C[i][k])}</td>`; }).join("")
@@ -6656,6 +6777,281 @@ document.addEventListener("input", e => {
 });
 document.addEventListener("change", e => { if(e.target && e.target.id === "emergencyMonths") renderReady(); });
 (function(){ const _r = window.renderSteps; if(typeof _r === "function") window.renderSteps = function(){ const r = _r.apply(this, arguments); try{ renderReady(); }catch(e){} return r; }; setTimeout(() => { try{ renderReady(); }catch(e){} }, 300); })();
+
+/* Emergency Fund Planner ← Budget planner (one way: the planner is never changed from here) */
+function renderEfLink(){
+  const box = $("efLink"); if(!box) return; const ar = lang === "ar", r = (PF.data[pfYear] || {})[pfMonth] || {}, b = r.b;
+  if(!pfHas(b)){ box.innerHTML = `<span>${ar ? `لا توجد ميزانية لـ ${pfMonLong(pfMonth)} بعد.` : `No budget for ${pfMonLong(pfMonth)} yet.`}</span> <button type="button" class="stp-inline" onclick="jumpChapter({preventDefault(){}},'planner')">${ar ? "افتح مخطط الميزانية ←" : "Open the Budget planner →"}</button>`; return; }
+  const home = (typeof ruleHomeAs === "function" ? ruleHomeAs() : "needs") === "needs";
+  const ess = (Number(b.f) || 0) + (home ? (Number(b.h) || 0) : 0), asg = Number(b.a) || 0;
+  box.dataset.ess = ess; box.dataset.asg = asg;
+  box.innerHTML = `<div class="ef-l-t">${ic2()}<b>${ar ? `من مخطط الميزانية (${pfMonLong(pfMonth)}):` : `From your Budget planner (${pfMonLong(pfMonth)}):`}</b> `
+    + (ar ? `المصروفات الأساسية <b>${money(ess)}</b> (الثابتة${home ? " + الأسرة في الوطن" : ""}) · مساهمة صندوق الطوارئ <b>${money(asg)}</b> (المخصّص)` : `essential expenses <b>${money(ess)}</b> (Fixed${home ? " + Back home" : ""}) · emergency fund contribution <b>${money(asg)}</b> (Assigned)`) + `</div>`
+    + `<div class="ef-l-b"><button type="button" class="btn small" onclick="efUsePlanner()">${ar ? "استخدم هذه الأرقام" : "Use these numbers"}</button>`
+    + `<button type="button" class="btn small ghost" onclick="efOpenAssigned()">${ar ? "افتح صف «المخصّص» ↗" : "Open the Assigned row ↗"}</button></div>`
+    + `<p class="tiny muted ef-l-n">${ar ? "«المدخر حاليًا» يبقى يدويًا: المخطط يسجّل المبالغ الشهرية لا رصيد حسابك. لا يتغير شيء في المخطط من هنا." : "“Already saved” stays manual: the planner records monthly amounts, not your account balance. Nothing in the planner changes from here."}</p>`;
+}
+function ic2(){ return '<svg class="ic" data-i="piggy" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 11a7 6 0 0 1 13-2h2v4l-2 1-1 3h-3v-2H9v2H6l-1-3a5 5 0 0 1 0-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>'; }
+function efUsePlanner(){
+  const box = $("efLink"); if(!box) return; const set = (id, v) => { const e = $(id); if(e){ e.value = v; e.dispatchEvent(new Event("input", {bubbles: true})); } };
+  set("essentialExpense", box.dataset.ess); set("monthlyDeposit", box.dataset.asg);
+  if(typeof updateEmergency === "function") updateEmergency(); if(typeof renderReady === "function") renderReady();
+  const n = box.querySelector(".ef-l-n"); if(n) n.textContent = lang === "ar" ? "تم: نُسخت المصروفات الأساسية والمساهمة من المخطط. أدخل «المدخر حاليًا» بنفسك." : "Done: essential expenses and contribution copied from the planner. Enter “Already saved” yourself.";
+}
+function efOpenAssigned(){
+  pfMode = "b"; jumpChapter({preventDefault(){}}, "planner");
+  setTimeout(() => { try{ pfTab("b"); }catch(e){} const inp = document.querySelector(`#pfGrid input[data-m="${pfMonth}"][data-f="a"]`);
+    if(inp){ inp.scrollIntoView({block: "center", behavior: "smooth"}); setTimeout(() => { inp.focus(); inp.classList.add("jump-flash"); setTimeout(() => inp.classList.remove("jump-flash"), 1800); }, 500); } }, 400);
+}
+(function(){ const _r = window.renderSteps; if(typeof _r === "function") window.renderSteps = function(){ const r = _r.apply(this, arguments); try{ renderEfLink(); }catch(e){} return r; }; setTimeout(() => { try{ renderEfLink(); }catch(e){} }, 300); })();
+
+/* ===== Cash Flow: every number comes from the Budget planner (single input, multiple outputs) ===== */
+function cfOpen(){ PF.cashOpen = PF.cashOpen || {}; return Number(PF.cashOpen[pfYear]) || 0; }
+function cfRows(){ // actual if recorded, else forecast, else budget — the same rule as the Forecast tab
+  const y = PF.data[pfYear] || {}; let cash = cfOpen(), asg = 0;
+  return [...Array(12)].map((_, i) => { const m = i + 1, f = pfFc(m), o = f.o || {}, has = pfHas(o) || pfHas((y[m] || {}).b);
+    const c = pfCalc(o), beg = cash; if(has) cash += c.net; asg += has ? (Number(o.a) || 0) : 0;
+    return {m, k: has ? f.k : null, o: has ? o : null, inc: c.inc || 0, save: c.save || 0, spend: c.spend || 0, net: has ? c.net : null, beg, end: has ? cash : null, asg: has ? asg : null}; });
+}
+function cfRowsMode(md){ // "b" budget, "a" actual, "f" forecast (actual → forecast → budget) — same numbers as the planner tab
+  if(md === "f" || md === "p") return cfRows(); const y = PF.data[pfYear] || {}; let cash = cfOpen(), stop = false;
+  return [...Array(12)].map((_, i) => { const m = i + 1, o = (y[m] || {})[md], has = !stop && pfHas(o); if(md === "a" && !pfHas(o)) stop = true;
+    const c = has ? pfCalc(o) : {}, beg = cash; if(has) cash += c.net;
+    return {m, k: has ? md : null, o: has ? o : null, inc: c.inc || 0, save: c.save || 0, spend: c.spend || 0, net: has ? c.net : null, beg, end: has ? cash : null}; });
+}
+const cfM = v => v === null ? "–" : (v < 0 ? "(" + money(Math.round(-v)) + ")" : money(Math.round(v)));
+const cfMon = (m, o) => new Date(pfYear, m - 1, 1).toLocaleDateString(pfLoc(), o || {month: "short"});
+function pfGoCell(f, tab){
+  pfMode = tab || "b"; jumpChapter({preventDefault(){}}, "planner");
+  setTimeout(() => { try{ pfTab(pfMode); }catch(e){}
+    const inp = document.querySelector(`#pfGrid input[data-m="${pfMonth}"][data-f="${f}"]`);
+    if(inp){ inp.scrollIntoView({block: "center", behavior: "smooth"}); setTimeout(() => { inp.focus(); inp.classList.add("jump-flash"); setTimeout(() => inp.classList.remove("jump-flash"), 1800); }, 500); } }, 400);
+}
+function renderCash(){
+  if(!$("cfRunT") || typeof PF === "undefined" || !PF || !PF.data) return; const ar = lang === "ar", R = cfRows(), sel = R[pfMonth - 1], y = PF.data[pfYear] || {};
+  const inp = $("cfOpen0"); if(inp && document.activeElement !== inp) inp.value = cfOpen() || "";
+  const basis = k => k === "a" ? (ar ? "فعلي" : "Actual") : k === "f" ? (ar ? "توقع" : "Forecast") : k === "b" ? (ar ? "ميزانية" : "Budget") : "–";
+  // Step 01: your own month
+  const you = $("cfYou");
+  if(you) you.innerHTML = sel.net === null ? "" : `<b>${ar ? `شهرك (${pfMonLong(pfMonth)}، ${basis(sel.k)}):` : `Your month (${pfMonLong(pfMonth)}, ${basis(sel.k)}):`}</b> ${ar ? "الدخل" : "income"} ${cfM(sel.inc)} − ${ar ? "الادخار" : "savings"} ${cfM(sel.save)} − ${ar ? "المصروفات" : "expenses"} ${cfM(sel.spend)} = <b class="${sel.net < 0 ? "neg" : "pos"}">${cfM(sel.net)}</b>`;
+  // Step 02: pay yourself first, and what you keep
+  const b = (y[pfMonth] || {}).b, pyf = $("cfPyf");
+  if(pyf) pyf.innerHTML = pfHas(b) ? (() => { const c = pfCalc(b), r = c.inc ? Math.round(c.save / c.inc * 100) : 0; return ar ? `ميزانيتك لـ ${pfMonLong(pfMonth)} تقتطع <b>${r}%</b> ادخارًا أولًا (${cfM(c.save)}) وتترك <b>${cfM(c.free)}</b> للإنفاق.` : `Your ${pfMonLong(pfMonth)} budget takes <b>${r}%</b> as savings first (${cfM(c.save)}) and leaves <b>${cfM(c.free)}</b> to spend.`; })() : "";
+  const yInc = R.reduce((t, x) => t + x.inc, 0), ySave = R.reduce((t, x) => t + x.save, 0), rate = yInc ? ySave / yInc : 0;
+  const yrs = Math.max(1, Math.min(50, Number($("cfYears")?.value) || 10)), tot = yInc * yrs;
+  if($("cfKInc")){ $("cfKInc").textContent = cfM(yInc); $("cfKTot").textContent = cfM(tot); $("cfKKeep").textContent = cfM(tot * rate);
+    $("cfKNote").textContent = ar ? `نسبة ادخارك في ${pfYear}: ${Math.round(rate * 100)}% (المقيّد + الملتزم + المخصّص ÷ الدخل). بدون ادخار، قد ينتهي كل هذا الدخل دون أن يبقى شيء.` : `Your ${pfYear} savings rate: ${Math.round(rate * 100)}% (Restricted + Committed + Assigned ÷ income). With no savings, all of that income could be gone with nothing kept.`; }
+  // Step 03: running cash table (months of the selected half) + chart (all 12)
+  const md = typeof pfMode === "string" ? pfMode : "f", half = pfMonth > 6 ? [7, 8, 9, 10, 11, 12] : [1, 2, 3, 4, 5, 6];
+  const hl = pfMonth > 6 ? "H2" : "H1", st = m => { const r = y[m] || {}; return pfHas(r.a) ? "a" : pfHas(r.b) ? "b" : ""; };
+  const cell = (v, cls) => `<td class="${cls || ""}${v !== null && v < -0.5 ? " neg" : ""}">${v === null || Math.abs(v) < 0.5 ? "–" : pfFmt(v)}</td>`;
+  const headLab = md === "b" ? pft("b") : md === "a" ? pft("a") : md === "f" ? pft("fc") : (ar ? "زيادة / (نقص)" : "Increase / (Decrease)");
+  const head = `<thead><tr><th class="pg-line">${headLab} · ${pfYear}</th>` + half.map(m => `<th data-m="${m}" class="${m === pfMonth ? "sel" : ""}" onclick="pfSelect(${m})">${pfMon(m)}<i class="st ${st(m)}"></i></th>`).join("")
+    + `<th class="pg-tot pg-half">${hl}</th><th class="pg-tot">${ar ? "السنة" : "Year"}</th></tr></thead>`;
+  let body = "";
+  if(md !== "p"){
+    const RM = cfRowsMode(md), MS = half.map(m => RM[m - 1]), Hs = MS.filter(x => x.o), As = RM.filter(x => x.o);
+    const val = (x, k, inp) => !x.o ? null : inp ? (Number(x.o[k]) || 0) : pfCalc(x.o)[k];
+    body = PF_GRID.filter(([k]) => ["inc", "save", "spend", "net"].includes(k)).map(([k, lab, inp]) => `<tr class="${inp ? "in" : k === "net" ? "net" : "calc"}"><th class="pg-line">${pft(lab)}</th>${MS.map(x => cell(val(x, k, inp), x.m === pfMonth ? "sel" : "")).join("")}${cell(Hs.length ? Hs.reduce((t, x) => t + val(x, k, inp), 0) : null, "pg-tot pg-half")}${cell(As.length ? As.reduce((t, x) => t + val(x, k, inp), 0) : null, "pg-tot")}</tr>`).join("")
+      + `<tr class="cash"><th class="pg-line">${ar ? "النقد في البداية" : "Cash at the beginning"}</th>${MS.map(x => cell(x.o ? x.beg : null, x.m === pfMonth ? "sel" : "")).join("")}${cell(Hs.length ? Hs[0].beg : null, "pg-tot pg-half")}${cell(As.length ? As[0].beg : null, "pg-tot")}</tr>`
+      + `<tr class="cash end"><th class="pg-line">${ar ? "النقد في النهاية" : "Cash at the end"}</th>${MS.map(x => cell(x.end, x.m === pfMonth ? "sel" : "")).join("")}${cell(Hs.length ? Hs[Hs.length - 1].end : null, "pg-tot pg-half")}${cell(As.length ? As[As.length - 1].end : null, "pg-tot")}</tr>`;
+  }
+  const wrapT = $("cfRunT").closest(".pf-grid-wrap"), pv = $("cfPvBox");
+  if(md === "p"){ $("cfRunT").innerHTML = ""; if(wrapT) wrapT.hidden = true; if(pv){ pv.hidden = false; pv.innerHTML = cfPvHtml(); } }
+  else { if(wrapT) wrapT.hidden = false; if(pv){ pv.hidden = true; pv.innerHTML = ""; } $("cfRunT").innerHTML = head + `<tbody>${body}</tbody>`; }
+  const hint = $("cfRunHint"); if(hint) hint.textContent = md === "b" ? (ar ? "إجماليات تبويب «الميزانية» في المخطط (الدخل وإجمالي الادخار وإجمالي المصروفات وصافي النقد)، مع النقد في البداية والنهاية. تفاصيل البنود تبقى في المخطط." : "Totals from the Budget tab of the planner (income, total savings, total expenses, net cash), plus cash at the beginning and end. Line details stay in the planner.")
+    : md === "a" ? (ar ? "إجماليات تبويب «الفعلي»؛ يتوقف الرصيد عند أول شهر بلا أرقام فعلية. تفاصيل البنود تبقى في المخطط." : "Totals from the Actual tab; the balance stops at the first month without actuals. Line details stay in the planner.")
+    : md === "f" ? (ar ? "إجماليات تبويب «التوقع»: الفعلي حيث سُجّل، ثم التوقع أو الميزانية. تفاصيل البنود تبقى في المخطط." : "Totals from the Forecast tab: actual where recorded, then forecast or budget. Line details stay in the planner.")
+    : (ar ? "زيادة / (نقص) = الفعلي ناقص الميزانية للأشهر التي لها أرقام فعلية. الرقم بين قوسين يعني أن الفعلي أقل من الميزانية." : "Increase / (Decrease) = actual minus budget, for months with actuals. A number in brackets means actual was lower than budget.");
+  $("cfRunChart").innerHTML = (typeof pfMode === "string" && pfMode === "p") ? "" : cfChart(typeof pfMode === "string" ? cfRowsMode(pfMode) : R);
+  const has = R.filter(x => x.end !== null), first = has.find(x => x.end < -0.5), last = has[has.length - 1], msg = $("cfRunMsg");
+  const pre = (typeof pfMode === "string" && pfMode !== "f") ? (ar ? "<b>النظرة المتوقعة (التوقع):</b> " : "<b>Outlook (Forecast):</b> ") : "";
+  if(msg){ if(!has.length){ msg.className = "fw-advice"; msg.textContent = ar ? "أدخل ميزانيتك في المخطط لترى رصيدك النقدي." : "Enter your budget in the planner to see your cash balance."; }
+    else if(first){ msg.className = "fw-advice neg"; msg.innerHTML = pre + (ar ? `ينفد نقدك في <b>${pfMonLong(first.m)}</b> عند ${cfM(first.end)}، وتنتهي ${pfYear} عند <b>${cfM(last.end)}</b>. راجع الأشهر السالبة في الخطوة 06 أو في تبويب التوقع.` : `Your cash runs out in <b>${pfMonLong(first.m)}</b>, at ${cfM(first.end)}, and ${pfYear} ends at <b>${cfM(last.end)}</b>. Fix the negative months with the six checks in Step 06, or in the Forecast tab.`); }
+    else { msg.className = "fw-advice pos"; msg.innerHTML = pre + (ar ? `يبقى نقدك موجبًا طوال السنة، وتنتهي ${pfYear} عند <b>${cfM(last.end)}</b>.` : `Your cash stays positive all year and ${pfYear} ends at <b>${cfM(last.end)}</b>.`); } }
+  // Step 05 live values
+  if($("cfLiveV") && pfHas(b)) $("cfLiveV").innerHTML = ar ? `ميزانيتك لـ ${pfMonLong(pfMonth)}: المتغيرة ${cfM(b.v)} · الأسرة في الوطن ${cfM(b.h)}. <button type="button" class="stp-inline" onclick="pfGoCell('v','f')">قلّل في التوقع ←</button>` : `Your ${pfMonLong(pfMonth)} budget: Variable ${cfM(b.v)} · Back home ${cfM(b.h)}. <button type="button" class="stp-inline" onclick="pfGoCell('v','f')">Trim it in the Forecast tab →</button>`;
+  if($("cfLiveI") && pfHas(b)) $("cfLiveI").innerHTML = ar ? `دخلك المخطط لـ ${pfMonLong(pfMonth)}: ${cfM(b.inc)}. كل ${money(500)} إضافية شهريًا تعني ${money(6000)} في السنة. <button type="button" class="stp-inline" onclick="pfGoCell('inc','f')">أضفها في التوقع ←</button>` : `Your planned income for ${pfMonLong(pfMonth)}: ${cfM(b.inc)}. Every extra ${money(500)} a month adds ${money(6000)} a year. <button type="button" class="stp-inline" onclick="pfGoCell('inc','f')">Add it in the Forecast tab →</button>`;
+  // Step 06 six checks
+  const ck = $("cfChecks");
+  if(ck){ const c = pfHas(b) ? pfCalc(b) : null, mn = pfMonLong(pfMonth), pc = v => c && c.inc ? Math.round(v / c.inc * 100) + "%" : "";
+    const L = [
+      ["r", ar ? "حدّد هدف الادخار" : "Set your target savings goal", ar ? "هل إجمالي الادخار واقعي لهذا الشهر؟" : "Is your total savings realistic for this month?", c ? `${ar ? "إجمالي الادخار" : "Total savings"} ${cfM(c.save)} (${pc(c.save)})` : ""],
+      ["inc", ar ? "ابحث عن دخل إضافي" : "Look for other income", ar ? "عمولة، إيجار، عمل جانبي، مكافأة." : "Commission, rental income, a side job, a bonus.", c ? `${ar ? "الدخل" : "Income"} ${cfM(c.inc)}` : ""],
+      ["a", ar ? "هل الادخار قابل للتفاوض؟" : "Is your saving negotiable?", ar ? "«المخصّص» بند جديد: كن مرنًا حتى يصبح عادة، وزده تدريجيًا شهرًا بعد شهر." : "Assigned is a new line: allow some flexibility until it becomes a habit, and raise it step by step month on month.", c ? `${ar ? "المخصّص" : "Assigned"} ${cfM(b.a)}` : ""],
+      ["v", ar ? "قلّل الإنفاق الاختياري" : "Cut discretionary spending", ar ? "الطعام خارج المنزل، الترفيه، التسوق: قابل للتفاوض." : "Eating out, entertainment, shopping: negotiable.", c ? `${ar ? "المتغيرة" : "Variable"} ${cfM(b.v)} (${pc(b.v)})` : ""],
+      ["h", ar ? "راجع المصروفات المخصّصة" : "Review assigned expenses", ar ? "المبالغ للأسرة في الوطن: هل يمكن خفضها مؤقتًا؟" : "Amounts for family back home: can any be lowered for a while?", c ? `${ar ? "الأسرة في الوطن" : "Back home"} ${cfM(b.h)} (${pc(b.h)})` : ""],
+      [null, ar ? "التزم بالميزانية المعدّلة" : "Commit to your revised budget", ar ? "احفظ التغييرات في تبويب التوقع وتابع الرصيد النقدي أعلاه." : "Keep the changes in the Forecast tab and watch the cash balance above.", c ? `${ar ? "صافي النقد" : "Net cash"} ${cfM(c.net)} · ${ar ? "النقد في نهاية" : "cash at end of"} ${cfMon(pfMonth)} ${cfM(sel.end)}` : ""]];
+    ck.innerHTML = L.map(([f, t, d, v], i) => `<li><span class="cf-cn">${i + 1}</span><div><b>${t}</b><span>${d}</span>${v ? `<em class="${i === 5 && c && c.net < 0 ? "neg" : ""}">${mn}: ${v}</em>` : ""}</div>${f ? `<button type="button" class="btn small ghost" onclick="pfGoCell('${f}','b')">${ar ? "افتح الصف ↗" : "Open the row ↗"}</button>` : `<button type="button" class="btn small" onclick="pfMode='f';jumpChapter({preventDefault(){}},'planner');setTimeout(()=>pfTab('f'),150)">${ar ? "افتح التوقع ↗" : "Open Forecast ↗"}</button>`}</li>`).join(""); }
+  // Step 04 planner fill for the monthly statement tool
+  const lk = $("cfLink");
+  if(lk){ const o = sel.net === null ? null : pfFc(pfMonth).o;
+    lk.innerHTML = !o ? `<span>${ar ? `لا توجد أرقام لـ ${pfMonLong(pfMonth)}.` : `No figures for ${pfMonLong(pfMonth)}.`}</span>`
+      : `<div class="ef-l-t"><b>${ar ? `من مخطط الميزانية (${pfMonLong(pfMonth)}، ${basis(sel.k)}):` : `From your Budget planner (${pfMonLong(pfMonth)}, ${basis(sel.k)}):`}</b> ${ar ? "الدخل" : "income"} ${cfM(o.inc)} · ${ar ? "الثابتة" : "fixed"} ${cfM(o.f)} · ${ar ? "المتغيرة" : "variable"} ${cfM(o.v)} · ${ar ? "الديون والتأمين (المقيّد)" : "debt and insurance (Restricted)"} ${cfM(o.r)} · ${ar ? "الادخار (الملتزم + المخصّص)" : "savings (Committed + Assigned)"} ${cfM((Number(o.c) || 0) + (Number(o.a) || 0))} · ${ar ? "الأسرة في الوطن" : "back home"} ${cfM(o.h)} · ${ar ? "النقد في البداية" : "opening cash"} ${cfM(sel.beg)}</div><div class="ef-l-b"><button type="button" class="btn small" onclick="cfUsePlanner()">${ar ? "استخدم هذه الأرقام" : "Use these numbers"}</button></div>`; }
+}
+function cfUsePlanner(){
+  const o = pfFc(pfMonth).o, R = cfRows(), set = (id, v) => { const e = $(id); if(e){ e.value = Math.max(0, Math.round(Number(v) || 0)); e.dispatchEvent(new Event("input", {bubbles: true})); } };
+  set("cfSalary", o.inc); set("cfOther", 0); set("cfOpening", R[pfMonth - 1].beg); set("cfHousing", o.f); set("cfLiving", o.v); set("cfDebt", o.r); set("cfLifestyle", 0); set("cfSavings", (Number(o.c) || 0) + (Number(o.a) || 0)); set("cfOtherOut", o.h);
+  if(typeof updateCashFlow === "function") updateCashFlow();
+}
+function cfChart(R, RB){
+  const ar = lang === "ar", pts = R.filter(x => x.end !== null), bp = RB ? RB.filter(x => x.end !== null) : []; if(!pts.length && !bp.length) return "";
+  const W = 760, H = 230, L = 40, Rr = 44, T = 26, B = 40, vals = pts.map(x => x.end).concat(bp.map(x => x.end), [0, cfOpen()]);
+  const mx = Math.max(...vals), mn = Math.min(...vals), sp = mx - mn || 1, X = m => L + (m - 1) / 11 * (W - L - Rr), Y = v => T + (mx - v) / sp * (H - T - B), z = Y(0);
+  let o = `<svg viewBox="0 0 ${W} ${H}" class="cf-svg" role="img" aria-label="${ar ? "الرصيد النقدي في نهاية كل شهر" : "Cash at the end of each month"}"><line x1="${L}" x2="${W - Rr}" y1="${z}" y2="${z}" class="zl"/><text x="${W - Rr}" y="${z - 5}" text-anchor="end" class="zt">0</text>`;
+  if(bp.length) o += `<polyline points="${bp.map(x => X(x.m).toFixed(1) + "," + Y(x.end).toFixed(1)).join(" ")}" class="ln plan" fill="none"/>` + bp.map(x => `<circle cx="${X(x.m).toFixed(1)}" cy="${Y(x.end).toFixed(1)}" r="3.5" class="pt plan${x.end < -0.5 ? " neg" : ""}"><title>${cfMon(x.m)} · ${ar ? "الميزانية" : "Budget"}: ${cfM(x.end)}</title></circle>`).join("");
+  if(!pts.length) pts.push(...[]);
+  const path = pts.map((x, i) => `${i ? "L" : "M"}${X(x.m).toFixed(1)} ${Y(x.end).toFixed(1)}`).join(" ");
+  if(pts.length) o += `<path d="${path} L${X(pts[pts.length - 1].m).toFixed(1)} ${z} L${X(pts[0].m).toFixed(1)} ${z} Z" class="ar"/>`;
+  for(let i = 1; i < pts.length; i++){ const a = pts[i - 1], b2 = pts[i]; o += `<line x1="${X(a.m).toFixed(1)}" y1="${Y(a.end).toFixed(1)}" x2="${X(b2.m).toFixed(1)}" y2="${Y(b2.end).toFixed(1)}" class="ln ${b2.k === "a" ? "act" : "plan"}"/>`; }
+  pts.forEach(x => { const neg = x.end < -0.5, on = x.m === pfMonth;
+    o += `<circle cx="${X(x.m).toFixed(1)}" cy="${Y(x.end).toFixed(1)}" r="${on ? 6 : 4.5}" class="pt ${x.k === "a" ? "act" : "plan"}${neg ? " neg" : ""}"><title>${cfMon(x.m)}: ${cfM(x.end)}</title></circle>`;
+    if(on || x.m === pts[pts.length - 1].m || (neg && !pts.find(p => p.end < -0.5 && p.m < x.m))) o += `<text x="${X(x.m).toFixed(1)}" y="${(Y(x.end) + (x.end < 0 ? 18 : -10)).toFixed(1)}" text-anchor="${x.m === 12 ? "end" : x.m === 1 ? "start" : "middle"}" class="vl${neg ? " neg" : ""}">${cfM(x.end)}</text>`; });
+  R.forEach(x => { o += `<text x="${X(x.m).toFixed(1)}" y="${H - 14}" text-anchor="middle" class="mx${x.m === pfMonth ? " on" : ""}">${cfMon(x.m)}</text>`; });
+  return o + `</svg><div class="cf-leg"><span><i class="pt act"></i>${ar ? "فعلي" : "Actual"}</span><span><i class="pt plan"></i>${RB ? (ar ? "الميزانية" : "Budget") : (ar ? "ميزانية / توقع" : "Budget / forecast")}</span><span><i class="pt neg"></i>${ar ? "رصيد سالب" : "Negative balance"}</span><span class="tiny">${ar ? "النقد في نهاية كل شهر" : "Cash at the end of each month"}</span></div>`;
+}
+document.addEventListener("input", e => {
+  const id = e.target && e.target.id;
+  if(id === "cfOpen0"){ PF.cashOpen = PF.cashOpen || {}; PF.cashOpen[pfYear] = Math.max(0, Number(e.target.value) || 0); pfSave(); renderCash(); }
+  else if(id === "cfYears") renderCash();
+});
+(function(){
+  const _r = window.renderSteps; if(typeof _r === "function") window.renderSteps = function(){ const r = _r.apply(this, arguments); try{ renderCash(); }catch(err){ console.error(err); } return r; };
+  const _e = window.pfExample; if(typeof _e === "function") window.pfExample = function(){ PF.cashOpen = PF.cashOpen || {}; PF.cashOpen[pfYear] = 397; return _e.apply(this, arguments); };
+  const _s = window.showView; if(typeof _s === "function") window.showView = function(v){ const r = _s.apply(this, arguments); if(v === "cashflow") try{ renderCash(); }catch(err){} return r; };
+  setTimeout(() => { try{ renderCash(); }catch(err){} }, 350);
+})();
+/* The same Period bar serves Personal Budgeting and Cash Flow: one element, moved to the view in use (single input) */
+(function(){
+  const bar = $("fwGlobal"); if(!bar) return;
+  const home = document.createComment("fwGlobal-home"); bar.parentNode.insertBefore(home, bar);
+  const place = v => { if(v === "cashflow"){ const fs = document.querySelector("#cashflow .flowstrip"); if(fs && fs.nextSibling !== bar) fs.after(bar); }
+    else if(v === "budgeting" && home.nextSibling !== bar) home.parentNode.insertBefore(bar, home.nextSibling); };
+  const _s = window.showView; window.showView = function(v){ place(v); return _s.apply(this, arguments); };
+  try{ if(typeof activeView !== "undefined") place(activeView); }catch(e){}
+})();
+/* Header follows the left trail: "Part › section" (Personal Budgeting uses the selected chapter; other parts use the section on screen) */
+(function(){
+  const title = $("crumbTitle"); if(!title) return;
+  const sub = document.createElement("span"); sub.id = "crumbSub"; sub.className = "crumb-sub"; title.after(sub);
+  const txt = el => (el ? (el.querySelector("span:not(.cnt)") || el).textContent : "").trim();
+  function current(){
+    const v = typeof activeView !== "undefined" ? activeView : "";
+    if(v === "budgeting" || v === "cashflow"){ const l = document.querySelector((v === "budgeting" ? "#budgetGroup" : "#cashGroup") + " .sub-link.current"); return l ? txt(l) : ""; }
+    const view = document.getElementById(v); if(!view || v === "overview") return "";
+    const bar = document.querySelector(".topbar"), lim = (bar ? bar.getBoundingClientRect().bottom : 60) + 140;
+    let best = null; view.querySelectorAll("section.sheet:not(.hero)").forEach(s => { const r = s.getBoundingClientRect(); if(r.height && r.top <= lim && r.bottom > lim - 60) best = s; });
+    if(!best){ const first = view.querySelector("section.sheet:not(.hero)"); if(first && first.getBoundingClientRect().top < innerHeight * .6) best = first; }
+    const h = best && best.querySelector("h2"); return h ? h.textContent.trim() : "";
+  }
+  let last = null;
+  window.updateCrumbSub = function(){ const t = current(); if(t === last) return; last = t; sub.textContent = t ? "› " + t : ""; sub.hidden = !t;
+    const base = title.textContent; document.title = (t ? t + " · " : "") + base + " | FCIS Smart Spend"; };
+  const _sc = window.showChapter; if(typeof _sc === "function") window.showChapter = function(){ const r = _sc.apply(this, arguments); last = null; updateCrumbSub(); return r; };
+  const _sv = window.showView; window.showView = function(){ const r = _sv.apply(this, arguments); last = null; setTimeout(updateCrumbSub, 60); return r; };
+  const _al = window.applyLang; if(typeof _al === "function") window.applyLang = function(){ const r = _al.apply(this, arguments); last = null; try{ updateCrumbSub(); }catch(e){} return r; };
+  let raf = 0; addEventListener("scroll", () => { if(raf) return; raf = requestAnimationFrame(() => { raf = 0; updateCrumbSub(); }); }, {passive: true});
+  setTimeout(updateCrumbSub, 400);
+})();
+
+/* Cash Flow shows one topic at a time, picked from the left trail (no long scrolling) */
+const CF_TABS = ["cfS1", "cfFormula", "cfRun", "cfS2", "cfGrow", "cfRevise", "cfS3", "cfTake"], CF_KEY = "fcis-cf-tab";
+let cfTab = (() => { try{ const t = localStorage.getItem(CF_KEY); return CF_TABS.includes(t) ? t : "cfS1"; }catch(e){ return "cfS1"; } })();
+function cfShow(id, keepScroll){
+  if(!CF_TABS.includes(id)) id = "cfS1";
+  if(typeof activeView !== "undefined" && activeView !== "cashflow"){ cfTab = id; showView("cashflow"); }
+  cfTab = id; try{ localStorage.setItem(CF_KEY, id); }catch(e){}
+  CF_TABS.forEach(t => { const el = $(t); if(el) el.classList.toggle("ch-off", t !== id); });
+  const hero = document.querySelector("#cashflow > .sheet.hero"); if(hero) hero.classList.toggle("ch-off", id !== "cfS1");
+  document.querySelectorAll("#cashGroup .sub-link").forEach(l => { const on = l.dataset.cf === id; l.classList.toggle("current", on); if(on) l.setAttribute("aria-current", "true"); else l.removeAttribute("aria-current"); });
+  const i = CF_TABS.indexOf(id), ar = lang === "ar", nav = $("cfStepNav");
+  const lab = t => { const l = document.querySelector(`#cashGroup .sub-link[data-cf="${t}"] span`); return l ? l.textContent : t; };
+  if(nav) nav.innerHTML = (i > 0 ? `<button type="button" class="btn small ghost" onclick="cfShow('${CF_TABS[i - 1]}')">${ar ? "→" : "←"} ${lab(CF_TABS[i - 1])}</button>` : "<span></span>")
+    + `<span class="cf-sn-c">${i + 1} / ${CF_TABS.length}</span>`
+    + (i < CF_TABS.length - 1 ? `<button type="button" class="btn small" onclick="cfShow('${CF_TABS[i + 1]}')">${lab(CF_TABS[i + 1])} ${ar ? "←" : "→"}</button>` : `<button type="button" class="btn small" onclick="showView('networth')">${ar ? "التالي: صافي الثروة ←" : "Next: Net Worth →"}</button>`);
+  try{ history.replaceState(null, "", "#" + id); }catch(e){}
+  if(!keepScroll) window.scrollTo({top: 0, behavior: "instant"});
+  try{ renderCash(); }catch(e){} if(window.updateCrumbSub) setTimeout(updateCrumbSub, 30);
+}
+(function(){
+  const _s = window.showView; window.showView = function(v){ const r = _s.apply(this, arguments); const g = $("cashGroup"); if(g) g.classList.toggle("open", v === "cashflow"); if(v === "cashflow") cfShow(cfTab, true); return r; };
+  const _g = window.goTool; if(typeof _g === "function") window.goTool = function(view, id){ if(view === "cashflow" && CF_TABS.includes(id)) return cfShow(id); return _g.apply(this, arguments); };
+  const h = decodeURIComponent((window.__initHash || location.hash || "").slice(1)); if(CF_TABS.includes(h)){ setTimeout(() => cfShow(h), 60); setTimeout(() => { if(activeView !== "cashflow") cfShow(h); }, 400); }
+  else if(typeof activeView !== "undefined" && activeView === "cashflow") setTimeout(() => cfShow(cfTab, true), 50);
+  const _al = window.applyLang; if(typeof _al === "function") window.applyLang = function(){ const r = _al.apply(this, arguments); try{ if(activeView === "cashflow") cfShow(cfTab, true); }catch(e){} return r; };
+  const _rh = window.routeHash; if(typeof _rh === "function") window.routeHash = function(){ const x = decodeURIComponent(location.hash.slice(1)); if(CF_TABS.includes(x)) return cfShow(x); return _rh.apply(this, arguments); };
+})();
+
+/* Increase / (Decrease): vertical waterfall from budgeted to actual cash at the end of the month */
+function cfWaterfall(compact, budgetOnlyK){
+  const ar = lang === "ar", RB = cfRowsMode("b"), RA = cfRowsMode("a");
+  if(budgetOnlyK !== null && budgetOnlyK !== undefined) return cfWfBudget(budgetOnlyK, compact);
+  let k = -1; for(let i = 0; i < Math.min(12, pfMonth); i++){ if(RA[i].end !== null && RB[i].end !== null) k = i; else if(RA[i].end === null) break; }
+  if(k < 0) return `<p class="tiny muted cf-wf-empty">${ar ? "لا توجد أرقام فعلية حتى الشهر المحدد بعد، فلا يوجد ما يُقارن." : "No actual figures up to the selected month yet, so there is nothing to compare."}</p>`;
+  let dI = 0, dS = 0, dE = 0;
+  for(let i = 0; i <= k; i++){ const A = pfCalc(RA[i].o), B = pfCalc(RB[i].o); dI += A.inc - B.inc; dS -= (A.save - B.save); dE -= (A.spend - B.spend); }
+  const b0 = RB[k].end, a1 = RA[k].end, mon = new Date(pfYear, k, 1).toLocaleDateString(pfLoc(), {month: "long", year: "numeric"});
+  const steps = [{lab: ar ? "النقد في النهاية · الميزانية" : "Budget cash at end", v: b0, tot: true, cls: "bud"},
+    {lab: ar ? "الدخل" : "Income", v: dI, note: ar ? "أعلى يضيف نقدًا" : "more adds cash"},
+    {lab: ar ? "إجمالي الادخار" : "Total savings", v: dS, note: ar ? "ادخار أكثر يقلل النقد" : "more saving uses cash"},
+    {lab: ar ? "إجمالي المصروفات" : "Total expenses", v: dE, note: ar ? "إنفاق أكثر يقلل النقد" : "more spending uses cash"},
+    {lab: ar ? "النقد في النهاية · الفعلي" : "Actual cash at end", v: a1, tot: true, cls: "act"}];
+  let run = 0; const segs = steps.map(st => { if(st.tot){ run = st.v; return {...st, y0: 0, y1: st.v}; } const y0 = run; run += st.v; return {...st, y0, y1: run}; });
+  const vals = segs.flatMap(x => [x.y0, x.y1]).concat(0), mx = Math.max(...vals), mn = Math.min(...vals), sp = mx - mn || 1;
+  const W = compact ? 520 : 760, H = compact ? 330 : 300, T = 34, B = 64, L = 10, R = 10, n = segs.length, cw = (W - L - R) / n, bw = Math.min(90, cw * .56);
+  const Y = v => T + (mx - v) / sp * (H - T - B), z = Y(0);
+  let o = `<svg viewBox="0 0 ${W} ${H}" class="cf-wf" role="img" aria-label="${ar ? "جسر النقد من الميزانية إلى الفعلي" : "Cash bridge from budget to actual"}"><line x1="${L}" x2="${W - R}" y1="${z}" y2="${z}" class="zl"/>`;
+  segs.forEach((x, i) => { const cx = L + cw * i + cw / 2, top = Math.min(Y(x.y0), Y(x.y1)), h = Math.max(1.5, Math.abs(Y(x.y0) - Y(x.y1)));
+    const cls = x.tot ? x.cls + (x.v < -0.5 ? " neg" : "") : Math.abs(x.v) < 0.5 ? "zero" : x.v > 0 ? "up" : "down";
+    o += `<rect x="${(cx - bw / 2).toFixed(1)}" y="${top.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="5" class="wb ${cls}"><title>${x.lab}: ${cfM(x.v)}</title></rect>`;
+    if(i < n - 1){ const nx = L + cw * (i + 1) + cw / 2; o += `<line x1="${(cx + bw / 2).toFixed(1)}" x2="${(nx - bw / 2).toFixed(1)}" y1="${Y(x.y1).toFixed(1)}" y2="${Y(x.y1).toFixed(1)}" class="cn"/>`; }
+    const ly = x.v >= 0 || x.tot && x.v >= 0 ? top - 8 : top + h + 16;
+    o += `<text x="${cx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="middle" class="wv${(x.tot ? x.v : x.v) < -0.5 ? " neg" : ""}">${x.tot ? cfM(x.v) : Math.abs(x.v) < 0.5 ? "–" : (x.v > 0 ? "+" : "") + cfM(x.v)}</text>`;
+    const parts = compact && x.tot ? x.lab.split(" · ").length > 1 ? x.lab.split(" · ") : [x.lab.replace(/ cash at end$/, ""), ar ? "" : "cash at end"] : [x.lab];
+    o += `<text x="${cx.toFixed(1)}" y="${H - 40}" text-anchor="middle" class="wl${x.tot ? " tot" : ""}">${parts[0]}${parts[1] ? `<tspan x="${cx.toFixed(1)}" dy="13">${parts[1]}</tspan>` : ""}</text>`;
+    if(x.note && compact) x.note = x.v >= 0 ? (ar ? (i === 1 ? "أعلى = نقد أكثر" : "أقل = نقد أكثر") : (i === 1 ? "more = more cash" : "less = more cash")) : (ar ? (i === 1 ? "أقل = نقد أقل" : "أكثر = نقد أقل") : (i === 1 ? "less = less cash" : "more = less cash"));
+    if(x.note) o += `<text x="${cx.toFixed(1)}" y="${H - 14}" text-anchor="middle" class="wn">${x.note}</text>`; });
+  o += `</svg>`;
+  const d = a1 - b0;
+  return `<h4 class="cf-wf-h">${ar ? `جسر النقد: من الميزانية إلى الفعلي، نهاية ${mon}` : `Cash bridge: budget to actual, end of ${mon}`}</h4>` + o
+    + `<p class="cf-wf-note">${ar ? `النقد الفعلي في نهاية ${mon} ${Math.abs(d) < .5 ? "مطابق للميزانية" : d > 0 ? `أعلى من الميزانية بـ ${money(Math.round(d))}` : `أقل من الميزانية بـ ${money(Math.round(-d))}`}. يجمع الجسر كل الأشهر من يناير حتى ${mon}، لأن النقد يتراكم.` : `Actual cash at the end of ${mon} is ${Math.abs(d) < .5 ? "in line with budget" : d > 0 ? `${money(Math.round(d))} above budget` : `${money(Math.round(-d))} below budget`}. The bridge adds up every month from January to ${mon}, because cash builds up.`}</p>`;
+}
+
+/* Increase / (Decrease): Performance Review-style table on the left, cash bridge waterfall on the right */
+function cfPvHtml(){
+  const ar = lang === "ar", RB = cfRowsMode("b"), RA = cfRowsMode("a");
+  let k = -1; for(let i = 0; i < Math.min(12, pfMonth); i++){ if(RA[i].end !== null && RB[i].end !== null) k = i; else if(RA[i].end === null) break; }
+  const noA = k < 0; if(noA) k = pfMonth - 1;
+  const S = (R, f) => { const xs = R.slice(0, k + 1).filter(x => x.o); return xs.length ? xs.reduce((t, x) => t + pfCalc(x.o)[f], 0) : null; };
+  const endOf = R => { for(let i = k; i >= 0; i--) if(R[i].end !== null) return R[i].end; return null; };
+  const per = k === 0 ? new Date(pfYear, 0, 1).toLocaleDateString(pfLoc(), {month: "short", year: "2-digit"}) : `${new Date(pfYear, 0, 1).toLocaleDateString(pfLoc(), {month: "short"})}–${new Date(pfYear, k, 1).toLocaleDateString(pfLoc(), {month: "short", year: "2-digit"})}`;
+  const rows = [[ar ? "الدخل" : "Income", S(RA, "inc"), S(RB, "inc"), ""], [ar ? "إجمالي الادخار" : "Total savings", S(RA, "save"), S(RB, "save"), ""], [ar ? "إجمالي المصروفات" : "Total expenses", S(RA, "spend"), S(RB, "spend"), ""],
+    [ar ? "صافي النقد" : "Net cash", S(RA, "net"), S(RB, "net"), "hl"], [ar ? "النقد في البداية" : "Cash at the beginning", noA ? null : cfOpen(), cfOpen(), ""], [ar ? "النقد في النهاية" : "Cash at the end", noA ? null : RA[k].end, endOf(RB), "net"]];
+  const f = v => v === null || Math.abs(v) < .5 ? "–" : pfFmt(v), pc = (d, b) => d === null || b === null ? "–" : Math.abs(d) < .5 ? "–" : Math.abs(b) < .5 ? "n/a" : (b < 0) !== (b + d < 0) ? "n.m." : (d / Math.abs(b) * 100).toFixed(1) + "%";
+  const H = ar ? ["الفعلي", "الميزانية", "زيادة/<br>(نقص)", "%"] : ["Actual", "Budget", "Increase/<br>(Decrease)", "%"];
+  const tbl = `<div class="pf-ptable-wrap"><table class="pf-ptable cf-pvt"><thead><tr><th>${per}</th><th class="ta">${H[0]}</th><th class="tb">${H[1]}</th><th class="tv">${H[2]}</th><th class="tv">${H[3]}</th></tr></thead><tbody>`
+    + rows.map(([lab, a, b, cls]) => { const d = a === null || b === null ? null : a - b; return `<tr class="${cls}"><th>${lab}</th><td class="${a !== null && a < -.5 ? "neg" : ""}">${f(a)}</td><td class="${b !== null && b < -.5 ? "neg" : ""}">${f(b)}</td><td class="${d !== null && d < -.5 ? "neg" : ""}">${f(d)}</td><td class="${d !== null && d < -.5 ? "neg" : ""}">${pc(d, b)}</td></tr>`; }).join("")
+    + `</tbody></table></div>${noA ? `<p class="cf-wait">${ar ? "بانتظار الأرقام الفعلية: سجّلها في تبويب «الفعلي» في المخطط لترى الفرق والجسر." : "Waiting for actual figures: record them in the planner’s Actual tab to see the difference and the bridge."} <button type="button" class="stp-inline" onclick="pfMode='a';jumpChapter({preventDefault(){}},'planner');setTimeout(()=>pfTab('a'),150)">${ar ? "افتح تبويب الفعلي ←" : "Open the Actual tab →"}</button></p>` : ""}<p class="tiny muted">${ar ? `من يناير حتى ${new Date(pfYear, k, 1).toLocaleDateString(pfLoc(), {month: "long"})} ${noA ? "(الشهر المحدد)" : "(آخر شهر له أرقام فعلية حتى الشهر المحدد)"}. زيادة/(نقص) = الفعلي ناقص الميزانية؛ الأقواس تعني أن الفعلي أقل. n.m. = غير ذي معنى عندما يتغير الاتجاه بين موجب وسالب.` : `January to ${new Date(pfYear, k, 1).toLocaleDateString(pfLoc(), {month: "long"})} ${noA ? "(the selected month)" : "(the latest month with actuals up to the selected month)"}. Increase/(Decrease) = actual minus budget; brackets mean actual was lower. n.m. = not meaningful when the sign flips between positive and negative.`}</p>`;
+  return `<div class="cf-pv"><div class="cf-pv-l">${tbl}</div><div class="cf-pv-r">${cfWaterfall(true, noA ? k : null)}</div></div>`;
+}
+
+function cfWfBudget(k, compact){ // no actuals yet: budgeted cash bridge from the opening balance to the end of the month
+  const ar = lang === "ar", RB = cfRowsMode("b"), xs = RB.slice(0, k + 1).filter(x => x.o);
+  const mon = new Date(pfYear, k, 1).toLocaleDateString(pfLoc(), {month: "long", year: "numeric"});
+  if(!xs.length) return `<h4 class="cf-wf-h">${ar ? "جسر النقد" : "Cash bridge"}</h4><p class="tiny muted cf-wf-empty">${ar ? "لا توجد ميزانية حتى هذا الشهر بعد." : "No budget up to this month yet."}</p>`;
+  const inc = xs.reduce((t, x) => t + pfCalc(x.o).inc, 0), sv = xs.reduce((t, x) => t + pfCalc(x.o).save, 0), sp = xs.reduce((t, x) => t + pfCalc(x.o).spend, 0), o0 = cfOpen(), end = o0 + inc - sv - sp;
+  const steps = [{lab: ar ? "النقد في البداية" : "Opening cash", v: o0, tot: true, cls: "bud"}, {lab: ar ? "الدخل" : "Income", v: inc}, {lab: ar ? "إجمالي الادخار" : "Total savings", v: -sv}, {lab: ar ? "إجمالي المصروفات" : "Total expenses", v: -sp}, {lab: ar ? "النقد في النهاية" : "Cash at end", v: end, tot: true, cls: "bud"}];
+  let run = 0; const segs = steps.map(st => { if(st.tot){ run = st.v; return {...st, y0: 0, y1: st.v}; } const y0 = run; run += st.v; return {...st, y0, y1: run}; });
+  const vals = segs.flatMap(x => [x.y0, x.y1]).concat(0), mx = Math.max(...vals), mn = Math.min(...vals), spn = mx - mn || 1;
+  const W = compact ? 520 : 760, H = compact ? 330 : 300, T = 34, B = 52, L = 10, R = 10, n = segs.length, cw = (W - L - R) / n, bw = Math.min(90, cw * .56), Y = v => T + (mx - v) / spn * (H - T - B), z = Y(0);
+  let o = `<svg viewBox="0 0 ${W} ${H}" class="cf-wf" role="img" aria-label="${ar ? "جسر النقد في الميزانية" : "Budgeted cash bridge"}"><line x1="${L}" x2="${W - R}" y1="${z}" y2="${z}" class="zl"/>`;
+  segs.forEach((x, i) => { const cx = L + cw * i + cw / 2, top = Math.min(Y(x.y0), Y(x.y1)), h = Math.max(1.5, Math.abs(Y(x.y0) - Y(x.y1)));
+    const cls = x.tot ? "bud" : x.v > 0 ? "up" : x.v < 0 ? "down" : "zero";
+    o += `<rect x="${(cx - bw / 2).toFixed(1)}" y="${top.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="5" class="wb ${cls}"><title>${x.lab}: ${cfM(x.v)}</title></rect>`;
+    if(i < n - 1){ const nx = L + cw * (i + 1) + cw / 2; o += `<line x1="${(cx + bw / 2).toFixed(1)}" x2="${(nx - bw / 2).toFixed(1)}" y1="${Y(x.y1).toFixed(1)}" y2="${Y(x.y1).toFixed(1)}" class="cn"/>`; }
+    o += `<text x="${cx.toFixed(1)}" y="${(x.v >= 0 ? top - 8 : top + h + 16).toFixed(1)}" text-anchor="middle" class="wv${x.v < -0.5 ? " neg" : ""}">${x.tot ? cfM(x.v) : (x.v > 0 ? "+" : "") + cfM(x.v)}</text><text x="${cx.toFixed(1)}" y="${H - 22}" text-anchor="middle" class="wl${x.tot ? " tot" : ""}">${x.lab}</text>`; });
+  return `<h4 class="cf-wf-h">${ar ? `جسر النقد في الميزانية، حتى نهاية ${mon}` : `Budgeted cash bridge, to the end of ${mon}`}</h4>` + o + `</svg><p class="cf-wf-note">${ar ? "لا توجد أرقام فعلية بعد، لذا يبيّن الجسر خطة الميزانية: النقد في البداية + الدخل − الادخار − المصروفات. عند تسجيل الأرقام الفعلية يصبح جسرًا من الميزانية إلى الفعلي." : "No actuals yet, so the bridge shows the budget plan: opening cash + income − savings − expenses. Once you record actuals it becomes a budget-to-actual bridge."}</p>`;
+}
 
 </script>
 </body>
