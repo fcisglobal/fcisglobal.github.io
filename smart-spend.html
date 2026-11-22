@@ -1332,6 +1332,11 @@ input.jump-flash{outline:3px solid var(--accent);outline-offset:2px}
 .cf-pvt th,.cf-pvt td{padding:8px 8px}.cf-pvt thead th{white-space:normal;line-height:1.2;font-size:12.5px;vertical-align:middle}
 .cf-pvt th,.cf-pvt td{padding:8px 7px}
 .cf-wait{font-size:13.5px;margin:8px 0;padding:8px 10px;border-radius:10px;background:rgba(0,58,108,.05)}
+.cf-wf .wv.in{fill:#fff}
+.cf-wf .wb.ghost{fill:none;stroke:var(--c-actual);stroke-width:2;stroke-dasharray:6 5}
+.cf-wf .wb.ghost.step{stroke:var(--muted)}
+.cf-wf .wv.gh{fill:var(--muted)}
+.cf-ph{display:inline-block;margin-inline-start:6px;font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px;background:rgba(100,116,139,.14);color:var(--muted);vertical-align:2px}
 .brand-home{display:flex;align-items:center;gap:12px;min-width:0;flex:1;color:inherit;text-decoration:none}.brand-home:hover .brand-text b{text-decoration:underline}.brand-home .brand-text{display:flex;flex-direction:column}
 
 /* ===== Share Smart Spend (poster) ===== */
@@ -7017,24 +7022,80 @@ function cfWaterfall(compact, budgetOnlyK){
     + `<p class="cf-wf-note">${ar ? `النقد الفعلي في نهاية ${mon} ${Math.abs(d) < .5 ? "مطابق للميزانية" : d > 0 ? `أعلى من الميزانية بـ ${money(Math.round(d))}` : `أقل من الميزانية بـ ${money(Math.round(-d))}`}. يجمع الجسر كل الأشهر من يناير حتى ${mon}، لأن النقد يتراكم.` : `Actual cash at the end of ${mon} is ${Math.abs(d) < .5 ? "in line with budget" : d > 0 ? `${money(Math.round(d))} above budget` : `${money(Math.round(-d))} below budget`}. The bridge adds up every month from January to ${mon}, because cash builds up.`}</p>`;
 }
 
-/* Increase / (Decrease): Performance Review-style table on the left, cash bridge waterfall on the right */
-function cfPvHtml(){
-  const ar = lang === "ar", RB = cfRowsMode("b"), RA = cfRowsMode("a");
-  let k = -1; for(let i = 0; i < Math.min(12, pfMonth); i++){ if(RA[i].end !== null && RB[i].end !== null) k = i; else if(RA[i].end === null) break; }
-  const noA = k < 0; if(noA) k = pfMonth - 1;
-  const S = (R, f) => { const xs = R.slice(0, k + 1).filter(x => x.o); return xs.length ? xs.reduce((t, x) => t + pfCalc(x.o)[f], 0) : null; };
-  const endOf = R => { for(let i = k; i >= 0; i--) if(R[i].end !== null) return R[i].end; return null; };
-  const per = k === 0 ? new Date(pfYear, 0, 1).toLocaleDateString(pfLoc(), {month: "short", year: "2-digit"}) : `${new Date(pfYear, 0, 1).toLocaleDateString(pfLoc(), {month: "short"})}–${new Date(pfYear, k, 1).toLocaleDateString(pfLoc(), {month: "short", year: "2-digit"})}`;
-  const rows = [[ar ? "الدخل" : "Income", S(RA, "inc"), S(RB, "inc"), ""], [ar ? "إجمالي الادخار" : "Total savings", S(RA, "save"), S(RB, "save"), ""], [ar ? "إجمالي المصروفات" : "Total expenses", S(RA, "spend"), S(RB, "spend"), ""],
-    [ar ? "صافي النقد" : "Net cash", S(RA, "net"), S(RB, "net"), "hl"], [ar ? "النقد في البداية" : "Cash at the beginning", noA ? null : cfOpen(), cfOpen(), ""], [ar ? "النقد في النهاية" : "Cash at the end", noA ? null : RA[k].end, endOf(RB), "net"]];
-  const f = v => v === null || Math.abs(v) < .5 ? "–" : pfFmt(v), pc = (d, b) => d === null || b === null ? "–" : Math.abs(d) < .5 ? "–" : Math.abs(b) < .5 ? "n/a" : (b < 0) !== (b + d < 0) ? "n.m." : (d / Math.abs(b) * 100).toFixed(1) + "%";
-  const H = ar ? ["الفعلي", "الميزانية", "زيادة/<br>(نقص)", "%"] : ["Actual", "Budget", "Increase/<br>(Decrease)", "%"];
-  const tbl = `<div class="pf-ptable-wrap"><table class="pf-ptable cf-pvt"><thead><tr><th>${per}</th><th class="ta">${H[0]}</th><th class="tb">${H[1]}</th><th class="tv">${H[2]}</th><th class="tv">${H[3]}</th></tr></thead><tbody>`
-    + rows.map(([lab, a, b, cls]) => { const d = a === null || b === null ? null : a - b; return `<tr class="${cls}"><th>${lab}</th><td class="${a !== null && a < -.5 ? "neg" : ""}">${f(a)}</td><td class="${b !== null && b < -.5 ? "neg" : ""}">${f(b)}</td><td class="${d !== null && d < -.5 ? "neg" : ""}">${f(d)}</td><td class="${d !== null && d < -.5 ? "neg" : ""}">${pc(d, b)}</td></tr>`; }).join("")
-    + `</tbody></table></div>${noA ? `<p class="cf-wait">${ar ? "بانتظار الأرقام الفعلية: سجّلها في تبويب «الفعلي» في المخطط لترى الفرق والجسر." : "Waiting for actual figures: record them in the planner’s Actual tab to see the difference and the bridge."} <button type="button" class="stp-inline" onclick="pfMode='a';jumpChapter({preventDefault(){}},'planner');setTimeout(()=>pfTab('a'),150)">${ar ? "افتح تبويب الفعلي ←" : "Open the Actual tab →"}</button></p>` : ""}<p class="tiny muted">${ar ? `من يناير حتى ${new Date(pfYear, k, 1).toLocaleDateString(pfLoc(), {month: "long"})} ${noA ? "(الشهر المحدد)" : "(آخر شهر له أرقام فعلية حتى الشهر المحدد)"}. زيادة/(نقص) = الفعلي ناقص الميزانية؛ الأقواس تعني أن الفعلي أقل. n.m. = غير ذي معنى عندما يتغير الاتجاه بين موجب وسالب.` : `January to ${new Date(pfYear, k, 1).toLocaleDateString(pfLoc(), {month: "long"})} ${noA ? "(the selected month)" : "(the latest month with actuals up to the selected month)"}. Increase/(Decrease) = actual minus budget; brackets mean actual was lower. n.m. = not meaningful when the sign flips between positive and negative.`}</p>`;
-  return `<div class="cf-pv"><div class="cf-pv-l">${tbl}</div><div class="cf-pv-r">${cfWaterfall(true, noA ? k : null)}</div></div>`;
+/* Increase / (Decrease): one data set for the table and the bridge, following the Period bar (MoM / YTD / Year) */
+function cfPvData(){
+  const RB = cfRowsMode("b"), RA = cfRowsMode("a"), per = typeof fwPeriod === "string" ? fwPeriod : "mom";
+  const ms = per === "mom" ? [pfMonth] : per === "ytd" ? [...Array(pfMonth)].map((_, i) => i + 1) : [...Array(12)].map((_, i) => i + 1);
+  const withA = ms.filter(m => RA[m - 1].o), cmp = withA.length ? withA : null, use = cmp || ms;   // compare only months with actuals
+  const sum = (R, ks, f) => { const xs = ks.map(m => R[m - 1]).filter(x => x.o); return xs.length ? xs.reduce((t, x) => t + pfCalc(x.o)[f], 0) : null; };
+  const last = use[use.length - 1], first = ms[0];
+  const begB = RB[first - 1].beg, begA = cmp ? RA[first - 1].beg : null;
+  const endB = (() => { for(let m = last; m >= 1; m--) if(RB[m - 1].end !== null) return RB[m - 1].end; return null; })(), endA = cmp ? RA[last - 1].end : null;
+  return {RB, RA, per, ms, cmp, use, last, first, begB, begA, endB, endA, sum};
 }
-
+function cfPerLabel(d){
+  const mo = (m, o) => new Date(pfYear, m - 1, 1).toLocaleDateString(pfLoc(), o);
+  return d.per === "mom" ? mo(pfMonth, {month: "short", year: "2-digit"}) : `${mo(1, {month: "short"})}–${mo(d.per === "ytd" ? pfMonth : 12, {month: "short", year: "2-digit"})}`;
+}
+function cfPvHtml(){
+  const ar = lang === "ar", d = cfPvData(), noA = !d.cmp, mo = m => new Date(pfYear, m - 1, 1).toLocaleDateString(pfLoc(), {month: "long"});
+  const rows = [[ar ? "الدخل" : "Income", d.sum(d.RA, d.use, "inc"), d.sum(d.RB, d.use, "inc"), ""], [ar ? "إجمالي الادخار" : "Total savings", d.sum(d.RA, d.use, "save"), d.sum(d.RB, d.use, "save"), ""],
+    [ar ? "إجمالي المصروفات" : "Total expenses", d.sum(d.RA, d.use, "spend"), d.sum(d.RB, d.use, "spend"), ""], [ar ? "صافي النقد" : "Net cash", d.sum(d.RA, d.use, "net"), d.sum(d.RB, d.use, "net"), "hl"],
+    [ar ? "النقد في البداية" : "Cash at the beginning", d.begA, d.begB, ""], [ar ? "النقد في النهاية" : "Cash at the end", d.endA, d.endB, "net"]];
+  const f = v => v === null || Math.abs(v) < .5 ? "–" : pfFmt(v), pc = (x, b) => x === null || b === null ? "–" : Math.abs(x) < .5 ? "–" : Math.abs(b) < .5 ? "n/a" : (b < 0) !== (b + x < 0) ? "n.m." : (x / Math.abs(b) * 100).toFixed(1) + "%";
+  const H = ar ? ["الفعلي", "الميزانية", "زيادة/<br>(نقص)", "%"] : ["Actual", "Budget", "Increase/<br>(Decrease)", "%"];
+  const scope = d.per === "mom" ? (ar ? `شهر ${mo(pfMonth)}` : `${mo(pfMonth)} only`) : d.per === "ytd" ? (ar ? `من يناير حتى ${mo(pfMonth)}` : `January to ${mo(pfMonth)}`) : (ar ? "السنة كاملة" : "the whole year");
+  const partial = !d.cmp ? (ar ? " الأشهر التي لها أرقام فعلية: لا يوجد بعد، لذا يظهر عمود الميزانية فقط إلى حين تسجيلها." : " Months with actuals: none yet, so only the Budget column is filled until you record them.") : d.cmp.length < d.ms.length ? (ar ? ` تُقارن الأشهر التي لها أرقام فعلية فقط (${d.cmp.map(m => new Date(pfYear, m - 1, 1).toLocaleDateString(pfLoc(), {month: "short"})).join("، ")}).` : ` Only months with actuals are compared (${d.cmp.map(m => new Date(pfYear, m - 1, 1).toLocaleDateString(pfLoc(), {month: "short"})).join(", ")}).`) : "";
+  const tbl = `<div class="pf-ptable-wrap"><table class="pf-ptable cf-pvt"><thead><tr><th>${cfPerLabel(d)}</th><th class="ta">${H[0]}</th><th class="tb">${H[1]}</th><th class="tv">${H[2]}</th><th class="tv">${H[3]}</th></tr></thead><tbody>`
+    + rows.map(([lab, a, b, cls]) => { const x = a === null || b === null ? null : a - b; return `<tr class="${cls}"><th>${lab}</th><td class="${a !== null && a < -.5 ? "neg" : ""}">${f(a)}</td><td class="${b !== null && b < -.5 ? "neg" : ""}">${f(b)}</td><td class="${x !== null && x < -.5 ? "neg" : ""}">${f(x)}</td><td class="${x !== null && x < -.5 ? "neg" : ""}">${pc(x, b)}</td></tr>`; }).join("")
+    + `</tbody></table></div>`
+    + (noA ? `<p class="cf-wait">${ar ? "بانتظار الأرقام الفعلية لهذه الفترة: سجّلها في تبويب «الفعلي» في المخطط لترى الفرق وجسر الميزانية إلى الفعلي." : "Waiting for actual figures for this period: record them in the planner’s Actual tab to see the difference and the budget-to-actual bridge."} <button type="button" class="stp-inline" onclick="pfMode='a';jumpChapter({preventDefault(){}},'planner');setTimeout(()=>pfTab('a'),150)">${ar ? "افتح تبويب الفعلي ←" : "Open the Actual tab →"}</button></p>` : "")
+    + `<p class="tiny muted">${ar ? `الفترة: ${scope} (حسب شريط الفترة).${partial} زيادة/(نقص) = الفعلي ناقص الميزانية؛ الأقواس تعني أن الفعلي أقل. n.m. = غير ذي معنى عندما تتغير الإشارة.` : `Period: ${scope} (from the Period bar).${partial} Increase/(Decrease) = actual minus budget; brackets mean actual was lower. n.m. = not meaningful when the sign flips.`}</p>`;
+  return `<div class="cf-pv"><div class="cf-pv-l">${tbl}</div><div class="cf-pv-r">${cfWaterfall(true, d)}</div></div>`;
+}
+function cfWfSvg(steps, compact, aria){
+  const ar = lang === "ar"; let run = 0;
+  const segs = steps.map(st => { if(st.tot){ run = st.v; return {...st, y0: 0, y1: st.v}; } const y0 = run; run += st.v; return {...st, y0, y1: run}; });
+  const vals = segs.flatMap(x => [x.y0, x.y1]).concat(0), mx = Math.max(...vals), mn = Math.min(...vals), spn = mx - mn || 1;
+  const W = compact ? 540 : 760, H = compact ? 340 : 300, T = 30, B = 74, L = 8, R = 8, n = segs.length, cw = (W - L - R) / n, bw = Math.min(80, cw * .58), Y = v => T + (mx - v) / spn * (H - T - B), z = Y(0), floor = H - B;
+  let o = `<svg viewBox="0 0 ${W} ${H}" class="cf-wf" role="img" aria-label="${aria}"><line x1="${L}" x2="${W - R}" y1="${z}" y2="${z}" class="zl"/>`;
+  segs.forEach((x, i) => { const cx = L + cw * i + cw / 2; let top = Math.min(Y(x.y0), Y(x.y1)), h = Math.max(1.5, Math.abs(Y(x.y0) - Y(x.y1)));
+    if(x.ghost && !x.tot){ h = Math.max(28, (H - T - B) * .22); top = Y(x.y0) - h / 2; }
+    const cls = x.ghost ? (x.tot ? "ghost" : "ghost step") : x.tot ? (x.cls || "bud") : Math.abs(x.v) < 0.5 ? "zero" : x.v > 0 ? "up" : "down";
+    o += `<rect x="${(cx - bw / 2).toFixed(1)}" y="${top.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="5" class="wb ${cls}"><title>${x.lab}: ${cfM(x.v)}</title></rect>`;
+    if(i < n - 1){ const nx = L + cw * (i + 1) + cw / 2; o += `<line x1="${(cx + bw / 2).toFixed(1)}" x2="${(nx - bw / 2).toFixed(1)}" y1="${Y(x.y1).toFixed(1)}" y2="${Y(x.y1).toFixed(1)}" class="cn"/>`; }
+    let ly = x.v >= 0 ? top - 7 : top + h + 15; if(ly > floor - 2) ly = top + h - 8 > top + 14 ? top + h - 8 : top - 7;   // keep labels clear of the category names
+    const inside = ly < top + h && ly > top;
+    o += `<text x="${cx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="middle" class="wv${x.v < -0.5 ? " neg" : ""}${inside ? " in" : ""}${x.ghost ? " gh" : ""}">${x.ghost ? "?" : x.tot ? cfM(x.v) : Math.abs(x.v) < 0.5 ? "–" : (x.v > 0 ? "+" : "") + cfM(x.v)}</text>`;
+    const parts = x.lab2 ? [x.lab, x.lab2] : [x.lab];
+    o += `<text x="${cx.toFixed(1)}" y="${floor + 20}" text-anchor="middle" class="wl${x.tot ? " tot" : ""}">${parts[0]}${parts[1] ? `<tspan x="${cx.toFixed(1)}" dy="13">${parts[1]}</tspan>` : ""}</text>`;
+    if(x.note) o += `<text x="${cx.toFixed(1)}" y="${floor + (parts[1] ? 50 : 36)}" text-anchor="middle" class="wn">${x.note}</text>`; });
+  return o + `</svg>`;
+}
+function cfWaterfall(compact, d){
+  const ar = lang === "ar"; d = d || cfPvData();
+  const mon = new Date(pfYear, d.last - 1, 1).toLocaleDateString(pfLoc(), {month: "long", year: "numeric"});
+  if(!d.cmp){ // no actuals yet: show the finished design as a placeholder, with the real budget figure
+    if(d.endB === null) return `<h4 class="cf-wf-h">${ar ? "جسر النقد" : "Cash bridge"}</h4><p class="tiny muted cf-wf-empty">${ar ? "لا توجد ميزانية لهذه الفترة بعد." : "No budget for this period yet."}</p>`;
+    const w = ar ? "بانتظار" : "waiting";
+    const steps = [{lab: ar ? "النقد في النهاية" : "Budget", lab2: ar ? "· الميزانية" : "cash at end", v: d.endB, tot: true, cls: "bud"},
+      {lab: ar ? "الدخل" : "Income", v: 0, ghost: true, note: w}, {lab: ar ? "إجمالي" : "Total", lab2: ar ? "الادخار" : "savings", v: 0, ghost: true, note: w},
+      {lab: ar ? "إجمالي" : "Total", lab2: ar ? "المصروفات" : "expenses", v: 0, ghost: true, note: w}, {lab: ar ? "النقد في النهاية" : "Actual", lab2: ar ? "· الفعلي" : "cash at end", v: d.endB, tot: true, cls: "ghost", ghost: true, note: w}];
+    return `<h4 class="cf-wf-h">${ar ? `جسر النقد: من الميزانية إلى الفعلي · ${cfPerLabel(d)}` : `Cash bridge: budget to actual · ${cfPerLabel(d)}`} <span class="cf-ph">${ar ? "معاينة" : "Preview"}</span></h4>` + cfWfSvg(steps, compact, ar ? "معاينة جسر النقد" : "Cash bridge preview")
+      + `<p class="cf-wf-note">${ar ? "معاينة: الشكل جاهز، والعمود الأول هو نقد الميزانية الفعلي. عند تسجيل الأرقام الفعلية تظهر فروق الدخل والادخار والمصروفات والنقد الفعلي هنا تلقائيًا." : "Preview: the chart is ready and the first bar is your real budgeted cash. Once you record actuals, the income, savings and expense differences and your actual cash appear here automatically."}</p>`;
+  }
+  const dI = d.sum(d.RA, d.use, "inc") - d.sum(d.RB, d.use, "inc"), dS = -(d.sum(d.RA, d.use, "save") - d.sum(d.RB, d.use, "save")), dE = -(d.sum(d.RA, d.use, "spend") - d.sum(d.RB, d.use, "spend"));
+  const carry = (d.endA - d.endB) - (dI + dS + dE);   // differences from earlier months already in the opening cash
+  const steps = [{lab: ar ? "النقد في النهاية" : "Budget", lab2: ar ? "· الميزانية" : "cash at end", v: d.endB, tot: true, cls: "bud"}];
+  if(Math.abs(carry) >= 0.5) steps.push({lab: ar ? "أشهر" : "Earlier", lab2: ar ? "سابقة" : "months", v: carry, note: ar ? "فرق مُرحّل" : "carried in"});
+  steps.push({lab: ar ? "الدخل" : "Income", v: dI, note: dI >= 0 ? (ar ? "أعلى = نقد أكثر" : "more = more cash") : (ar ? "أقل = نقد أقل" : "less = less cash")},
+    {lab: ar ? "إجمالي" : "Total", lab2: ar ? "الادخار" : "savings", v: dS, note: dS >= 0 ? (ar ? "أقل = نقد أكثر" : "less = more cash") : (ar ? "أكثر = نقد أقل" : "more = less cash")},
+    {lab: ar ? "إجمالي" : "Total", lab2: ar ? "المصروفات" : "expenses", v: dE, note: dE >= 0 ? (ar ? "أقل = نقد أكثر" : "less = more cash") : (ar ? "أكثر = نقد أقل" : "more = less cash")},
+    {lab: ar ? "النقد في النهاية" : "Actual", lab2: ar ? "· الفعلي" : "cash at end", v: d.endA, tot: true, cls: "act"});
+  const diff = d.endA - d.endB;
+  return `<h4 class="cf-wf-h">${ar ? `جسر النقد: من الميزانية إلى الفعلي · ${cfPerLabel(d)}` : `Cash bridge: budget to actual · ${cfPerLabel(d)}`}</h4>` + cfWfSvg(steps, compact, ar ? "جسر النقد من الميزانية إلى الفعلي" : "Cash bridge from budget to actual")
+    + `<p class="cf-wf-note">${ar ? `النقد الفعلي في نهاية ${mon} ${Math.abs(diff) < .5 ? "مطابق للميزانية" : diff > 0 ? `أعلى من الميزانية بـ ${money(Math.round(diff))}` : `أقل من الميزانية بـ ${money(Math.round(-diff))}`}.${Math.abs(carry) >= .5 ? ` منه ${cfM(carry)} من أشهر سابقة.` : ""}` : `Actual cash at the end of ${mon} is ${Math.abs(diff) < .5 ? "in line with budget" : diff > 0 ? `${money(Math.round(diff))} above budget` : `${money(Math.round(-diff))} below budget`}.${Math.abs(carry) >= .5 ? ` ${cfM(carry)} of that comes from earlier months.` : ""}`}</p>`;
+}
 function cfWfBudget(k, compact){ // no actuals yet: budgeted cash bridge from the opening balance to the end of the month
   const ar = lang === "ar", RB = cfRowsMode("b"), xs = RB.slice(0, k + 1).filter(x => x.o);
   const mon = new Date(pfYear, k, 1).toLocaleDateString(pfLoc(), {month: "long", year: "numeric"});
