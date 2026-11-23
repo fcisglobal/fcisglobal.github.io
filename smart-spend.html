@@ -1814,6 +1814,19 @@ html[lang=ar] .hero-quote{font-style:normal}
  .sheet{box-shadow:none;border:0;border-radius:0;break-after:page}
  .card,.tool{break-inside:avoid}
 }
+
+/* Kai edit 2026-11-23: Smart Spend logo + Vision/Mission/Values */
+.brand-home .ss-logo{background:transparent!important;box-shadow:none!important;border-radius:0!important}
+.vmv-vision{background:linear-gradient(135deg,#0D1F3C,#183B68);color:#fff;border-radius:14px;padding:22px;margin:6px 0 14px}
+.vmv-vision h3,.vmv-mission h3{margin:0 0 8px;font-size:18px}
+.vmv-vision p{margin:0;line-height:1.7;color:#E8EEF5;font-size:16.5px}
+.vmv-mission{border:1px solid #DDE5EC;border-left:5px solid #15976F;border-radius:12px;padding:20px 22px;margin:0 0 16px;background:#fff}
+.vmv-mission p{margin:0;line-height:1.7;color:#40506A}
+.vmv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.vmv-card{border:1px solid #DDE5EC;border-radius:12px;padding:16px 18px;background:#fff}
+.vmv-card h3{margin:0 0 6px;font-size:16px;color:#0D1F3C}
+.vmv-card h3 span{color:#A86A00;margin-right:6px}
+.vmv-card p{margin:0;color:#40506A;line-height:1.6;font-size:14.5px}
 </style>
 </head>
 <body><script>window.__initHash=location.hash;</script>
@@ -1822,7 +1835,7 @@ html[lang=ar] .hero-quote{font-style:normal}
 <!-- ================= SIDEBAR ================= -->
 <aside class="sidebar" id="sidebar" aria-label="Smart Spend navigation">
  <div class="sb-brand">
-  <a class="brand-home" href="#intro" title="Smart Spend Home" aria-label="Smart Spend Home"><span class="logo"><svg class="ic" data-i="spark"></svg></span><span class="brand-text"><b>FCIS</b><small>Smart Spend</small></span></a>
+  <a class="brand-home" href="#intro" title="Smart Spend Home" aria-label="Smart Spend Home"><span class="logo ss-logo"><svg viewBox="0 0 120 120" width="100%" height="100%" aria-label="Smart Spend logo" role="img"><defs><linearGradient id="hnavy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1B4F82"/><stop offset="1" stop-color="#0D1F3C"/></linearGradient><linearGradient id="hgold" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#D99A16"/><stop offset=".55" stop-color="#F1B74C"/><stop offset="1" stop-color="#FFE29A"/></linearGradient></defs><path d="M60 7 L113 60 L60 113 L7 60 Z" fill="url(#hnavy)" stroke="url(#hgold)" stroke-width="3"/><path d="M60 18 L102 60 L60 102 L18 60 Z" fill="none" stroke="#FFFFFF" stroke-opacity=".16" stroke-width="1.5"/><rect x="35" y="69" width="11" height="23" rx="3" fill="#2FBF8F"/><rect x="54.5" y="57" width="11" height="35" rx="3" fill="#5FE0B0"/><rect x="74" y="45" width="11" height="47" rx="3" fill="#8BF0CB"/><path d="M34 74 L51 58 L64 66 L88 39" fill="none" stroke="url(#hgold)" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/><polygon points="93,34 75,36 84,53" fill="#F1B74C"/><circle cx="34" cy="74" r="4" fill="#F1B74C"/></svg></span><span class="brand-text"><b>FCIS</b><small>Smart Spend</small></span></a>
   <button class="collapse-btn" id="collapseBtn" onclick="toggleCollapse()" aria-label="Collapse sidebar" title="Collapse sidebar"><svg class="ic" data-i="chevrons"></svg></button>
  </div>
 
@@ -2051,6 +2064,23 @@ html[lang=ar] .hero-quote{font-style:normal}
    </div>
   </div>
  </section>
+
+<section class="sheet" id="vision-mission-values">
+ <div class="section-head">
+  <div class="section-icon" style="background:transparent;box-shadow:none;padding:0"><svg viewBox="0 0 120 120" width="100%" height="100%" aria-label="Smart Spend logo" role="img"><defs><linearGradient id="vnavy" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1B4F82"/><stop offset="1" stop-color="#0D1F3C"/></linearGradient><linearGradient id="vgold" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#D99A16"/><stop offset=".55" stop-color="#F1B74C"/><stop offset="1" stop-color="#FFE29A"/></linearGradient></defs><path d="M60 7 L113 60 L60 113 L7 60 Z" fill="url(#vnavy)" stroke="url(#vgold)" stroke-width="3"/><path d="M60 18 L102 60 L60 102 L18 60 Z" fill="none" stroke="#FFFFFF" stroke-opacity=".16" stroke-width="1.5"/><rect x="35" y="69" width="11" height="23" rx="3" fill="#2FBF8F"/><rect x="54.5" y="57" width="11" height="35" rx="3" fill="#5FE0B0"/><rect x="74" y="45" width="11" height="47" rx="3" fill="#8BF0CB"/><path d="M34 74 L51 58 L64 66 L88 39" fill="none" stroke="url(#vgold)" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/><polygon points="93,34 75,36 84,53" fill="#F1B74C"/><circle cx="34" cy="74" r="4" fill="#F1B74C"/></svg></div>
+  <div><div class="eyebrow">Why Smart Spend Exists</div><h2>Our Vision, Mission &amp; Values</h2></div>
+ </div>
+ <div class="vmv-vision"><h3>Our Vision</h3><p>A future where every overseas worker turns hard-earned income into lasting security, freedom, and a better life for the family they work for.</p></div>
+ <div class="vmv-mission"><h3>Our Mission</h3><p>Smart Spend helps overseas workers and their families take control of their money through practical, step-by-step financial education: plan a budget, manage cash flow, build net worth, and invest with understanding — using simple tools and real-life examples that can be applied immediately, wherever in the world they work.</p></div>
+ <div class="vmv-grid">
+  <div class="vmv-card"><h3><span>01</span>Education First</h3><p>We teach how money works so people can decide for themselves. Education, not personal advice — and never a promise of returns.</p></div>
+  <div class="vmv-card"><h3><span>02</span>Practical Over Theory</h3><p>Every lesson usable on payday, with real numbers, simple tools, and clear steps.</p></div>
+  <div class="vmv-card"><h3><span>03</span>Integrity Always</h3><p>Honest, transparent, and realistic. No hype, no shortcuts, no guaranteed-income claims.</p></div>
+  <div class="vmv-card"><h3><span>04</span>Family at the Heart</h3><p>Behind every budget is a family. Every money decision is connected to their future, security, and dignity.</p></div>
+  <div class="vmv-card"><h3><span>05</span>Discipline &amp; Consistency</h3><p>Small, steady habits — repeated every payday — build more wealth than occasional big efforts.</p></div>
+  <div class="vmv-card"><h3><span>06</span>Stewardship</h3><p>Money earned through sacrifice is a responsibility: protect it, grow it wisely, and use it with purpose.</p></div>
+ </div>
+</section>
 <section class="sheet" id="sessions">
   <div class="section-head">
    <div class="section-icon"><svg class="ic" data-i="compass"></svg></div>
