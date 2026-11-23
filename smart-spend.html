@@ -1822,7 +1822,7 @@ html[lang=ar] .hero-quote{font-style:normal}
 <!-- ================= SIDEBAR ================= -->
 <aside class="sidebar" id="sidebar" aria-label="Smart Spend navigation">
  <div class="sb-brand">
-  <a class="brand-home" href="index.html" title="FCIS Home" aria-label="FCIS Home"><span class="logo"><svg class="ic" data-i="spark"></svg></span><span class="brand-text"><b>FCIS</b><small>Smart Spend</small></span></a>
+  <a class="brand-home" href="#intro" title="Smart Spend Home" aria-label="Smart Spend Home"><span class="logo"><svg class="ic" data-i="spark"></svg></span><span class="brand-text"><b>FCIS</b><small>Smart Spend</small></span></a>
   <button class="collapse-btn" id="collapseBtn" onclick="toggleCollapse()" aria-label="Collapse sidebar" title="Collapse sidebar"><svg class="ic" data-i="chevrons"></svg></button>
  </div>
 
@@ -1877,10 +1877,7 @@ html[lang=ar] .hero-quote{font-style:normal}
   <button class="nav-item" id="langBtn" onclick="toggleLang()" title="Language">
    <span class="ic-wrap"><svg class="ic" data-i="globe"></svg></span><span class="label" id="langLabel">العربية</span>
   </button>
-  <a class="nav-item" href="index.html" title="FCIS Home">
-   <span class="ic-wrap"><svg class="ic" data-i="home"></svg></span><span class="label" data-ar="الصفحة الرئيسية لـ FCIS">FCIS Home</span>
-  </a>
- </div>
+   </div>
 </aside>
 <div class="scrim" onclick="closeNav()"></div>
 
@@ -1912,6 +1909,7 @@ html[lang=ar] .hero-quote{font-style:normal}
   <div class="eyebrow" data-ar="سلسلة FCIS للتثقيف المالي">FCIS Financial Education Series</div>
   <h1 data-ar="التمويل <span>الشخصي.</span>">Personal <span>Finance.</span></h1>
   <h2 style="font-weight:500" data-ar="مستقبل مالي أذكى">A Smarter Financial Future</h2>
+  <p style="margin-top:10px;font-size:.95rem;opacity:.85">Created by <b>Walter Paraiso, CPA, CMA</b> &mdash; Founder &amp; Creator, FCIS</p>
   <div class="defbox pf-def"><h3 data-ar="ما هو التمويل الشخصي؟">What is personal finance?</h3><p data-ar="<b>التمويل الشخصي</b> هو إدارة أموالك وأموال أسرتك بحيث تنمو ممتلكاتك باستمرار، مع وجود نقد كافٍ دائمًا لاحتياجات اليوم."><b>Personal finance</b> is managing your own and your family’s money so that what you own keeps growing, while you always have enough cash on hand for today’s needs.</p><div class="def-chips"><span class="g" data-ar="نمِّ ما تملكه <small>(صافي الثروة)</small>">Grow what you own <small>(net worth)</small></span><span class="b" data-ar="احتفظ بنقد كافٍ <small>(السيولة)</small>">Keep enough cash <small>(liquidity)</small></span></div></div>
   <p class="lead" data-ar="أربع تجارب تعليمية مترابطة، ومسار عملي واحد نحو قرارات مالية أفضل.">Four connected learning experiences. One practical path toward better money decisions.</p>
   <p data-ar="تعلّم كيف تخطط ميزانيتك، وتدير تدفقك النقدي، وتبني صافي ثروتك، وتفهم منصات الاستثمار — بالسرعة التي تناسبك.">Learn how to plan your budget, manage cash flow, build net worth, and understand investment platforms — at your own pace.</p>
@@ -2037,7 +2035,23 @@ html[lang=ar] .hero-quote{font-style:normal}
   </div>
  </section>
 
- <section class="sheet" id="sessions">
+ <section class="sheet" id="founder">
+  <div class="section-head">
+   <div class="section-icon"><svg class="ic" data-i="spark"></svg></div>
+   <div><div class="eyebrow">About the Creator</div><h2>Meet the Founder</h2></div>
+  </div>
+  <!-- Replace the WP circle below with a professional headshot photo when ready: <img src="walter.jpg" alt="Walter Paraiso" style="width:96px;height:96px;border-radius:50%;object-fit:cover"> -->
+  <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start">
+   <div aria-hidden="true" style="flex:0 0 auto;width:96px;height:96px;border-radius:50%;background:#0d1f3c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:700">WP</div>
+   <div style="flex:1;min-width:260px">
+    <h3 style="margin-top:0">Walter Paraiso, CPA, CMA</h3>
+    <p><b>Founder &amp; Creator, FCIS</b> &mdash; Financial Education Series</p>
+    <p>Head of FP&amp;A with over 20 years of experience in finance, and an overseas worker based in Saudi Arabia. Walter created FCIS and Smart Spend to help overseas workers and their families plan their budget, manage cash flow, build net worth, and understand investment platforms &mdash; with practical education, not hype.</p>
+    <p>Smart Spend is financial education only, not personal financial advice.</p>
+   </div>
+  </div>
+ </section>
+<section class="sheet" id="sessions">
   <div class="section-head">
    <div class="section-icon"><svg class="ic" data-i="compass"></svg></div>
    <div><div class="eyebrow" data-ar="لوحة التعلّم الخاصة بك">Your learning dashboard</div><h2 data-ar="التمويل الشخصي — في 4 جلسات">Personal Finance — in 4 Sessions</h2></div>
@@ -2923,7 +2937,8 @@ html[lang=ar] .hero-quote{font-style:normal}
    <div class="foot-brand"><div class="logo"><svg class="ic" data-i="spark"></svg></div><div class="brand-text"><b>FCIS</b><small>Smart Spend</small></div></div>
    <h3 style="margin-top:18px" data-ar="عن FCIS">About FCIS</h3>
    <p data-ar="تقدّم FCIS رؤى استشارية في الأعمال والإدارة ترتكز على البصيرة والنزاهة والأثر. و«الإنفاق الذكي» مبادرة تعليمية لتعزيز الثقافة المالية العملية.">FCIS provides business and management advisory perspectives focused on insight, integrity, and impact. Smart Spend is an educational initiative promoting practical financial literacy.</p>
-   <a href="index.html" data-ar="العودة إلى الصفحة الرئيسية لـ FCIS">Return to FCIS Homepage</a>
+   <p>Founded and created by <b>Walter Paraiso, CPA, CMA</b> &mdash; Founder &amp; Creator, FCIS.</p>
+   <a href="#intro" data-ar="العودة إلى الأعلى">Back to top</a>
   </div>
   <div>
    <h3 data-ar="إخلاء مسؤولية تعليمي">Educational Disclaimer</h3>
